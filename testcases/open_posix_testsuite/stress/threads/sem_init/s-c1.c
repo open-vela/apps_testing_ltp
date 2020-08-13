@@ -99,7 +99,7 @@ typedef struct __mes_t {
 } mes_t;
 
 /* Forward declaration */
-int parse_measure(mes_t * measures);
+static int parse_measure(mes_t * measures);
 
 /* Structure to store created semaphores */
 
