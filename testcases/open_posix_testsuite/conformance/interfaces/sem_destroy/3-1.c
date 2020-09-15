@@ -27,12 +27,12 @@
 
 static sem_t psem, csem;
 static int n;
+static void *producer(void *);
+static void *consumer(void *);
 
 int main(void)
 {
 	pthread_t prod, cons;
-	void *producer(void *);
-	void *consumer(void *);
 	long cnt = 3;
 
 	n = 0;
