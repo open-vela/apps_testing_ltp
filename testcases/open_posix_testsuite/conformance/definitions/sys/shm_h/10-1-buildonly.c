@@ -16,9 +16,9 @@
 
 typedef int (*shmdt_test) (const void *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	shmdt_test dummyvar;
+	shmdt_test __attribute__((unused)) dummyvar;
 	dummyvar = shmdt;
 	return 0;
 }

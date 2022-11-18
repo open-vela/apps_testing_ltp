@@ -20,7 +20,7 @@ typedef struct my_data {
 	int value;		/* Access protected by mutex */
 } my_data_t;
 
-static my_data_t data = { PTHREAD_MUTEX_INITIALIZER, 0 };
+static __attribute__((unused)) my_data_t data = { PTHREAD_MUTEX_INITIALIZER, 0 };
 
 int main(void)
 {

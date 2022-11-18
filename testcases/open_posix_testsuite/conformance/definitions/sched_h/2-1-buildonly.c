@@ -13,9 +13,9 @@
  */
 #include <sched.h>
 
-static struct sched_param this_type_should_exist, s;
+static struct sched_param __attribute__((unused)) this_type_should_exist, s;
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
 	s.sched_priority = 0;
 

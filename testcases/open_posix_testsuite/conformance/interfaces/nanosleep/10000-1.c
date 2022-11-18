@@ -79,12 +79,12 @@ int main(void)
 			if ((slepts - tssleepfor.tv_sec) > OKSECERR) {
 				printf("FAIL - slept %ds%dns >> %lds%ldns\n",
 				       slepts, sleptns,
-				       tssleepfor.tv_sec, tssleepfor.tv_nsec);
+				       (long int)tssleepfor.tv_sec, (long int)tssleepfor.tv_nsec);
 				failure = 1;
 			} else {
 				printf("PASS - slept %ds%dns ~= %lds%ldns\n",
 				       slepts, sleptns,
-				       tssleepfor.tv_sec, tssleepfor.tv_nsec);
+				       (long int)tssleepfor.tv_sec, (long int)tssleepfor.tv_nsec);
 			}
 		} else {
 			printf("nanosleep() did not return 0 on success\n");

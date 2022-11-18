@@ -28,7 +28,7 @@
 
 #define STACKSIZE PTHREAD_STACK_MIN - sysconf(_SC_PAGE_SIZE)
 
-static void *thread_func()
+static void __attribute__((unused)) *thread_func(void)
 {
 	pthread_exit(0);
 	return NULL;

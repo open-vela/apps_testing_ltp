@@ -8,9 +8,9 @@
 
 typedef int (*raise_test) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	raise_test dummyvar;
+	raise_test  __attribute__((unused)) dummyvar;
 	dummyvar = raise;
 	return 0;
 }

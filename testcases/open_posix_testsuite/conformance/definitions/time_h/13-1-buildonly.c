@@ -15,9 +15,9 @@
 
 typedef int (*clock_gettime_test) (clockid_t, struct timespec *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	clock_gettime_test dummyvar;
+	clock_gettime_test __attribute__((unused)) dummyvar;
 	dummyvar = clock_gettime;
 	return 0;
 }

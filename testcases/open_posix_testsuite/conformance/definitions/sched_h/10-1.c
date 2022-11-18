@@ -34,7 +34,7 @@ static struct unique {
 	0, 0}
 };
 
-int main()
+int main(void)
 {
 	struct unique *tst;
 	int i, ret = PTS_PASS;

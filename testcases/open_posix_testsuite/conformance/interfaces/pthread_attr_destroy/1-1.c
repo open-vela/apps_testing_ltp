@@ -24,7 +24,7 @@
 #include <errno.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 
 	pthread_exit(0);
@@ -51,7 +51,7 @@ int main(void)
 
 	/* Creating a thread, passing to it the destroyed attribute, should
 	 * result in an error value of EINVAL (invalid 'attr' value). */
-	ret = pthread_create(&new_th, &new_attr, a_thread_func, NULL);
+	ret = pthread_create(&new_th, &new_attr, (void *)a_thread_func, NULL);
 
 	if (ret == EINVAL) {
 		printf("Test PASSED\n");

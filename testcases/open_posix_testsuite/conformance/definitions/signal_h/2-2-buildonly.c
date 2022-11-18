@@ -4,4 +4,4 @@
 
 #include <signal.h>
 
-static void (*dummy) (int) = SIG_ERR;
+static void __attribute__((unused)) (*dummy) (int) = SIG_ERR;

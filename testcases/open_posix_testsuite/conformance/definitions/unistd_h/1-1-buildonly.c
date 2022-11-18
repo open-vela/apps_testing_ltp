@@ -13,9 +13,9 @@
 
 typedef int (*fsync_test) (int fildes);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	fsync_test dummyvar;
+	fsync_test __attribute__((unused)) dummyvar;
 	dummyvar = fsync;
 	return 0;
 }

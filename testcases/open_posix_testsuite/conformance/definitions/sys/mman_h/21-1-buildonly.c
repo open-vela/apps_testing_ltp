@@ -22,9 +22,9 @@
 typedef int (*posix_typed_mem_get_info_test) (int,
 					      struct posix_typed_mem_info *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	posix_typed_mem_get_info_test dummyvar;
+	posix_typed_mem_get_info_test __attribute__((unused)) dummyvar;
 	dummyvar = posix_typed_mem_get_info;
 	return 0;
 }

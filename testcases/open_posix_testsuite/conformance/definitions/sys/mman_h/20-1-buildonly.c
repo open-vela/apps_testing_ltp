@@ -24,9 +24,9 @@ typedef int (*posix_mem_offset_test) (const void *restrict, size_t,
 				      off_t * restrict, size_t * restrict,
 				      int *restrict);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	posix_mem_offset_test dummyvar;
+	posix_mem_offset_test __attribute__((unused)) dummyvar;
 	dummyvar = posix_mem_offset;
 	return 0;
 }

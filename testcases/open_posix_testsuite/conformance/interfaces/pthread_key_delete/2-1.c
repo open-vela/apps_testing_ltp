@@ -40,7 +40,7 @@ static void dest_func(void *p LTP_ATTRIBUTE_UNUSED)
 }
 
 /* Thread function */
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 
 	/* Set the value of the key to a value */
@@ -67,7 +67,7 @@ int main(void)
 	}
 
 	/* Create a thread */
-	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

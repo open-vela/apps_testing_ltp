@@ -10,4 +10,4 @@
 
 #include <aio.h>
 
-static struct aiocb dummy;
+static struct __attribute__((unused)) aiocb dummy;

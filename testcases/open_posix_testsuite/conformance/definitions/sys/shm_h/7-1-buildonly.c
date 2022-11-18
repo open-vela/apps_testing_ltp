@@ -12,4 +12,4 @@
 
 #include <sys/shm.h>
 
-static pid_t this_type_should_exist;
+static pid_t __attribute__((unused)) this_type_should_exist;

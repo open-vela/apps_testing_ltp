@@ -22,7 +22,7 @@ int main(void)
 
 	(void)time(&the_time);
 	tm_ptr = gmtime(&the_time);
-	printf("Raw time is %ld \n", the_time);
+	printf("Raw time is %ld \n", (long int)the_time);
 	printf("gmtime gives:\n");
 
 	/* Checking the seconds */

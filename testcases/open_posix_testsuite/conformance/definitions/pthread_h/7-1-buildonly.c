@@ -15,7 +15,7 @@
 static pthread_t a, b;
 static int tmp;
 
-static void dummy_func()
+static void __attribute__((unused)) dummy_func(void)
 {
 	tmp = pthread_equal(a, b);
 	return;

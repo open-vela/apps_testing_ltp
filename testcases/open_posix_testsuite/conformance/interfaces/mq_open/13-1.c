@@ -52,10 +52,10 @@ int main(void)
 
 	if ((attrget.mq_maxmsg != attr.mq_maxmsg) ||
 	    (attrget.mq_msgsize != attr.mq_msgsize)) {
-		printf("sent: mq_maxmsg %ld; received %ld\n", attr.mq_maxmsg,
-		       attrget.mq_maxmsg);
-		printf("sent: mq_msgsize %ld; received %ld\n", attr.mq_msgsize,
-		       attrget.mq_msgsize);
+		printf("sent: mq_maxmsg %ld; received %ld\n", (long int)attr.mq_maxmsg,
+		       (long int)attrget.mq_maxmsg);
+		printf("sent: mq_msgsize %ld; received %ld\n", (long int)attr.mq_msgsize,
+		       (long int)attrget.mq_msgsize);
 		printf("Test FAILED -- attributes do not match\n");
 		mq_close(queue);
 		mq_unlink(qname);

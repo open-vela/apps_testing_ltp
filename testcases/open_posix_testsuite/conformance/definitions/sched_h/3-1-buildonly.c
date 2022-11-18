@@ -22,9 +22,9 @@
 
 static struct sched_param s;
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	struct timespec ss_repl_period, ss_init_budget;
+	struct timespec __attribute__((unused)) ss_repl_period, ss_init_budget;
 
 	s.sched_ss_low_priority = 0;
 	ss_repl_period = s.sched_ss_repl_period;

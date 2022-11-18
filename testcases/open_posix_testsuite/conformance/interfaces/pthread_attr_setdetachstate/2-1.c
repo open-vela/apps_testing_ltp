@@ -25,7 +25,7 @@
 #include <errno.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 
 	pthread_exit(0);
@@ -52,7 +52,7 @@ int main(void)
 	}
 
 	/* Create a new thread passing it the new attribute object */
-	if (pthread_create(&new_th, &new_attr, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, &new_attr, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

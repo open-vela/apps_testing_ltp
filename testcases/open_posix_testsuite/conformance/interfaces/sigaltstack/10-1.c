@@ -19,7 +19,7 @@
 
 static stack_t alternate_s;
 
-static void handler()
+static void handler(void)
 {
 	printf("Just a dummy handler\n");
 }

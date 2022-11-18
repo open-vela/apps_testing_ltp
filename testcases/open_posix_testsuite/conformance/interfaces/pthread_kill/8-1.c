@@ -155,7 +155,7 @@ static void sighdl2(int sig LTP_ATTRIBUTE_UNUSED)
 
 static int init_ctl;
 /* Init function */
-static void initializer(void)
+static void __attribute__((unused)) initializer(void)
 {
 	init_ctl++;
 	return;

@@ -11,9 +11,9 @@
 
 #include <time.h>
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	int dummy;
+	int __attribute__((unused)) dummy;
 
 	dummy = daylight;
 	return 0;

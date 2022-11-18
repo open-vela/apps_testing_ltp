@@ -14,9 +14,9 @@
 
 typedef double (*difftime_test) (time_t, time_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	difftime_test dummyvar;
+	difftime_test __attribute__((unused)) dummyvar;
 	dummyvar = difftime;
 	return 0;
 }

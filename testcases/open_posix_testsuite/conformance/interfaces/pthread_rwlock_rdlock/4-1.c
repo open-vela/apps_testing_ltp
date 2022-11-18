@@ -43,7 +43,7 @@ static int handler_called;
 #define ENTERED_THREAD 2
 #define EXITING_THREAD 3
 
-static void sig_handler()
+static void sig_handler(void)
 {
 	if (pthread_equal(pthread_self(), sig_thread)) {
 		printf("sig_handler: handled signal SIGUSR1\n");
@@ -60,7 +60,7 @@ static void *th_fn(void *arg LTP_ATTRIBUTE_UNUSED)
 	int rc = 0;
 
 	act.sa_flags = 0;
-	act.sa_handler = sig_handler;
+	act.sa_handler = (void *)sig_handler;
 	/* Try to block all signals when handling SIGUSR1 */
 	sigfillset(&act.sa_mask);
 	sigaction(SIGUSR1, &act, 0);

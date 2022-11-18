@@ -15,8 +15,10 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#ifdef __linux__
 #if __linux__
 #include <features.h>
+#endif
 #endif
 #include <semaphore.h>
 #include <stdio.h>

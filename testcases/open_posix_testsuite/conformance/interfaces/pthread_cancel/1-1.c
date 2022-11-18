@@ -38,19 +38,19 @@ static int cleanup_flag;
 
 /* Cleanup function that the thread executes when it is canceled.  So if
  * cleanup_flag is -1, it means that the thread was canceled. */
-static void a_cleanup_func()
+static void a_cleanup_func(void)
 {
 	cleanup_flag = 1;
 	return;
 }
 
 /* Function that the thread executes upon its creation */
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 
-	pthread_cleanup_push(a_cleanup_func, NULL);
+	pthread_cleanup_push((void *)a_cleanup_func, NULL);
 
 	/* Indicate to main() that the thread has been created. */
 	sem1 = INMAIN;
@@ -81,7 +81,7 @@ int main(void)
 	cleanup_flag = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

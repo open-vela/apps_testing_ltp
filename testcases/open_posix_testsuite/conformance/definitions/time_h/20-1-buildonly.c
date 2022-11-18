@@ -14,9 +14,9 @@
 
 typedef struct tm *(*gmtime_test) (const time_t *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	gmtime_test dummyvar;
+	gmtime_test __attribute__((unused)) dummyvar;
 	dummyvar = gmtime;
 	return 0;
 }

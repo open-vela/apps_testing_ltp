@@ -18,9 +18,9 @@
 
 typedef int (*munlock_test) (const void *, size_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	munlock_test dummyvar;
+	munlock_test __attribute__((unused)) dummyvar;
 	dummyvar = munlock;
 	return 0;
 }

@@ -12,4 +12,4 @@
 
 #include <sys/shm.h>
 
-static size_t this_type_should_exist;
+static size_t __attribute__((unused)) this_type_should_exist;

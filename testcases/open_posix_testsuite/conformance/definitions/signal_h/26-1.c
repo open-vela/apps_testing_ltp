@@ -11,7 +11,7 @@ typedef int (*pthread_kill_test) (pthread_t, int);
 
 int main(void)
 {
-	pthread_kill_test dummyvar;
+	pthread_kill_test  __attribute__((unused)) dummyvar;
 	dummyvar = pthread_kill;
 	return 0;
 }

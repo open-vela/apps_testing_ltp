@@ -12,4 +12,4 @@
 
 #include <sys/shm.h>
 
-static struct ipc_perm this_type_should_exist;
+static struct ipc_perm __attribute__((unused)) this_type_should_exist;

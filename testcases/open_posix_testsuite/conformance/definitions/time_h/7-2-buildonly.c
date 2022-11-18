@@ -10,4 +10,4 @@
 
 #include <sys/types.h>
 
-static size_t dummy;
+static size_t __attribute__((unused)) dummy;

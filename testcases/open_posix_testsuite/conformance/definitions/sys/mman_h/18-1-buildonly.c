@@ -20,9 +20,9 @@
 
 typedef int (*munmap_test) (void *, size_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	munmap_test dummyvar;
+	munmap_test __attribute__((unused)) dummyvar;
 	dummyvar = munmap;
 	return 0;
 }

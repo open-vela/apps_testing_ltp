@@ -18,9 +18,9 @@
 
 typedef int (*sched_setscheduler_test) (pid_t, int, const struct sched_param *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sched_setscheduler_test dummyvar;
+	sched_setscheduler_test __attribute__((unused)) dummyvar;
 	dummyvar = sched_setscheduler;
 	return 0;
 }

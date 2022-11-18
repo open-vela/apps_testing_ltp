@@ -31,7 +31,7 @@ static int get_rand()
 	return r;
 }
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 
 	int r = get_rand();

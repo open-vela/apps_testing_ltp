@@ -17,6 +17,9 @@
 #include <unistd.h>
 #include "posixtest.h"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverflow"
+
 #define TESTTIME 1037128358
 
 #define BOGUSCLOCKID 9999
@@ -44,3 +47,4 @@ int main(void)
 	printf("clock_settime() did not return -1\n");
 	return PTS_UNRESOLVED;
 }
+#pragma GCC diagnostic pop

@@ -32,10 +32,10 @@
 #include <errno.h>
 #include "posixtest.h"
 
-static struct testcase {
+__attribute__((unused)) static struct testcase {
 	int prot;
 	int flags;
-};
+}test1;
 
 static struct testcase testcases[] = {
 	{.flags = MAP_SHARED,.prot = PROT_NONE},

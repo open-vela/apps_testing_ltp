@@ -39,7 +39,7 @@ static int sig_rcvd;
 #define ENTERED_THREAD 2
 #define EXITING_THREAD 3
 
-static void sig_handler()
+static void sig_handler(void)
 {
 	sig_rcvd = 1;
 	printf("thread: interrupted by SIGUSR1\n");
@@ -54,7 +54,7 @@ static void *fn_chld(void *arg LTP_ATTRIBUTE_UNUSED)
 
 	/* Set up thread to handle SIGUSR1 */
 	act.sa_flags = 0;
-	act.sa_handler = sig_handler;
+	act.sa_handler = (void *)sig_handler;
 	sigfillset(&act.sa_mask);
 	sigaction(SIGUSR1, &act, 0);
 

@@ -15,9 +15,9 @@
 
 typedef struct tm *(*getdate_test) (const char *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	getdate_test dummyvar;
+	getdate_test __attribute__((unused)) dummyvar;
 	dummyvar = getdate;
 	return 0;
 }

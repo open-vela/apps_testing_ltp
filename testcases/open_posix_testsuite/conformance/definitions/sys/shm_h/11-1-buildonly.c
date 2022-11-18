@@ -16,9 +16,9 @@
 
 typedef int (*shmget_test) (key_t, size_t, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	shmget_test dummyvar;
+	shmget_test __attribute__((unused)) dummyvar;
 	dummyvar = shmget;
 	return 0;
 }

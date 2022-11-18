@@ -14,9 +14,9 @@
 
 typedef time_t(*time_test) (time_t *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	time_test dummyvar;
+	time_test __attribute__((unused)) dummyvar;
 	dummyvar = time;
 	return 0;
 }

@@ -38,19 +38,19 @@ static int prep_val;
 static int parent_val;
 static int child_val;
 
-static void prepare_handler()
+static void prepare_handler(void)
 {
 	prep_val = HANDLER_CALLED;
 	return;
 }
 
-static void parent_handler()
+static void parent_handler(void)
 {
 	parent_val = HANDLER_CALLED;
 	return;
 }
 
-static void child_handler()
+static void child_handler(void)
 {
 	child_val = HANDLER_CALLED;
 	return;

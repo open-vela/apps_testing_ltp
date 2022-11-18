@@ -15,9 +15,9 @@
 
 typedef int (*timer_getoverrun_test) (timer_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	timer_getoverrun_test dummyvar;
+	timer_getoverrun_test __attribute__((unused)) dummyvar;
 	dummyvar = timer_getoverrun;
 	return 0;
 }
