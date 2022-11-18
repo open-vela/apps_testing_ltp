@@ -14,7 +14,7 @@
 
 static pthread_t a;
 
-static void dummy_func()
+static void __attribute__((unused)) dummy_func(void)
 {
 	pthread_detach(a);
 	return;

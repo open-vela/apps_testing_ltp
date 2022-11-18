@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include "posixtest.h"
 
-static void child_proc()
+static void child_proc(void)
 {
 	sigset_t signalset;
 	int sig;

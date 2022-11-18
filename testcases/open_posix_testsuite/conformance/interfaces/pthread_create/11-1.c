@@ -26,7 +26,7 @@
 #include <sys/time.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	struct timespec ts = {.tv_sec = 1,.tv_nsec = 1 };
 
@@ -44,7 +44,7 @@ static void *a_thread_func()
 
 static volatile sig_atomic_t flag = 1;
 
-static void alarm_handler()
+static void alarm_handler(void)
 {
 	flag = 0;
 }

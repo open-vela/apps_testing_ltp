@@ -15,9 +15,9 @@
 
 typedef int (*timer_gettime_test) (timer_t, struct itimerspec *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	timer_gettime_test dummyvar;
+	timer_gettime_test __attribute__((unused)) dummyvar;
 	dummyvar = timer_gettime;
 	return 0;
 }

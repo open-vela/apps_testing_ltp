@@ -9,9 +9,9 @@
 
 typedef int (*kill_test) (pid_t, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	kill_test dummyvar;
+	kill_test __attribute__((unused)) dummyvar;
 	dummyvar = kill;
 	return 0;
 }

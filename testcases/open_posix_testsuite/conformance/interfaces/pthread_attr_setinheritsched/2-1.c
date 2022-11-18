@@ -30,7 +30,7 @@
 #define ERROR_PREFIX "unexpected error: " FUNCTION " " TEST ": "
 
 static const long int policy = SCHED_FIFO;
-static void *thread_func()
+static void *thread_func(void)
 {
 	int rc;
 	int new_policy;
@@ -79,7 +79,7 @@ int main(void)
 		exit(PTS_UNRESOLVED);
 	}
 
-	rc = pthread_create(&new_th, &attr, thread_func, NULL);
+	rc = pthread_create(&new_th, &attr, (void *)thread_func, NULL);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "pthread_create");
 		exit(PTS_UNRESOLVED);

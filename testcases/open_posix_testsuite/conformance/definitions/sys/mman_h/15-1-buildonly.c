@@ -19,9 +19,9 @@
 
 typedef int (*msync_test) (void *, size_t, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	msync_test dummyvar;
+	msync_test __attribute__((unused)) dummyvar;
 	dummyvar = msync;
 	return 0;
 }

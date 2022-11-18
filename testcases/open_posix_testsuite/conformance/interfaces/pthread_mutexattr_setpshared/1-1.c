@@ -37,7 +37,7 @@
 #include <stdio.h>
 #include "posixtest.h"
 
-static pthread_mutex_t new_mutex;	/* The mutex. */
+static __attribute__((unused)) pthread_mutex_t new_mutex;	/* The mutex. */
 
 int main(void)
 {

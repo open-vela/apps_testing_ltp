@@ -20,9 +20,9 @@
 
 typedef void *(*mmap_test) (void *, size_t, int, int, int, off_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	mmap_test dummyvar;
+	mmap_test __attribute__((unused)) dummyvar;
 	dummyvar = mmap;
 	return 0;
 }

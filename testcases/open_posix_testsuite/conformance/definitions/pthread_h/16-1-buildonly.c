@@ -14,7 +14,7 @@
 
 static pthread_mutex_t a;
 
-static void dummy_func()
+static void __attribute__((unused)) dummy_func(void)
 {
 
 	pthread_mutex_lock(&a);

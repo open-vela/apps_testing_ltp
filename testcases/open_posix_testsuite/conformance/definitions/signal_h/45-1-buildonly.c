@@ -8,9 +8,9 @@
 
 typedef void (*(*sigset_test) (int, void (*)(int))) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigset_test dummyvar;
+	sigset_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigset;
 	return 0;
 }

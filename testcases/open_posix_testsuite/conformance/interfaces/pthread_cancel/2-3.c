@@ -46,7 +46,7 @@ static void destructor(void *tmp LTP_ATTRIBUTE_UNUSED)
 /*
    Cleanup Handler for the Thread
  */
-static void cleanup_function()
+static void cleanup_function(void)
 {
 	clock_gettime(CLOCK_REALTIME, &cleanup_time);
 	cleanup_flag = 1;
@@ -79,7 +79,7 @@ static void *a_thread_func(void *tmp LTP_ATTRIBUTE_UNUSED)
 		exit(PTS_UNRESOLVED);
 	}
 
-	pthread_cleanup_push(cleanup_function, NULL);
+	pthread_cleanup_push((void *)cleanup_function, NULL);
 
 	/* Tell main that the key is created */
 	sem = 1;

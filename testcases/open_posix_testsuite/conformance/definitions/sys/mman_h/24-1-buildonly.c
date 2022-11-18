@@ -18,9 +18,9 @@
 
 typedef int (*shm_unlink_test) (const char *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	shm_unlink_test dummyvar;
+	shm_unlink_test __attribute__((unused)) dummyvar;
 	dummyvar = shm_unlink;
 	return 0;
 }

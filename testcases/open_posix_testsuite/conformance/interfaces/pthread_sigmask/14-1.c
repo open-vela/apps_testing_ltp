@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 
 	sigset_t actl;

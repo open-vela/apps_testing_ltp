@@ -17,9 +17,9 @@
 
 typedef int (*sched_yield_test) (void);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sched_yield_test dummyvar;
+	sched_yield_test __attribute__((unused)) dummyvar;
 	dummyvar = sched_yield;
 	return 0;
 }

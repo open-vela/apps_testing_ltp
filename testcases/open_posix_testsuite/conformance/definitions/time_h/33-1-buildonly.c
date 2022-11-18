@@ -17,9 +17,9 @@
 typedef int (*timer_settime_test) (timer_t, int, const struct itimerspec *,
 				   struct itimerspec *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	timer_settime_test dummyvar;
+	timer_settime_test __attribute__((unused)) dummyvar;
 	dummyvar = timer_settime;
 	return 0;
 }

@@ -36,7 +36,7 @@ static int rc;
 #define ENTERED_THREAD 2
 #define EXITING_THREAD 3
 
-static void sig_handler()
+static void sig_handler(void)
 {
 	if (thread_state == ENTERED_THREAD) {
 		printf("Test FAILED: thread incorrectly spins on trylock\n");

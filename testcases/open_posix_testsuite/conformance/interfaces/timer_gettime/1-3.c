@@ -75,7 +75,7 @@ int main(void)
 
 	if (itsget.it_value.tv_sec) {
 		printf("FAIL:  timer_gettime tv_sec: %lu seconds > 0 seconds\n",
-		       itsget.it_value.tv_sec);
+		       (long int)itsget.it_value.tv_sec);
 		return PTS_FAIL;
 	}
 

@@ -14,9 +14,9 @@
 
 typedef void (*tzset_test) (void);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	tzset_test dummyvar;
+	tzset_test __attribute__((unused)) dummyvar;
 	dummyvar = tzset;
 	return 0;
 }

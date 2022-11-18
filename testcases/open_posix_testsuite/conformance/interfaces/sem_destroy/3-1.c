@@ -34,6 +34,7 @@ int main(void)
 {
 	pthread_t prod, cons;
 	long cnt = 3;
+    int flag = 2;
 
 	n = 0;
 	if (sem_init(&csem, 0, 0) < 0) {
@@ -57,12 +58,13 @@ int main(void)
 		puts("TEST PASS");
 		pthread_exit(NULL);
 		if ((sem_destroy(&psem) == 0) && sem_destroy(&csem) == 0) {
-			return PTS_PASS;
+            flag = PTS_PASS;
 		} else {
 			puts("TEST FAILED");
-			return PTS_FAIL;
+            flag = PTS_FAIL;
 		}
 	}
+    return flag;
 }
 
 static void *producer(void *arg)

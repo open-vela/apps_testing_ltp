@@ -15,9 +15,9 @@
 
 typedef int (*clock_getcpuclockid_test) (pid_t, clockid_t *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	clock_getcpuclockid_test dummyvar;
+	clock_getcpuclockid_test __attribute__((unused)) dummyvar;
 	dummyvar = clock_getcpuclockid;
 	return 0;
 }

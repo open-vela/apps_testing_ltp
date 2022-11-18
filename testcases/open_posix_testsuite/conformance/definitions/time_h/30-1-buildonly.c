@@ -15,9 +15,9 @@
 
 typedef int (*timer_delete_test) (timer_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	timer_delete_test dummyvar;
+	timer_delete_test __attribute__((unused)) dummyvar;
 	dummyvar = timer_delete;
 	return 0;
 }

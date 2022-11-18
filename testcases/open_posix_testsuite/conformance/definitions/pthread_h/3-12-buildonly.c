@@ -11,4 +11,4 @@
 
 #include <pthread.h>
 
-static pthread_spinlock_t dummy;
+static pthread_spinlock_t __attribute__((unused)) dummy;

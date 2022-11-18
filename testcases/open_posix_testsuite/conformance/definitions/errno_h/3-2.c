@@ -110,7 +110,7 @@ EXDEV, "EXDEV", EXDEV}, {
 0, 0, 0}
 };
 
-int main()
+int main(void)
 {
 	struct unique *tst;
 	int i, ret = PTP_PASS;

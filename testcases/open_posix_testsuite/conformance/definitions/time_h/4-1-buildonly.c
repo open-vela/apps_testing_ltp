@@ -9,12 +9,12 @@
  */
 #include <time.h>
 
-static struct timespec this_type_should_exist, t;
+static struct timespec  __attribute__((unused)) this_type_should_exist, t;
 
-static int dummyfcn(void)
+static int  __attribute__((unused)) dummyfcn(void)
 {
-	time_t sec;
-	long nsec;
+	time_t  __attribute__((unused)) sec;
+	long  __attribute__((unused)) nsec;
 
 	sec = t.tv_sec;
 	nsec = t.tv_nsec;

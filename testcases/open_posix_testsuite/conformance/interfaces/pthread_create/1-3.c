@@ -27,8 +27,8 @@
 #include <string.h>
 #include "posixtest.h"
 
-static void *a_thread_function();
-static void alarm_handler();
+static void *a_thread_function(void);
+static void alarm_handler(void);
 
 static pthread_t a;
 
@@ -39,7 +39,7 @@ int main(void)
 	/* Set the action for SIGALRM to generate an error if it is
 	 * reached. This is because if SIGALRM was sent, then the
 	 * test timed out. */
-	if (signal(SIGALRM, alarm_handler) == SIG_ERR) {
+	if (signal(SIGALRM, (void *)alarm_handler) == SIG_ERR) {
 		printf("Error in signal()\n");
 		return PTS_UNRESOLVED;
 	}
@@ -47,7 +47,7 @@ int main(void)
 	/* SIGALRM will be sent in 5 seconds. */
 	alarm(5);
 
-	ret = pthread_create(&a, NULL, a_thread_function, NULL);
+	ret = pthread_create(&a, NULL, (void *)a_thread_function, NULL);
 	if (ret) {
 		fprintf(stderr, "pthread_create(): %s\n", strerror(ret));
 		return PTS_UNRESOLVED;
@@ -62,7 +62,7 @@ int main(void)
 }
 
 /* A never-ending thread function */
-static void *a_thread_function()
+static void *a_thread_function(void)
 {
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 
@@ -75,7 +75,7 @@ static void *a_thread_function()
 #define WRITE(str) write(STDOUT_FILENO, str, sizeof(str) - 1)
 
 /* If this handler is called, that means that the test has failed. */
-static void alarm_handler()
+static void alarm_handler(void)
 {
 	WRITE("Test FAILED: Alarm fired while waiting for cancelation\n");
 	_exit(PTS_FAIL);

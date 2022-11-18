@@ -45,7 +45,7 @@ int main(void)
 				S_IRUSR | S_IWUSR, &attr);
 		if (queue != (mqd_t) - 1) {
 			printf("mq_open() succeeded w/invalid mq_maxmsg %ld\n",
-			       attr.mq_maxmsg);
+			       (long int)attr.mq_maxmsg);
 			mq_close(queue);
 			mq_unlink(qname);
 			failed++;
@@ -58,7 +58,7 @@ int main(void)
 
 		if (errno != EINVAL) {
 			printf("errno != EINVAL for mq_maxmsg %ld\n",
-			       attr.mq_maxmsg);
+			       (long int)attr.mq_maxmsg);
 			failed++;
 #ifdef DEBUG
 		} else {
@@ -75,7 +75,7 @@ int main(void)
 				S_IRUSR | S_IWUSR, &attr);
 		if (queue != (mqd_t) - 1) {
 			printf("mq_open() succeeded w/invalid mq_msgsize %ld\n",
-			       attr.mq_msgsize);
+			       (long int)attr.mq_msgsize);
 			mq_close(queue);
 			mq_unlink(qname);
 			failed++;
@@ -88,7 +88,7 @@ int main(void)
 
 		if (errno != EINVAL) {
 			printf("errno != EINVAL for mq_msgsize %ld\n",
-			       attr.mq_msgsize);
+			       (long int)attr.mq_msgsize);
 			failed++;
 #ifdef DEBUG
 		} else {

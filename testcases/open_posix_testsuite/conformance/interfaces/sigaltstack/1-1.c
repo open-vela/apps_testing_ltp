@@ -29,7 +29,7 @@
 
 static stack_t alternate_s;
 
-static void handler()
+static void handler(void)
 {
 	int i = 0;
 	if ((void *)&i < (alternate_s.ss_sp)

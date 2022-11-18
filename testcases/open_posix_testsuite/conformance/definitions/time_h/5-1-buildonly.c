@@ -9,12 +9,12 @@
  */
 #include <time.h>
 
-static struct itimerspec this_type_should_exist, t;
+static struct itimerspec __attribute__((unused)) this_type_should_exist, t;
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	struct timespec interval;
-	struct timespec value;
+	struct timespec __attribute__((unused)) interval;
+	struct timespec __attribute__((unused)) value;
 
 	interval = t.it_interval;
 	value = t.it_value;

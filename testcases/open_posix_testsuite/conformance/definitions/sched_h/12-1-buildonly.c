@@ -17,9 +17,9 @@
 
 typedef int (*sched_get_priority_min_test) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sched_get_priority_min_test dummyvar;
+	sched_get_priority_min_test __attribute__((unused)) dummyvar;
 	dummyvar = sched_get_priority_min;
 	return 0;
 }

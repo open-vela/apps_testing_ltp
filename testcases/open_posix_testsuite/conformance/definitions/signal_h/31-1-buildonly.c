@@ -10,9 +10,9 @@
 
 typedef int (*sigaltstack_test) (const stack_t *, stack_t *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigaltstack_test dummyvar;
+	sigaltstack_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigaltstack;
 	return 0;
 }

@@ -31,7 +31,7 @@
 static void *stack_addr;
 static size_t stack_size;
 
-static void *thread_func()
+static void __attribute__((unused)) *thread_func(void)
 {
 	pthread_exit(0);
 	return NULL;
@@ -50,7 +50,7 @@ int main(void)
 	}
 
 	/* Get the default stack_addr and stack_size value */
-	rc = pthread_attr_getstack(&attr, &stack_addr, &stack_size);
+	rc = pthread_attr_getstack(&attr, &stack_addr, (long *)&stack_size);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "pthread_attr_getstack");
 		exit(PTS_UNRESOLVED);

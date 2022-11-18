@@ -16,9 +16,9 @@
 
 typedef int (*shmctl_test) (int, int, struct shmid_ds *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	shmctl_test dummyvar;
+	shmctl_test __attribute__((unused)) dummyvar;
 	dummyvar = shmctl;
 	return 0;
 }

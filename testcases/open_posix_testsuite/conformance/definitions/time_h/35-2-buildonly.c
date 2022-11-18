@@ -10,9 +10,9 @@
 
 #include <time.h>
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	long dummy;
+	long __attribute__((unused)) dummy;
 
 	dummy = timezone;
 	return 0;

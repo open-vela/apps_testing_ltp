@@ -16,9 +16,9 @@
 
 typedef key_t(*ftok_test) (const char *, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	ftok_test dummyvar;
+	ftok_test __attribute__((unused)) dummyvar;
 	dummyvar = ftok;
 	return 0;
 }

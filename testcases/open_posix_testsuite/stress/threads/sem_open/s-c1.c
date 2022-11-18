@@ -399,7 +399,7 @@ int main(int argc, char *argv[])
  * The function returns 0 when r1 is the best for all cases (latency is constant) and !0 otherwise.
  */
 
-static struct row {
+struct row {
 	long X;			/* the X values -- copied from function argument */
 	long Y_o;		/* the Y values -- copied from function argument */
 	long Y_c;		/* the Y values -- copied from function argument */
@@ -413,7 +413,6 @@ static struct row {
 	double _lny_o;		/* Value LnY - LnYavg */
 	double _lny_c;		/* Value LnY - LnYavg */
 };
-
 static int parse_measure(mes_t * measures)
 {
 	int ret, r;

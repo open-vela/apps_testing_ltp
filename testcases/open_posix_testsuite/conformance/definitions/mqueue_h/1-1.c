@@ -11,6 +11,10 @@
 #include <stdio.h>
 #include "posixtest.h"
 
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverflow"
+
 #define TEST_LIMITS(structure_and_field) do {			\
 		printf("%s..\n", # structure_and_field);	\
 		printf("\t.. -LONG_MIN\n");			\
@@ -35,7 +39,7 @@
 		}						\
 	} while (0)
 
-int main()
+int main(void)
 {
 	struct mq_attr mqs;
 
@@ -49,3 +53,4 @@ int main()
 	return (PTS_PASS);
 
 }
+#pragma GCC diagnostic pop

@@ -18,9 +18,9 @@
 
 typedef int (*mprotect_test) (void *, size_t, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	mprotect_test dummyvar;
+	mprotect_test __attribute__((unused)) dummyvar;
 	dummyvar = mprotect;
 	return 0;
 }

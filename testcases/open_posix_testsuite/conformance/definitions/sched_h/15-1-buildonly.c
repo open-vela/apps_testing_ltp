@@ -19,9 +19,9 @@
 
 typedef int (*sched_rr_get_interval_test) (pid_t, struct timespec *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sched_rr_get_interval_test dummyvar;
+	sched_rr_get_interval_test __attribute__((unused)) dummyvar;
 	dummyvar = sched_rr_get_interval;
 	return 0;
 }

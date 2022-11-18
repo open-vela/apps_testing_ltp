@@ -15,9 +15,9 @@
 
 typedef int (*nanosleep_test) (const struct timespec *, struct timespec *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	nanosleep_test dummyvar;
+	nanosleep_test __attribute__((unused)) dummyvar;
 	dummyvar = nanosleep;
 	return 0;
 }

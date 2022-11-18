@@ -12,4 +12,4 @@
 
 #include <sys/shm.h>
 
-static time_t this_type_should_exist;
+static time_t __attribute__((unused)) this_type_should_exist;

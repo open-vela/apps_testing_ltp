@@ -39,7 +39,7 @@ static void handler(int signo LTP_ATTRIBUTE_UNUSED)
 	handler_called = 1;
 }
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	struct sigaction act;
 	sigset_t blocked_set1, blocked_set2, pending_set;

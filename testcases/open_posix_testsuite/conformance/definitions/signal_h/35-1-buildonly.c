@@ -9,9 +9,9 @@
 
 typedef int (*sighold_test) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sighold_test dummyvar;
+	sighold_test  __attribute__((unused)) dummyvar;
 	dummyvar = sighold;
 	return 0;
 }

@@ -7,7 +7,7 @@
 #include <mqueue.h>
 #include "posixtest.h"
 
-static void test_mq_close_prototype(void)
+static void __attribute__((unused)) test_mq_close_prototype(void)
 {
 	mqd_t mqdes;
 	int err;

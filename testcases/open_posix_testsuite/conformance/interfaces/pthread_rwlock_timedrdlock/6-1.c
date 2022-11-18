@@ -56,7 +56,7 @@ static struct timeval before_wait, after_wait;
 #define TIMEOUT 5
 
 /* Signal handler called by the thread when SIGUSR1 is received */
-static void sig_handler()
+static void sig_handler(void)
 {
 
 	if (pthread_equal(pthread_self(), sig_thread)) {
@@ -80,7 +80,7 @@ static void *th_fn(void *arg LTP_ATTRIBUTE_UNUSED)
 	/* Set up signal handler for SIGUSR1 */
 
 	act.sa_flags = 0;
-	act.sa_handler = sig_handler;
+	act.sa_handler = (void *)sig_handler;
 	/* block all the signal when hanlding SIGUSR1 */
 	sigfillset(&act.sa_mask);
 	sigaction(SIGUSR1, &act, 0);

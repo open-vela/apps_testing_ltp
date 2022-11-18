@@ -13,6 +13,9 @@
 #include <errno.h>
 #include "posixtest.h"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverflow"
+
 #define INVALIDCLOCK 9999
 int main(void)
 {
@@ -32,3 +35,4 @@ int main(void)
 	printf("clock_gettime() did not return failure\n");
 	return PTS_UNRESOLVED;
 }
+#pragma GCC diagnostic pop

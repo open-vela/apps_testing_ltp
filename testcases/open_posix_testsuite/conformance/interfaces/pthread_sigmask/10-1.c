@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	sigset_t set1, set2;
 	int pthread_sigmask_return_val = 1;
@@ -57,7 +57,7 @@ int main(void)
 
 	pthread_t new_thread;
 
-	if (pthread_create(&new_thread, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_thread, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating new thread\n");
 		return PTS_UNRESOLVED;
 	}

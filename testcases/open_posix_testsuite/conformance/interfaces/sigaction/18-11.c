@@ -43,7 +43,7 @@
 
 static volatile sig_atomic_t called = 0;
 
-static void handler()
+static void handler(void)
 {
 	called = 1;
 }
@@ -55,7 +55,7 @@ int main(void)
 
 	/* Set the signal handler */
 	sa.sa_flags = 0;
-	sa.sa_handler = handler;
+	sa.sa_handler = (void *)handler;
 	ret = sigemptyset(&sa.sa_mask);
 
 	if (ret != 0) {

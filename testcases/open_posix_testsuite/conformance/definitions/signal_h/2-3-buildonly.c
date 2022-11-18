@@ -6,4 +6,4 @@
 
 #include <signal.h>
 
-static void (*dummy) (int) = SIG_HOLD;
+static void  __attribute__((unused)) (*dummy) (int) = SIG_HOLD;

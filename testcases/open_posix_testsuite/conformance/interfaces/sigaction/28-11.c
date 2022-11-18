@@ -44,12 +44,12 @@
 
 static volatile sig_atomic_t called = 1;
 
-static void handler_1()
+static void handler_1(void)
 {
 	called++;
 }
 
-static void handler_2()
+static void handler_2(void)
 {
 	called--;
 }
@@ -60,7 +60,7 @@ int main(void)
 
 	struct sigaction sa, save;
 
-	if (signal(SIGQUIT, handler_1) == SIG_ERR) {
+	if (signal(SIGQUIT, (void *)handler_1) == SIG_ERR) {
 		perror("Failed to register signal handler");
 		return PTS_UNRESOLVED;
 	}
@@ -71,7 +71,7 @@ int main(void)
 	/* Set the new signal handler with sigaction*/
 	sa.sa_flags = 0;
 
-	sa.sa_handler = handler_2;
+	sa.sa_handler = (void *)handler_2;
 
 	ret = sigemptyset(&sa.sa_mask);
 

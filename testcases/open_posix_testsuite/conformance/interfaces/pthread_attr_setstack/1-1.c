@@ -32,7 +32,7 @@
 static void *stack_addr;
 static size_t stack_size;
 
-static void *thread_func()
+static void *thread_func(void)
 {
 	pthread_exit(0);
 	return NULL;
@@ -54,7 +54,7 @@ int main(void)
 	}
 
 	/* Get the default stack_addr and stack_size value */
-	rc = pthread_attr_getstack(&attr, &stack_addr, &stack_size);
+	rc = pthread_attr_getstack(&attr, &stack_addr, (long *)&stack_size);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "pthread_attr_getstack");
 		exit(PTS_UNRESOLVED);
@@ -77,14 +77,14 @@ int main(void)
 		exit(PTS_UNRESOLVED);
 	}
 
-	rc = pthread_attr_getstack(&attr, &saddr, &ssize);
+	rc = pthread_attr_getstack(&attr, &saddr, (long *)&ssize);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "pthread_attr_getstack");
 		exit(PTS_UNRESOLVED);
 	}
 	/* printf("saddr = %p, ssize = %u\n", saddr, ssize); */
 
-	rc = pthread_create(&new_th, &attr, thread_func, NULL);
+	rc = pthread_create(&new_th, &attr, (void *)thread_func, NULL);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "failed to create a thread");
 		exit(PTS_FAIL);

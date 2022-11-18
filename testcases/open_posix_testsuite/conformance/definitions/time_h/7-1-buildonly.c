@@ -10,4 +10,4 @@
 
 #include <sys/types.h>
 
-static clock_t dummy;
+static clock_t __attribute__((unused)) dummy;

@@ -35,12 +35,12 @@ static int cleanup_flag;
  * Cleanup function that the thread executes when it is canceled.  So if
  * cleanup_flag is 1, it means that the thread was canceled.
  */
-static void a_cleanup_func()
+static void a_cleanup_func(void)
 {
 	cleanup_flag = 1;
 }
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	int err;
 
@@ -57,7 +57,7 @@ static void *a_thread_func()
 	}
 
 	/* Set up the cleanup handler */
-	pthread_cleanup_push(a_cleanup_func, NULL);
+	pthread_cleanup_push((void *)a_cleanup_func, NULL);
 
 	/* Wait for a timeout period for the cancel request to be sent. */
 	sleep(TIMEOUT);
@@ -78,7 +78,7 @@ int main(void)
 
 	int err;
 
-	err = pthread_create(&new_th, NULL, a_thread_func, NULL);
+	err = pthread_create(&new_th, NULL, (void *)a_thread_func, NULL);
 	if (err != 0) {
 		fprintf(stderr, "pthread_create: %s\n", strerror(err));
 		return PTS_UNRESOLVED;

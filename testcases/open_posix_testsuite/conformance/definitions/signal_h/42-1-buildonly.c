@@ -9,9 +9,9 @@
 
 typedef int (*sigprocmask_test) (int, const sigset_t *, sigset_t *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigprocmask_test dummyvar;
+	sigprocmask_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigprocmask;
 	return 0;
 }

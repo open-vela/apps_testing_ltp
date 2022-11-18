@@ -43,7 +43,7 @@ static pthread_rwlock_t rwlock;
 static int thread_state;
 static int handler_called;
 
-static void sig_handler()
+static void sig_handler(void)
 {
 	if (pthread_equal(pthread_self(), sig_thread)) {
 		printf("sig_handler: handled signal SIGUSR1\n");
@@ -61,7 +61,7 @@ static void *th_fn(void *arg LTP_ATTRIBUTE_UNUSED)
 
 	/* Set up signal handler for SIGUSR1 */
 	act.sa_flags = 0;
-	act.sa_handler = sig_handler;
+	act.sa_handler = (void *)sig_handler;
 	/* block all the signal while handling SIGUSR1 */
 	sigfillset(&act.sa_mask);
 	sigaction(SIGUSR1, &act, NULL);

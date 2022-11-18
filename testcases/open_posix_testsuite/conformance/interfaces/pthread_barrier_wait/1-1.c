@@ -53,7 +53,7 @@ static void *fn_chld(void *arg LTP_ATTRIBUTE_UNUSED)
 	return NULL;
 }
 
-static void sig_handler()
+static void sig_handler(void)
 {
 	printf("Interrupted by SIGALRM\n");
 	printf("Test FAILED: main blocked on barrier wait\n");
@@ -69,7 +69,7 @@ int main(void)
 
 	/* Set up main thread to handle SIGALRM */
 	act.sa_flags = 0;
-	act.sa_handler = sig_handler;
+	act.sa_handler = (void *)sig_handler;
 	sigfillset(&act.sa_mask);
 	sigaction(SIGALRM, &act, 0);
 
