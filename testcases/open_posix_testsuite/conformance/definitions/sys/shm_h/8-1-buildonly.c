@@ -16,9 +16,9 @@
 
 typedef void *(*shmat_test) (int, const void *, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	shmat_test dummyvar;
+	shmat_test __attribute__((unused)) dummyvar;
 	dummyvar = shmat;
 	return 0;
 }

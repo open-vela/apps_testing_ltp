@@ -10,11 +10,11 @@
 
 #include <aio.h>
 
-static int dummy0 = AIO_ALLDONE;
-static int dummy1 = AIO_CANCELED;
-static int dummy2 = AIO_NOTCANCELED;
-static int dummy3 = LIO_NOP;
-static int dummy4 = LIO_NOWAIT;
-static int dummy5 = LIO_READ;
-static int dummy6 = LIO_WAIT;
-static int dummy7 = LIO_WRITE;
+static int __attribute__((unused)) dummy0 = AIO_ALLDONE;
+static int __attribute__((unused)) dummy1 = AIO_CANCELED;
+static int __attribute__((unused)) dummy2 = AIO_NOTCANCELED;
+static int __attribute__((unused)) dummy3 = LIO_NOP;
+static int __attribute__((unused)) dummy4 = LIO_NOWAIT;
+static int __attribute__((unused)) dummy5 = LIO_READ;
+static int __attribute__((unused)) dummy6 = LIO_WAIT;
+static int __attribute__((unused)) dummy7 = LIO_WRITE;

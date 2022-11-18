@@ -9,9 +9,9 @@
 
 typedef int (*sigpending_test) (sigset_t *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigpending_test dummyvar;
+	sigpending_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigpending;
 	return 0;
 }

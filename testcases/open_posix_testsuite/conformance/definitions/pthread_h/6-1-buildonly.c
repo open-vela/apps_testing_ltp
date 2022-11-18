@@ -12,7 +12,7 @@
 
 #include <pthread.h>
 
-static void dummy_func()
+static void __attribute__((unused)) dummy_func(void)
 {
 	pthread_t ptid = pthread_self();
 	if (ptid == 0)

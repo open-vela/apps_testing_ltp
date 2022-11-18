@@ -15,9 +15,9 @@
 
 typedef struct tm *(*localtime_r_test) (const time_t *, struct tm *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	localtime_r_test dummyvar;
+	localtime_r_test __attribute__((unused)) dummyvar;
 	dummyvar = localtime_r;
 	return 0;
 }

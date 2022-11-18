@@ -27,7 +27,7 @@
 
 static volatile int thread_created = 0;
 
-static void *thread_func()
+static void *thread_func(void)
 {
 	thread_created = 1;
 	pthread_exit(0);
@@ -68,7 +68,7 @@ int main(void)
 		exit(PTS_FAIL);
 	}
 
-	rc = pthread_create(&thread, &attr, thread_func, NULL);
+	rc = pthread_create(&thread, &attr, (void *)thread_func, NULL);
 	if (rc != 0) {
 		if (rc == EPERM) {
 			printf(ERROR_PREFIX

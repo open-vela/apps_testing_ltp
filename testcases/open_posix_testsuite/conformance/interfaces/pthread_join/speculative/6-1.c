@@ -35,7 +35,7 @@
 #include <errno.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void* a_thread_func(void)
 {
 	pthread_exit(0);
 	return NULL;
@@ -50,7 +50,7 @@ int main(void)
 	pthread_attr_init(&attr);
 	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 
-	if (pthread_create(&new_th, &attr, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, &attr, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

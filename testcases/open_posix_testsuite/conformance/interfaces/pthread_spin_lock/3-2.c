@@ -24,7 +24,7 @@
 
 static int rc;
 
-static void sig_handler()
+static void sig_handler(void)
 {
 	printf("main: interrupted by SIGALARM\n");
 	if (rc == EINVAL) {

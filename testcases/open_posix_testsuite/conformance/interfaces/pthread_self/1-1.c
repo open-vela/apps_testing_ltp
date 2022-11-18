@@ -26,7 +26,7 @@
 static pthread_t new_th2;		/* Global thread to hold the value of when pthread_self
 				   returns from the thread function. */
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	new_th2 = pthread_self();
 	pthread_exit(0);
@@ -38,7 +38,7 @@ int main(void)
 	pthread_t new_th1;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th1, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th1, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

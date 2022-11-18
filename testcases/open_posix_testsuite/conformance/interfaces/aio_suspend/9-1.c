@@ -41,7 +41,7 @@
 
 static sig_atomic_t received_all;
 
-static void sigrt1_handler()
+static void sigrt1_handler(void)
 {
 	received_all = 1;
 }

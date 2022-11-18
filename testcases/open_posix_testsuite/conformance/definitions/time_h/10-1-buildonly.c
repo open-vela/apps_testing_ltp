@@ -14,9 +14,9 @@
 
 typedef clock_t(*clock_test) (void);
 
-static int dummyfcn(void)
+static int  __attribute__((unused)) dummyfcn(void)
 {
-	clock_test dummyvar;
+	clock_test  __attribute__((unused)) dummyvar;
 	dummyvar = clock;
 	return 0;
 }

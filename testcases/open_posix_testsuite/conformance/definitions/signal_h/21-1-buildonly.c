@@ -16,7 +16,7 @@ static int tstatus;
 static long tband;
 static union sigval tvalue;
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
 	tsigno = t.si_signo;
 	terrno = t.si_errno;

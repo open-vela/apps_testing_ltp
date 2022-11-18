@@ -44,12 +44,12 @@
 
 static volatile sig_atomic_t called = 1;
 
-static void handler_1()
+static void handler_1(void)
 {
 	called++;
 }
 
-static void handler_2()
+static void handler_2(void)
 {
 	called--;
 }

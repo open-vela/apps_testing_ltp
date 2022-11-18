@@ -11,6 +11,9 @@
 #include <time.h>
 #include "posixtest.h"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverflow"
+
 #define INVALIDCLOCKID 99999
 
 int main(void)
@@ -25,3 +28,4 @@ int main(void)
 	printf("Test FAILED\n");
 	return PTS_FAIL;
 }
+#pragma GCC diagnostic pop

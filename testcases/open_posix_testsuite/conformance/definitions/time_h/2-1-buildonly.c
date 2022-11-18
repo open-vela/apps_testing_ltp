@@ -9,11 +9,11 @@
  */
 #include <time.h>
 
-static struct tm this_type_should_exist, t;
+static struct tm  __attribute__((unused)) this_type_should_exist, t;
 
-static int dummyfcn(void)
+static int  __attribute__((unused)) dummyfcn(void)
 {
-	int week, year, dst;
+	int __attribute__((unused)) week, year, dst;
 
 	t.tm_sec = 0;
 	t.tm_min = 10;

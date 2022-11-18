@@ -48,14 +48,14 @@
 static int sem1;			/* Manual semaphore */
 static volatile int handler_called;
 
-static void handler()
+static void handler(void)
 {
 	printf("signal was called\n");
 	handler_called = 1;
 	return;
 }
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	struct sigaction act;
 	act.sa_flags = 0;

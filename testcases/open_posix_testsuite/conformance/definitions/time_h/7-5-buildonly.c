@@ -10,4 +10,4 @@
 
 #include <sys/types.h>
 
-static timer_t dummy;
+static timer_t __attribute__((unused)) dummy;

@@ -9,9 +9,9 @@
 
 typedef int (*sigqueue_test) (pid_t, int, const union sigval);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigqueue_test dummyvar;
+	sigqueue_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigqueue;
 	return 0;
 }

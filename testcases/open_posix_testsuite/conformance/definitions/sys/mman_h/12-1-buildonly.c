@@ -18,9 +18,9 @@
 
 typedef int (*mlockall_test) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	mlockall_test dummyvar;
+	mlockall_test __attribute__((unused)) dummyvar;
 	dummyvar = mlockall;
 	return 0;
 }

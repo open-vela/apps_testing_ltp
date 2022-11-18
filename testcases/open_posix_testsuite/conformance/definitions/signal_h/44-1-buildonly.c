@@ -8,9 +8,9 @@
 
 typedef int (*sigrelse_test) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigrelse_test dummyvar;
+	sigrelse_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigrelse;
 	return 0;
 }

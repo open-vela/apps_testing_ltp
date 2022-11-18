@@ -9,9 +9,9 @@
 
 typedef int (*killpg_test) (pid_t, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	killpg_test dummyvar;
+	killpg_test  __attribute__((unused)) dummyvar;
 	dummyvar = killpg;
 	return 0;
 }

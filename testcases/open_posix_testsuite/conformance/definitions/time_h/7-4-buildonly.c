@@ -10,4 +10,4 @@
 
 #include <sys/types.h>
 
-static clockid_t dummy;
+static clockid_t __attribute__((unused)) dummy;

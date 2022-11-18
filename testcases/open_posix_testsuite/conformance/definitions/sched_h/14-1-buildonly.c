@@ -18,9 +18,9 @@
 
 typedef int (*sched_getscheduler_test) (pid_t);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sched_getscheduler_test dummyvar;
+	sched_getscheduler_test __attribute__((unused)) dummyvar;
 	dummyvar = sched_getscheduler;
 	return 0;
 }

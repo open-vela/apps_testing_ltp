@@ -216,7 +216,7 @@ static void *test(void *arg)
 	return NULL;
 }
 
-static void do_child()
+static void do_child(void)
 {
 	int ret;
 	pthread_t th_work, th_sig1;
@@ -279,7 +279,7 @@ static void do_child()
 		UNRESOLVED(ret, "Worker thread join failed");
 }
 
-static void main_loop()
+static void main_loop(void)
 {
 	int child_count = 0;
 	int stat_pipe[2];

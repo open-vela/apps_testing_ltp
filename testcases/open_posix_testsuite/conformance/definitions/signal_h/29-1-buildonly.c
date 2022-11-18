@@ -11,9 +11,9 @@
 typedef int (*sigaction_test) (int, const struct sigaction *,
 			       struct sigaction *);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigaction_test dummyvar;
+	sigaction_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigaction;
 	return 0;
 }

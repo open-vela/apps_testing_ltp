@@ -58,7 +58,7 @@ int main(void)
 	}
 
 	printf("Test FAILED - ts1=%ld,ts2=%ld,ts3=%ld,ts4=%ld\n",
-	       ts1.tv_sec, ts2.tv_sec, ts3.tv_sec, ts4.tv_sec);
+	       (long int)ts1.tv_sec, (long int)ts2.tv_sec, (long int)ts3.tv_sec, (long int)ts4.tv_sec);
 	return PTS_FAIL;
 #else
 	printf("CLOCK_MONOTONIC unsupported\n");

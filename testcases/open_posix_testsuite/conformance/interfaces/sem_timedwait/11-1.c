@@ -35,6 +35,7 @@ int main(void)
 	struct timespec ts[2];
 	int val[2], sts[2];
 	int i;
+    int flag = 2;
 
 	for (i = 0; i < 2; i++) {
 		if (sem_init(&mysemp[i], 0, 1) == -1) {
@@ -65,11 +66,12 @@ int main(void)
 		if ((val[i] == 0) && (sts[i] == 0)) {
 			puts("TEST PASSED");
 			sem_destroy(&mysemp[i]);
-			return PTS_PASS;
+            flag = PTS_PASS;
 		} else {
 			puts("TEST FAILED");
 			sem_destroy(&mysemp[i]);
-			return PTS_FAIL;
+            flag = PTS_FAIL;
 		}
 	}
+    return flag;
 }

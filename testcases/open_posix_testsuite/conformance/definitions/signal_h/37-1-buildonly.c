@@ -8,9 +8,9 @@
 
 typedef int (*siginterrupt_test) (int, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	siginterrupt_test dummyvar;
+	siginterrupt_test  __attribute__((unused)) dummyvar;
 	dummyvar = siginterrupt;
 	return 0;
 }

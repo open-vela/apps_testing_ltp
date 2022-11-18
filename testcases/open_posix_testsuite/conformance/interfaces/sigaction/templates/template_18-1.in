@@ -43,7 +43,7 @@
 
 static volatile sig_atomic_t called = 0;
 
-static void handler()
+static void handler(void)
 {
 	called = 1;
 }

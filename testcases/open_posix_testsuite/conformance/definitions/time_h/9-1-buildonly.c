@@ -15,9 +15,9 @@
 
 typedef char *(*asctime_r_test) (const struct tm *, char *);
 
-static int dummyfcn(void)
+static int  __attribute__((unused)) dummyfcn(void)
 {
-	asctime_r_test dummyvar;
+	asctime_r_test  __attribute__((unused)) dummyvar;
 	dummyvar = asctime_r;
 	return 0;
 }

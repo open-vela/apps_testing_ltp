@@ -54,7 +54,7 @@ static int handler_state;
 static int expired;
 static struct timeval before_wait, after_wait;
 
-static void sig_handler()
+static void sig_handler(void)
 {
 
 	struct timespec sleep_time_req;
@@ -89,7 +89,7 @@ static void *th_fn(void *arg LTP_ATTRIBUTE_UNUSED)
 	/* Set up handler for SIGUSR1 */
 
 	act.sa_flags = 0;
-	act.sa_handler = sig_handler;
+	act.sa_handler = (void *)sig_handler;
 	/* block all the signal when hanlding SIGUSR1 */
 	sigfillset(&act.sa_mask);
 	sigaction(SIGUSR1, &act, 0);

@@ -105,7 +105,7 @@ EXDEV, "EXDEV"}, {
 0, 0}
 };
 
-int main()
+int main(void)
 {
 	struct unique *tst = sym;
 	int ret = PTP_PASS;

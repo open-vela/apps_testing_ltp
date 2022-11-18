@@ -35,7 +35,7 @@
 
 static int enter_handler = 0;
 
-static void msg_handler()
+static void msg_handler(void)
 {
 	enter_handler = 1;
 }

@@ -35,7 +35,7 @@ static int sem1;			/* Manual semaphore */
 static int cancel_flag;
 
 /* Function that the thread executes upon its creation */
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	/* Set cancel state to ENABLE, meaning it should honor all cancel requests. */
 	/* Set cancel type to ASYNCHRONOUS so that it honors cancel requests immediately. */
@@ -72,7 +72,7 @@ int main(void)
 	cancel_flag = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

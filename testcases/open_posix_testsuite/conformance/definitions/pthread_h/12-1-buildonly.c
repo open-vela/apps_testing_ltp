@@ -15,7 +15,7 @@
 static pthread_attr_t a;
 static int *detachstate;
 
-static void dummy_func()
+static void __attribute__((unused)) dummy_func(void)
 {
 
 	pthread_attr_getdetachstate(&a, detachstate);

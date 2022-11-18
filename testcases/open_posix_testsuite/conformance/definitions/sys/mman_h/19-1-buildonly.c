@@ -18,9 +18,9 @@
 
 typedef int (*posix_madvise_test) (void *, size_t, int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	posix_madvise_test dummyvar;
+	posix_madvise_test __attribute__((unused)) dummyvar;
 	dummyvar = posix_madvise;
 	return 0;
 }

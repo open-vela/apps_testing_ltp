@@ -31,13 +31,13 @@
 static int result = 2;
 static int sem = INTHREAD;
 
-static void handler()
+static void handler(void)
 {
 	printf("signal was called\n");
 	return;
 }
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	int return_value = 0;
 	struct sigaction act;

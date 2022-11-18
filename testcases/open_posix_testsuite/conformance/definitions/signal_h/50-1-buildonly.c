@@ -6,4 +6,4 @@
 
 #include <signal.h>
 
-static struct tm *mytime;
+static struct tm __attribute__((unused)) *mytime;

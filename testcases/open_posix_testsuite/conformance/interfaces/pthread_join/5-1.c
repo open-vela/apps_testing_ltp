@@ -22,7 +22,7 @@
 #include <errno.h>
 #include "posixtest.h"
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	pthread_exit(0);
 	return NULL;
@@ -33,7 +33,7 @@ int main(void)
 	pthread_t new_th;
 	int ret;
 
-	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

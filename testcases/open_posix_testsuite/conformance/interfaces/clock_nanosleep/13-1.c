@@ -13,6 +13,9 @@
 #include <errno.h>
 #include "posixtest.h"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverflow"
+
 #define SLEEPSEC 4
 
 #define BOGUSCLOCKID 99999
@@ -32,3 +35,4 @@ int main(void)
 	printf("errno != EINVAL\n");
 	return PTS_FAIL;
 }
+#pragma GCC diagnostic pop

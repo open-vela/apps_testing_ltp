@@ -103,7 +103,7 @@ static struct _scenar {
 #define NSCENAR (sizeof(scenarii)/sizeof(scenarii[0]))
 
 static char do_it = 1;
-static char woken = 0;
+static __attribute__((unused)) char woken = 0;
 static unsigned long count_ope = 0;
 #ifdef WITH_SYNCHRO
 static sem_t semsig1;

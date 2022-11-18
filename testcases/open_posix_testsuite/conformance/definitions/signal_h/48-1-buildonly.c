@@ -8,9 +8,9 @@
 
 typedef int (*sigwait_test) (const sigset_t * restrict, int *restrict);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigwait_test dummyvar;
+	sigwait_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigwait;
 	return 0;
 }

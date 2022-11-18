@@ -4,4 +4,4 @@
 
 #include <sys/types.h>
 
-static pid_t dummy;
+static pid_t __attribute__((unused)) dummy;

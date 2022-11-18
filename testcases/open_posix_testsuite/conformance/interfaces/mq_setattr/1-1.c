@@ -67,7 +67,7 @@ int main(void)
 	}
 	if (nmqstat.mq_flags != mqstat.mq_flags) {
 		printf("FAIL: mq_flags getted is %ld , while mq_flags "
-		       "setted is %ld\n", nmqstat.mq_flags, mqstat.mq_flags);
+		       "setted is %ld\n", (long int)nmqstat.mq_flags, (long int)mqstat.mq_flags);
 		failure = 1;
 	}
 

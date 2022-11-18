@@ -12,4 +12,4 @@
 
 #include <sys/mman.h>
 
-static off_t this_type_should_exist;
+static off_t __attribute__((unused)) this_type_should_exist;

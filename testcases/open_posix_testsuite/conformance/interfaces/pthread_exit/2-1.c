@@ -29,7 +29,7 @@ static int i[3], j;
 
 /* Cleanup function that the thread executes when it is canceled.  So if
  * cleanup_flag is 1, it means that the thread was canceled. */
-static void a_cleanup_func1()
+static void a_cleanup_func1(void)
 {
 	i[j] = 1;
 	j++;
@@ -38,7 +38,7 @@ static void a_cleanup_func1()
 
 /* Cleanup function that the thread executes when it is canceled.  So if
  * cleanup_flag is 1, it means that the thread was canceled. */
-static void a_cleanup_func2()
+static void a_cleanup_func2(void)
 {
 	i[j] = 2;
 	j++;
@@ -47,7 +47,7 @@ static void a_cleanup_func2()
 
 /* Cleanup function that the thread executes when it is canceled.  So if
  * cleanup_flag is 1, it means that the thread was canceled. */
-static void a_cleanup_func3()
+static void a_cleanup_func3(void)
 {
 	i[j] = 3;
 	j++;
@@ -55,12 +55,12 @@ static void a_cleanup_func3()
 }
 
 /* Thread's function. */
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	/* Set up 3 cleanup handlers */
-	pthread_cleanup_push(a_cleanup_func1, NULL);
-	pthread_cleanup_push(a_cleanup_func2, NULL);
-	pthread_cleanup_push(a_cleanup_func3, NULL);
+	pthread_cleanup_push((void *)a_cleanup_func1, NULL);
+	pthread_cleanup_push((void *)a_cleanup_func2, NULL);
+	pthread_cleanup_push((void *)a_cleanup_func3, NULL);
 
 	/* Terminate the thread here. */
 	pthread_exit(0);
@@ -84,7 +84,7 @@ int main(void)
 	j = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

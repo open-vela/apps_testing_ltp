@@ -19,9 +19,9 @@
 
 #if defined(_POSIX_TYPED_MEMORY_OBJECTS) && _POSIX_TYPED_MEMORY_OBJECTS != -1
 
-static struct posix_typed_mem_info this_type_should_exist, t;
+static struct posix_typed_mem_info __attribute__((unused)) this_type_should_exist, t;
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
 	size_t sz = 0;
 

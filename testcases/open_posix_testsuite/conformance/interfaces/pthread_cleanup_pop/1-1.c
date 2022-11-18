@@ -41,7 +41,7 @@ static void a_cleanup_func(void *flag_val)
 }
 
 /* Function that the thread executes upon its creation */
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	pthread_cleanup_push(a_cleanup_func, (void *)CLEANUP_CALLED);
 	pthread_cleanup_pop(1);
@@ -67,7 +67,7 @@ int main(void)
 	cleanup_flag = CLEANUP_NOTCALLED;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

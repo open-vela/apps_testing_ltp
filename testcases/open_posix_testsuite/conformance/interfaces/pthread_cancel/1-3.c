@@ -45,14 +45,14 @@ static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;	/* Mutex */
 
 /* Cleanup function that the thread executes when it is canceled.  So if
  * cleanup_flag is 1, it means that the thread was canceled. */
-static void a_cleanup_func()
+static void a_cleanup_func(void)
 {
 	cleanup_flag = -1;
 	return;
 }
 
 /* Function that the thread executes upon its creation */
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 	pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);

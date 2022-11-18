@@ -9,9 +9,9 @@
 
 typedef int (*sigignore_test) (int);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	sigignore_test dummyvar;
+	sigignore_test  __attribute__((unused)) dummyvar;
 	dummyvar = sigignore;
 	return 0;
 }

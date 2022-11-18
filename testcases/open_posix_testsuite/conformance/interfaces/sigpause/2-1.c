@@ -44,14 +44,14 @@ static int handler_called;
 static int return_value = 2;
 static int sem = INMAIN;
 
-static void handler()
+static void handler(void)
 {
 	printf("signal was called\n");
 	handler_called = 1;
 	return;
 }
 
-static void *a_thread_func()
+static void *a_thread_func(void)
 {
 	struct sigaction act;
 	sigset_t pendingset;

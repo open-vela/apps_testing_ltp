@@ -11,4 +11,4 @@
 
 #include <pthread.h>
 
-static pthread_barrierattr_t dummy;
+static pthread_barrierattr_t __attribute__((unused)) dummy;

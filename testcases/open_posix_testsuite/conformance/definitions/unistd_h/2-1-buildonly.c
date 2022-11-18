@@ -16,9 +16,9 @@
 
 typedef int (*ftruncate_test) (int fildes, off_t length);
 
-static int dummyfcn(void)
+static int __attribute__((unused)) dummyfcn(void)
 {
-	ftruncate_test dummyvar;
+	ftruncate_test __attribute__((unused)) dummyvar;
 	dummyvar = ftruncate;
 	return 0;
 }
