@@ -24,7 +24,7 @@
 
 static int end_exec;
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	int i;
 
@@ -49,7 +49,7 @@ int main(void)
 	end_exec = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

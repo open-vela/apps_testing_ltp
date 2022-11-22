@@ -53,7 +53,7 @@ static int is_changed(sigset_t set, int sig)
 	return 0;
 }
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 
 	sigset_t actl, oactl;
@@ -67,7 +67,7 @@ static void *a_thread_func(void)
 	pthread_sigmask(SIG_UNBLOCK, NULL, &oactl);
 
 	if (is_changed(oactl, SIGABRT)) {
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 	printf("PASS: signal mask was not changed.\n");
 	pthread_exit(NULL);
@@ -88,7 +88,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	if (pthread_join(new_thread, (void *)&thread_return_value) != 0) {
+	if (pthread_join(new_thread, &thread_return_value) != 0) {
 		perror("Error in pthread_join()\n");
 		return PTS_UNRESOLVED;
 	}

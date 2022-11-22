@@ -41,7 +41,7 @@ static void handler(int signo LTP_ATTRIBUTE_UNUSED)
 	handler_called = 1;
 }
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 
 	struct sigaction act;
@@ -56,39 +56,39 @@ static void *a_thread_func(void)
 	if (sigaction(SIGABRT, &act, 0) == -1) {
 		perror("Unexpected error while attempting to setup test "
 		       "pre-conditions");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (pthread_sigmask(SIG_SETMASK, &blocked_set, NULL) == -1) {
 		perror
 		    ("Unexpected error while attempting to use pthread_sigmask.\n");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (raise(SIGABRT) == -1) {
 		perror("Unexpected error while attempting to setup test "
 		       "pre-conditions");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (handler_called) {
 		printf("FAIL: Signal was not blocked\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	if (sigpending(&pending_set) == -1) {
 		perror("Unexpected error while attempting to use sigpending\n");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (sigismember(&pending_set, SIGABRT) == -1) {
 		perror("Unexpected error while attempting to use sigismember.");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	if (sigismember(&pending_set, SIGABRT) != 1) {
 		perror("FAIL: sigismember did not return 1");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	sigemptyset(&blocked_set);
@@ -97,14 +97,14 @@ static void *a_thread_func(void)
 	if (pthread_sigmask(SIG_SETMASK, &blocked_set, NULL) == -1) {
 		perror
 		    ("Unexpected error while attempting to use pthread_sigmask.");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	sched_yield();
 
 	if (!handler_called) {
 		printf("FAIL: Old signal was not removed from mask.\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	pthread_exit(NULL);
@@ -124,7 +124,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	if (pthread_join(new_thread, (void *)&thread_return_value) != 0) {
+	if (pthread_join(new_thread, &thread_return_value) != 0) {
 		perror("Error in pthread_join()\n");
 		return PTS_UNRESOLVED;
 	}

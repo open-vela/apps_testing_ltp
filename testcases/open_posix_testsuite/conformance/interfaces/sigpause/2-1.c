@@ -51,7 +51,7 @@ static void handler(void)
 	return;
 }
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	struct sigaction act;
 	sigset_t pendingset;

@@ -29,7 +29,7 @@
 
 static sigset_t th_pendingset, th_sigmask;
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	pthread_sigmask(SIG_SETMASK, NULL, &th_sigmask);
 
@@ -78,7 +78,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	ret = pthread_create(&new_th, NULL, (void *)a_thread_func, NULL);
+	ret = pthread_create(&new_th, NULL, a_thread_func, NULL);
 	if (ret) {
 		fprintf(stderr, "pthread_create(): %s\n", strerror(ret));
 		return PTS_UNRESOLVED;

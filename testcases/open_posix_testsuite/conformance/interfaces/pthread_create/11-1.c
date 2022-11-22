@@ -26,7 +26,7 @@
 #include <sys/time.h>
 #include "posixtest.h"
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	struct timespec ts = {.tv_sec = 1,.tv_nsec = 1 };
 

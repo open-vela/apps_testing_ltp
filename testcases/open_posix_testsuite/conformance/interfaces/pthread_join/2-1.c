@@ -35,7 +35,7 @@
 /* Manual semaphore used to indicate when the thread has been created. */
 static int sem;
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	sem = INMAIN;
 	pthread_exit(RETURN_CODE);
@@ -50,7 +50,7 @@ int main(void)
 	value_ptr = 0;
 	sem = INTHREAD;
 
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

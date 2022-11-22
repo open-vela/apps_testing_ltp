@@ -33,7 +33,7 @@
 
 static int sem1;			/* Manual semaphore */
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 
 	/* Indicate to main() that the thread was created. */
@@ -64,7 +64,7 @@ int main(void)
 	}
 
 	/* Create a new thread passing it the new attribute object */
-	if (pthread_create(&new_th, &new_attr, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, &new_attr, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

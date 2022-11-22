@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "posixtest.h"
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	struct sched_param sparam;
 	int policy, priority, policy_1;
@@ -47,7 +47,7 @@ int main(void)
 {
 	pthread_t new_th;
 
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

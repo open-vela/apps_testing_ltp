@@ -31,7 +31,7 @@ static pthread_key_t keys[NUM_OF_THREADS];
 static int i;
 
 /* Thread function that sets the key to KEY_VALUE */
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	/* Set the key to KEY_VALUE */
 	if (pthread_setspecific(keys[i], (void *)(KEY_VALUE)) != 0) {
@@ -59,7 +59,7 @@ int main(void)
 	 * use pthread_setspecific with the same KEY_VALUE */
 	for (i = 0; i < NUM_OF_THREADS; i++) {
 		/* Create a thread */
-		if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+		if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 			perror("Error creating thread\n");
 			return PTS_UNRESOLVED;
 		}
