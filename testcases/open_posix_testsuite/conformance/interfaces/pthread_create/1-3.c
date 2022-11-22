@@ -27,7 +27,7 @@
 #include <string.h>
 #include "posixtest.h"
 
-static void *a_thread_function(void);
+static void *a_thread_function(void *arg);
 static void alarm_handler(void);
 
 static pthread_t a;
@@ -47,7 +47,7 @@ int main(void)
 	/* SIGALRM will be sent in 5 seconds. */
 	alarm(5);
 
-	ret = pthread_create(&a, NULL, (void *)a_thread_function, NULL);
+	ret = pthread_create(&a, NULL, a_thread_function, NULL);
 	if (ret) {
 		fprintf(stderr, "pthread_create(): %s\n", strerror(ret));
 		return PTS_UNRESOLVED;
@@ -62,7 +62,7 @@ int main(void)
 }
 
 /* A never-ending thread function */
-static void *a_thread_function(void)
+static void *a_thread_function(void *arg)
 {
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 

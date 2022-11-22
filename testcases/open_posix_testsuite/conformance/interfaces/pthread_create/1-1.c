@@ -22,7 +22,7 @@
 
 static int pid;
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	pid = getpid();
 
@@ -34,7 +34,7 @@ int main(void)
 	pthread_t main_th, new_th;
 	int ret, ppid;
 
-	ret = pthread_create(&new_th, NULL, (void *)a_thread_func, NULL);
+	ret = pthread_create(&new_th, NULL, a_thread_func, NULL);
 	if (ret) {
 		fprintf(stderr, "pthread_create(): %s\n", strerror(ret));
 		return PTS_UNRESOLVED;

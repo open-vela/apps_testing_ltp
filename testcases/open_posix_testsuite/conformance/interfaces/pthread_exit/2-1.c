@@ -55,7 +55,7 @@ static void a_cleanup_func3(void)
 }
 
 /* Thread's function. */
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	/* Set up 3 cleanup handlers */
 	pthread_cleanup_push((void *)a_cleanup_func1, NULL);
@@ -84,7 +84,7 @@ int main(void)
 	j = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

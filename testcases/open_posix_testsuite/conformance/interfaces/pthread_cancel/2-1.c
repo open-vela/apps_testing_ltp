@@ -28,7 +28,7 @@ static int cleanup_flag;		/* Made global so that the cleanup function
 
 /* A cleanup function that sets the cleanup_flag to 1, meaning that the
  * cleanup function was reached. */
-static void a_cleanup_func(void)
+static void a_cleanup_func(void *arg)
 {
 	cleanup_flag = 1;
 	sem = 0;
@@ -40,12 +40,12 @@ static void a_cleanup_func(void)
  * loop, never reaching the cleanup_pop function.  So the only way the cleanup
  * function can be called is when the thread is canceled and all the cleanup
  * functions are supposed to be popped. */
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	/* To enable thread immediate cancelation, since the default
 	 * is PTHREAD_CANCEL_DEFERRED. */
 	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
-	pthread_cleanup_push((void *)a_cleanup_func, NULL);
+	pthread_cleanup_push(a_cleanup_func, NULL);
 	sem = 1;
 	while (sem == 1)
 		sleep(1);
@@ -69,7 +69,7 @@ int main(void)
 	sem = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

@@ -37,7 +37,7 @@ static void handler(void)
 	return;
 }
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	int return_value = 0;
 	struct sigaction act;

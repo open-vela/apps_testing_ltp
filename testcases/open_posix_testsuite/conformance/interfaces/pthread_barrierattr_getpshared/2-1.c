@@ -40,7 +40,7 @@
 
 #define LOOP_NUM 10
 
-static void sig_handler(void)
+static void sig_handler(void *arg)
 {
 	printf("Interrupted by SIGALRM\n");
 	printf("Test Fail: block on pthread_barrier_wait()\n");

@@ -21,7 +21,7 @@ returned by the pthread_sigmask functions.
 
 #define NUMSIGNALS (sizeof(siglist) / sizeof(siglist[0]))
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	sigset_t oactl, tempset;
 	int i, j, test_failed = 0;
@@ -64,7 +64,7 @@ static void *a_thread_func(void)
 
 	if (test_failed != 0) {
 		printf("Old set is invalid.\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	printf
@@ -87,7 +87,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	if (pthread_join(new_thread, (void *)&thread_return_value) != 0) {
+	if (pthread_join(new_thread, &thread_return_value) != 0) {
 		perror("Error in pthread_join()\n");
 		return PTS_UNRESOLVED;
 	}

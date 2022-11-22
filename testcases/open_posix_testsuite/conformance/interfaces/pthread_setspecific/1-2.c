@@ -34,7 +34,7 @@ static pthread_key_t key;
 static void *rc1;
 static void *rc2;
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	/* Bind a value to key for this thread (this will be different from the value
 	 * that we bind for the main thread) */
@@ -73,7 +73,7 @@ int main(void)
 	}
 
 	/* Create another thread.  This thread will also bind a value to the key */
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		printf("Error: in pthread_create()\n");
 		return PTS_UNRESOLVED;
 	}
