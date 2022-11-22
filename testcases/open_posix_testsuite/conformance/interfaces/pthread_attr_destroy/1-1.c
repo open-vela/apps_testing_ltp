@@ -24,7 +24,7 @@
 #include <errno.h>
 #include "posixtest.h"
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 
 	pthread_exit(0);

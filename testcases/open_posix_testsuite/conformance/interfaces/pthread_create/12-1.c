@@ -20,7 +20,7 @@
 #include <string.h>
 #include "posixtest.h"
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	return NULL;
 }
@@ -30,7 +30,7 @@ int main(void)
 	pthread_t new_th;
 	int ret;
 
-	ret = pthread_create(&new_th, NULL, (void *)a_thread_func, NULL);
+	ret = pthread_create(&new_th, NULL, a_thread_func, NULL);
 	if (ret != 0) {
 		printf("Test FAILED: pthread_create(): %d %s\n",
 		       ret, strerror(ret));

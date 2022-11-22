@@ -37,7 +37,7 @@ static void handler(int signo LTP_ATTRIBUTE_UNUSED)
 	}
 }
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	struct sigaction act;
 	sigset_t blocked_set1;
@@ -101,7 +101,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	if (pthread_join(new_thread, (void *)&thread_return_value) != 0) {
+	if (pthread_join(new_thread, &thread_return_value) != 0) {
 		perror("Error in pthread_join()\n");
 		return PTS_UNRESOLVED;
 	}

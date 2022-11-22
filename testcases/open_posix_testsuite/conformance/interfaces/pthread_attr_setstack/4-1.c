@@ -39,7 +39,7 @@ static int __attribute__((unused)) teststack(void)
 	return 0;
 }
 
-static void *thread_func(void)
+static void *thread_func(void *arg)
 {
 	/* execute a function to test the read/right of the stack */
 	if (teststack() != 0) {
@@ -66,7 +66,7 @@ int main(void)
 	}
 
 	/* Get the default stack_addr and stack_size value */
-	rc = pthread_attr_getstack(&attr, &stack_addr, (long *)&stack_size);
+	rc = pthread_attr_getstack(&attr, &stack_addr, &stack_size);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "pthread_attr_getstack");
 		exit(PTS_UNRESOLVED);
@@ -89,7 +89,7 @@ int main(void)
 		exit(PTS_UNRESOLVED);
 	}
 
-	rc = pthread_attr_getstack(&attr, &saddr, (long *)&ssize);
+	rc = pthread_attr_getstack(&attr, &saddr, &ssize);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "pthread_attr_getstack");
 		exit(PTS_UNRESOLVED);
@@ -101,7 +101,7 @@ int main(void)
 		exit(PTS_FAIL);
 	}
 
-	rc = pthread_create(&new_th, &attr, (void *)thread_func, NULL);
+	rc = pthread_create(&new_th, &attr, thread_func, NULL);
 	if (rc != 0) {
 		perror(ERROR_PREFIX "failed to create a thread");
 		exit(PTS_FAIL);

@@ -39,7 +39,7 @@ static void handler(int signo LTP_ATTRIBUTE_UNUSED)
 	handler_called = 1;
 }
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	struct sigaction act;
 	sigset_t set1, set2, pending_set;
@@ -58,65 +58,65 @@ static void *a_thread_func(void)
 	if (sigaction(SIGABRT, &act, 0) == -1) {
 		perror("Unexpected error while attempting to setup test "
 		       "pre-conditions");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (sigaction(SIGALRM, &act, 0) == -1) {
 		perror("Unexpected error while attempting to setup test "
 		       "pre-conditions");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (pthread_sigmask(SIG_SETMASK, &set1, NULL) == -1) {
 		perror
 		    ("Unexpected error while attempting to use pthread_sigmask.\n");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (pthread_sigmask(SIG_UNBLOCK, &set2, NULL) == -1) {
 		perror
 		    ("Unexpected error while attempting to use pthread_sigmask.\n");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (raise(SIGALRM) == -1) {
 		perror("Unexpected error while attempting to setup test "
 		       "pre-conditions");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (!handler_called) {
 		printf
 		    ("FAIL: Handler was not called for even though signal was removed from the signal mask\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	handler_called = 0;
 	if (raise(SIGABRT) == -1) {
 		perror("Unexpected error while attempting to setup test "
 		       "pre-conditions");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (handler_called) {
 		printf
 		    ("FAIL: Hanlder was called for even though signal should have been in the signal mask\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	if (sigpending(&pending_set) == -1) {
 		perror("Unexpected error while attempting to use sigpending\n");
-		pthread_exit((void *)1);
+		pthread_exit(1);
 	}
 
 	if (sigismember(&pending_set, SIGABRT) != 1) {
 		perror("FAIL: sigismember did not return 1\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	if (sigismember(&pending_set, SIGALRM) != 0) {
 		perror("FAIL: sigismember did not return 0\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	pthread_exit(NULL);
@@ -135,7 +135,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	if (pthread_join(new_thread, (void *)&thread_return_value) != 0) {
+	if (pthread_join(new_thread, &thread_return_value) != 0) {
 		perror("Error in pthread_join()\n");
 		return PTS_UNRESOLVED;
 	}

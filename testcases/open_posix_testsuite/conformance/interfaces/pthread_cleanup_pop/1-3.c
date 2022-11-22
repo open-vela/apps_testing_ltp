@@ -53,7 +53,7 @@ static void a_cleanup_func3(void *flag_val LTP_ATTRIBUTE_UNUSED)
 }
 
 /* Function that the thread executes upon its creation */
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	pthread_cleanup_push(a_cleanup_func1, NULL);
 	pthread_cleanup_push(a_cleanup_func2, NULL);
@@ -76,7 +76,7 @@ int main(void)
 	i = 0;
 
 	/* Create a new thread. */
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

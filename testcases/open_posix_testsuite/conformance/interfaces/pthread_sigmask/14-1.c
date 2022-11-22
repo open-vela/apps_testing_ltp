@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include "posixtest.h"
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 
 	sigset_t actl;
@@ -31,7 +31,7 @@ static void *a_thread_func(void)
 
 	if (pthread_sigmask(SIG_SETMASK, &actl, NULL) != 0) {
 		perror("pthread_sigmask() did not return 0\n");
-		pthread_exit((void *)-1);
+		pthread_exit(-1);
 	}
 
 	printf("PASS: pthread_sigmask returned 0.\n");
@@ -53,7 +53,7 @@ int main(void)
 		return PTS_UNRESOLVED;
 	}
 
-	if (pthread_join(new_thread, (void *)&thread_return_value) != 0) {
+	if (pthread_join(new_thread, &thread_return_value) != 0) {
 		perror("Error in pthread_join()\n");
 		return PTS_UNRESOLVED;
 	}

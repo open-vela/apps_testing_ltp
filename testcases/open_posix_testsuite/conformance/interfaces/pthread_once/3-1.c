@@ -32,7 +32,7 @@ static int init_flag;
 static pthread_once_t once_control = PTHREAD_ONCE_INIT;
 
 /* The init function that pthread_once calls */
-static void *an_init_func(void)
+static void *an_init_func(void *arg)
 {
 	/* Indicate to main() that the init function has been reached */
 	init_flag = 1;
@@ -49,7 +49,7 @@ static void *an_init_func(void)
 }
 
 /* Thread function */
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	/* Make the thread cancelable immediately */
 	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
@@ -72,7 +72,7 @@ int main(void)
 	init_flag = 0;
 
 	/* Create a thread that will execute the first call to pthread_once() */
-	if (pthread_create(&new_th, NULL, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, NULL, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

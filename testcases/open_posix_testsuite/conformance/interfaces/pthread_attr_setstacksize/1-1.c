@@ -29,7 +29,7 @@
 
 #define STACKADDROFFSET 0x8000000
 
-static void *thread_func(void)
+static void *thread_func(void *arg)
 {
 	pthread_exit(0);
 	return NULL;
@@ -76,7 +76,7 @@ int main(void)
 	}
 	/* printf("stack_size = %lu\n", ssize); */
 
-	rc = pthread_create(&new_th, &attr, (void *)thread_func, NULL);
+	rc = pthread_create(&new_th, &attr, thread_func, NULL);
 	if (rc != 0) {
 		printf(ERROR_PREFIX "failed to create a thread: %s",
 		       strerror(rc));

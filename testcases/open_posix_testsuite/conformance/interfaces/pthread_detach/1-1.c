@@ -25,7 +25,7 @@
 #include <unistd.h>
 #include "posixtest.h"
 
-static void *a_thread_func(void)
+static void *a_thread_func(void *arg)
 {
 	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 
@@ -57,7 +57,7 @@ int main(void)
 	}
 
 	/* Create the thread */
-	if (pthread_create(&new_th, &new_attr, (void *)a_thread_func, NULL) != 0) {
+	if (pthread_create(&new_th, &new_attr, a_thread_func, NULL) != 0) {
 		perror("Error creating thread\n");
 		return PTS_UNRESOLVED;
 	}

@@ -26,7 +26,7 @@
 #define ERR_MSG(f, rc) printf("Failed: func: %s rc: %s (%u)\n", \
 				f, strerror(rc), rc)
 
-static void *thread_func(void)
+static void *thread_func(void *arg)
 {
 	struct sched_param sparam;
 	int policy;
@@ -45,7 +45,7 @@ int main(void)
 	pthread_t new_th;
 	int rc;
 
-	rc = pthread_create(&new_th, NULL, (void *)thread_func, NULL);
+	rc = pthread_create(&new_th, NULL, thread_func, NULL);
 	if (rc) {
 		ERR_MSG("pthread_create()", rc);
 		return PTS_UNRESOLVED;
