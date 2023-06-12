@@ -28,7 +28,7 @@ int main(void)
 {
 	/* Use some arbitrary but high number for the descriptor.  */
 #ifdef CONFIG_FDCHECK
-	if (mq_close((mqd_t) fdcheck_protect(274)) != -1) {
+	if (mq_close((mqd_t) (OPEN_MAX - 1)) != -1) {
 #else
 	if (mq_close((mqd_t) 274) != -1) {
 #endif
