@@ -55,10 +55,14 @@
 #include "tst_res_flags.h"
 #include "tst_minmax.h"
 
-#ifdef HAVE_LINUX_CAN_H
-
+#if defined(HAVE_LINUX_CAN_H) || defined(__NuttX__)
+#if defined(HAVE_LINUX_CAN_H)
 #include <linux/can.h>
 #include <linux/can/raw.h>
+#else
+#include <nuttx/can.h>
+#include <netpacket/can.h>
+#endif
 
 struct rxs {
 	int s;
