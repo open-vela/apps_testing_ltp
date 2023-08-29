@@ -168,6 +168,7 @@ static void *test(void *arg LTP_ATTRIBUTE_UNUSED)
 	sigset_t set;
 	int i, j = 0;
 	int signals[] = { SIGBUS, SIGKILL, SIGABRT, SIGCHLD, SIGHUP };
+#undef NSIG
 #define NSIG (sizeof(signals)/sizeof(int))
 	int operation[] = { SIG_SETMASK, SIG_BLOCK, SIG_UNBLOCK };
 
