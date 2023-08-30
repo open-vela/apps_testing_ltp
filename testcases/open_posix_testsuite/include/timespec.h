@@ -14,7 +14,7 @@
 #define NSEC_IN_SEC 1000000000
 
 #ifndef TIME_T_MAX
-#	define TIME_T_MAX	(time_t)((1UL << ((sizeof(time_t) << 3) - 1)) - 1)
+#	define TIME_T_MAX	(time_t)((1ULL << ((sizeof(time_t) << 3) - 1)) - 1)
 #endif
 
 /*
