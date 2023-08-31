@@ -27,11 +27,7 @@
 int main(void)
 {
 	/* Use some arbitrary but high number for the descriptor.  */
-#ifdef CONFIG_FDCHECK
 	if (mq_close((mqd_t) (OPEN_MAX - 1)) != -1) {
-#else
-	if (mq_close((mqd_t) 274) != -1) {
-#endif
 		printf("mq_close() did not return -1 on invalid descriptor\n");
 		printf("Test FAILED\n");
 		return PTS_FAIL;
