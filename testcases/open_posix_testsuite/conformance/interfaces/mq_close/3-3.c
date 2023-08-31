@@ -20,10 +20,6 @@
 #include <stdio.h>
 #include "posixtest.h"
 
-#ifdef CONFIG_FDCHECK
-#include <nuttx/fdcheck.h>
-#endif
-
 int main(void)
 {
 	/* Use some arbitrary but high number for the descriptor.  */
