@@ -44,7 +44,7 @@ static void *thread_func(void *arg)
 		perror(ERROR_PREFIX "pthread_getschedparam");
 		exit(PTS_UNRESOLVED);
 	}
-	if (new_policy == policy) {
+	if (new_policy != policy) {
 		fprintf(stderr, ERROR_PREFIX "The scheduling attribute is not "
 			"inherited from creating thread \n");
 		exit(PTS_FAIL);
