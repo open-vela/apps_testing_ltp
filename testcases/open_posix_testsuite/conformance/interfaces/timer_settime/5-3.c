@@ -92,6 +92,7 @@ int main(void)
 			sleep(LONGSLEEPTIME);
 		}
 		its.it_value.tv_sec -= SUBTRACTAMOUNT;
+		its.it_value.tv_sec = its.it_value.tv_sec > 0 ? its.it_value.tv_sec : 1;
 	}
 	fails = NUMTESTS - passes;
 
