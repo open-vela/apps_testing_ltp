@@ -18,6 +18,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#include "lapi/syscalls.h"
+
 #include "usctest.h"
 
 #include "tst_common.h"
