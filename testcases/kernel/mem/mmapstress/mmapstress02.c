@@ -55,13 +55,13 @@ static int fd;
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-char *TCID = "mmapstress02";	//uiomove_phys_fail
-FILE *temp;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static char *TCID = "mmapstress02";	//uiomove_phys_fail
+static FILE *temp;
+static int TST_TOTAL = 1;
 
-int anyfail();
-void ok_exit();
+static int anyfail();
+static void ok_exit();
 /*****  **      **      *****/
 
  /*ARGSUSED*/ static
@@ -174,14 +174,14 @@ int main(int argc, char *argv[])
 }
 
 /*****  LTP Port        *****/
-void ok_exit(void)
+static void ok_exit(void)
 {
 	tst_resm(TPASS, "Test passed\n");
 	tst_rmdir();
 	tst_exit();
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_brkm(TFAIL, tst_rmdir, "Test failed");
 }

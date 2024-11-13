@@ -39,7 +39,7 @@
 
 #define MAP_SIZE (1UL<<20)
 
-volatile int end;
+static volatile int end;
 static long default_tune = -1;
 static long orig_overcommit = -1;
 static unsigned long total_mem;

@@ -55,8 +55,8 @@ static struct test_case_t {
 	{&dir_fd, "test_file/test_file", BUFF_SIZE, ENOTDIR},
 };
 
-char *TCID = "readlinkat02";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "readlinkat02";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void setup(void);
 static void cleanup(void);
 static void readlinkat_verify(const struct test_case_t *);

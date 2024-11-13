@@ -39,7 +39,7 @@ static uid_t neg_one = -1;
 
 static struct passwd nobody, daemonpw, root, bin;
 
-struct test_data_t {
+static struct test_data_t {
 	uid_t *real_uid;
 	uid_t *eff_uid;
 	int *exp_ret;
@@ -76,7 +76,7 @@ struct test_data_t {
 	&neg_one, &bin.pw_uid, &fail, &daemonpw, &daemonpw,
 		    "After setreuid(-1, bin),"},};
 
-int TST_TOTAL = ARRAY_SIZE(test_data);
+static int TST_TOTAL = ARRAY_SIZE(test_data);
 
 static void setup(void);
 static void cleanup(void);

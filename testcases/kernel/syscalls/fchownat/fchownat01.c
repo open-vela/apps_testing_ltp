@@ -62,8 +62,8 @@ static struct test_case_t {
 	{0, 0, 0, &cu_fd, TESTFILE},
 };
 
-char *TCID = "fchownat01";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "fchownat01";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void fchownat_verify(const struct test_case_t *);
 
 int main(int ac, char **av)

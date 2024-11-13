@@ -121,23 +121,23 @@
   * steps are usually put in separate functions for clarity.  The help function
   * is only needed when you are adding new command line options.
   */
-void setup();
-void help();
-void cleanup();
+static void setup();
+static void help();
+static void cleanup();
 
-char *TCID = "readdir01";
-int TST_TOTAL = 2;
+static char *TCID = "readdir01";
+static int TST_TOTAL = 2;
 
 #define BASENAME	"readdirfile"
 
-char Basename[255];
-char Fname[255];
-int Nfiles = 0;
+static char Basename[255];
+static char Fname[255];
+static int Nfiles = 0;
 
-char *Nfilearg;
-int Nflag = 0;
+static char *Nfilearg;
+static int Nflag = 0;
 
-option_t options[] = {
+static option_t options[] = {
 	{"N:", &Nflag, &Nfilearg},	/* -N #files */
 	{NULL, NULL, NULL}
 };
@@ -270,7 +270,7 @@ int main(int ac, char **av)
  * standard out.  Your help function will be called after the standard options
  * have been printed
  */
-void help(void)
+static void help(void)
 {
 	printf("  -N #files : create #files files every iteration\n");
 }
@@ -278,7 +278,7 @@ void help(void)
 /***************************************************************
  * setup() - performs all ONE TIME setup for this test.
  ***************************************************************/
-void setup(void)
+static void setup(void)
 {
 	/* You will want to enable some signal handling so you can capture
 	 * unexpected signals like SIGSEGV.
@@ -305,7 +305,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *		completion or premature exit.
  ***************************************************************/
-void cleanup(void)
+static void cleanup(void)
 {
 
 	/* If you use a temporary directory, you need to be sure you remove it. Use

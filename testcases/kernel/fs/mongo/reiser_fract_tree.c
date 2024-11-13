@@ -12,7 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 char tdir[256];
-char path[256];
+static char path[256];
 long stats = 0;
 
 void print_usage()

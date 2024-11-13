@@ -47,8 +47,8 @@ static void usage(void);
 static int debug = 0;
 static int fd;
 
-char *TCID = "dio_sparse";
-int TST_TOTAL = 1;
+static char *TCID = "dio_sparse";
+static int TST_TOTAL = 1;
 
 #include "common_sparse.h"
 

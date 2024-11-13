@@ -44,7 +44,7 @@ enum kcmp_type {
 
 #if !defined(HAVE_KCMP)
 
-int kcmp(int pid1, int pid2, int type, int fd1, int fd2)
+static int kcmp(int pid1, int pid2, int type, int fd1, int fd2)
 {
 	return tst_syscall(__NR_kcmp, pid1, pid2, type, fd1, fd2);
 }

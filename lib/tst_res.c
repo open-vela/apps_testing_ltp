@@ -53,8 +53,8 @@
 #include "ltp_priv.h"
 #include "tst_ansi_color.h"
 
-long TEST_RETURN;
-int TEST_ERRNO;
+static long TEST_RETURN;
+static int TEST_ERRNO;
 void *TST_RET_PTR;
 
 #define VERBOSE      1

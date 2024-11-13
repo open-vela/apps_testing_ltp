@@ -15,7 +15,7 @@
 /* LO_HI_LONG taken from glibc */
 # define LO_HI_LONG(val) (long) (val), (long) (((uint64_t) (val)) >> 32)
 
-ssize_t pwritev2(int fd, const struct iovec *iov, int iovcnt, off_t offset,
+static ssize_t pwritev2(int fd, const struct iovec *iov, int iovcnt, off_t offset,
 		int flags)
 {
 	return tst_syscall(__NR_pwritev2, fd, iov, iovcnt,

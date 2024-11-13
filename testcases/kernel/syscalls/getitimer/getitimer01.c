@@ -32,8 +32,8 @@
 static void cleanup(void);
 static void setup(void);
 
-char *TCID = "getitimer01";
-int TST_TOTAL = 3;
+static char *TCID = "getitimer01";
+static int TST_TOTAL = 3;
 
 static int itimer_name[] = {
 	ITIMER_REAL,

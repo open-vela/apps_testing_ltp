@@ -40,8 +40,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "pipe07";
-int TST_TOTAL = 1;
+static char *TCID = "pipe07";
+static int TST_TOTAL = 1;
 
 /* used to record file descriptors open at the test start */
 static int rec_fds[128];

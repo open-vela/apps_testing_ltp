@@ -32,8 +32,8 @@
 #endif
 #include "test.h"
 
-char *TCID = "filecaps";
-int TST_TOTAL = 1;
+static char *TCID = "filecaps";
+static int TST_TOTAL = 1;
 
 #ifdef HAVE_LIBCAP
 void debug_print_caps(char *when)

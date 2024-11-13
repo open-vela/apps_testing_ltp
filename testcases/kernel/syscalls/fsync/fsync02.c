@@ -24,10 +24,10 @@
 #define TIME_LIMIT 120
 #define BUF_SIZE 2048
 
-char tempfile[40] = "";
-char pbuf[BUF_SIZE];
-int fd;
-off_t max_blks = MAXBLKS;
+static char tempfile[40] = "";
+static char pbuf[BUF_SIZE];
+static int fd;
+static off_t max_blks = MAXBLKS;
 
 struct statvfs stat_buf;
 

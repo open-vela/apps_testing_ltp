@@ -218,10 +218,10 @@
 
 #include "test.h"
 
-void setup(void);
-void cleanup(void);
-void help(void);
-void delete_files(char *path1, char *path2);
+static void setup(void);
+static void cleanup(void);
+static void help(void);
+static void delete_files(char *path1, char *path2);
 struct all_test_cases;
 void do_EEXIST(struct all_test_cases *tc_ptr);
 void do_ENOENT(struct all_test_cases *tc_ptr);
@@ -230,15 +230,15 @@ void do_ENOTDIR(struct all_test_cases *tc_ptr);
 void do_EXDEV(struct all_test_cases *tc_ptr);
 void do_ENAMETOOLONG(struct all_test_cases *tc_ptr);
 void do_EINVAL(struct all_test_cases *tc_ptr);
-void do_readlink(struct all_test_cases *tc_ptr);
-void do_stat(struct all_test_cases *tc_ptr);
-void do_chdir(struct all_test_cases *tc_ptr);
-void do_link(struct all_test_cases *tc_ptr);
-void do_unlink(struct all_test_cases *tc_ptr);
-void do_chmod(struct all_test_cases *tc_ptr);
-void do_utime(struct all_test_cases *tc_ptr);
-void do_rename(struct all_test_cases *tc_ptr);
-void do_open(struct all_test_cases *tc_ptr);
+static void do_readlink(struct all_test_cases *tc_ptr);
+static void do_stat(struct all_test_cases *tc_ptr);
+static void do_chdir(struct all_test_cases *tc_ptr);
+static void do_link(struct all_test_cases *tc_ptr);
+static void do_unlink(struct all_test_cases *tc_ptr);
+static void do_chmod(struct all_test_cases *tc_ptr);
+static void do_utime(struct all_test_cases *tc_ptr);
+static void do_rename(struct all_test_cases *tc_ptr);
+static void do_open(struct all_test_cases *tc_ptr);
 struct tcses;
 int do_syscalltests(struct tcses *tcs);
 struct tcses *get_tcs_info(char *ptr);
@@ -325,7 +325,7 @@ int ck_path_max(char *path1, char *path2, char *path3);
 /*
  *  Define test cases
  */
-struct all_test_cases {
+static struct all_test_cases {
 	char *tcid;
 	int test_fail;
 	int errno_val;
@@ -493,21 +493,21 @@ OPEN, "open", 5, &test_objects[39],
  * Define GLOBAL variables
  */
 
-int TST_TOTAL;
-int TEST_RESULT;
-time_t a_time_value = 100;
-char *TCID;
-char *Selectedtests = NULL;	/* Name (tcid) of selected test cases */
-char test_msg[BUFMAX];
-char full_path[PATH_MAX + 1 + 1];	/* Add one for '\0' and another to exceed the PATH_MAX limit, see creat_path_max() */
+static int TST_TOTAL;
+static int TEST_RESULT;
+static time_t a_time_value = 100;
+static char *TCID;
+static char *Selectedtests = NULL;	/* Name (tcid) of selected test cases */
+static char test_msg[BUFMAX];
+static char full_path[PATH_MAX + 1 + 1];	/* Add one for '\0' and another to exceed the PATH_MAX limit, see creat_path_max() */
 
-struct stat asymlink, statter;
-char Buffer[1024];
-char Buf[1024];
+static struct stat asymlink, statter;
+static char Buffer[1024];
+static char Buf[1024];
 
-char *Tcid = NULL;
+static char *Tcid = NULL;
 
-option_t Options[] = {
+static option_t Options[] = {
 	{"T:", NULL, &Tcid},	/* -T tcid option */
 	{NULL, NULL, NULL}
 };
@@ -1379,7 +1379,7 @@ void do_EINVAL(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_readlink(struct all_test_cases *tc_ptr)
+static void do_readlink(struct all_test_cases *tc_ptr)
 {
 	char scratch[PATH_MAX];
 	int ret;
@@ -1415,7 +1415,7 @@ void do_readlink(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_stat(struct all_test_cases *tc_ptr)
+static void do_stat(struct all_test_cases *tc_ptr)
 {
 	if (statter.st_dev != asymlink.st_dev)
 		tst_resm(TFAIL,
@@ -1474,7 +1474,7 @@ void do_stat(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_chdir(struct all_test_cases *tc_ptr)
+static void do_chdir(struct all_test_cases *tc_ptr)
 {
 	if (mkdir(tc_ptr->fn_arg[2], MODE) == -1)
 		tst_resm(TFAIL, "Could not create a setup directory file");
@@ -1527,7 +1527,7 @@ void do_chdir(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_link(struct all_test_cases *tc_ptr)
+static void do_link(struct all_test_cases *tc_ptr)
 {
 	struct stat stbuf;
 
@@ -1584,7 +1584,7 @@ void do_link(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_unlink(struct all_test_cases *tc_ptr)
+static void do_unlink(struct all_test_cases *tc_ptr)
 {
 	if (stat(tc_ptr->fn_arg[2], &asymlink) == -1)
 		tst_resm(TBROK, "stat(2) Failure when accessing %s object file",
@@ -1622,7 +1622,7 @@ void do_unlink(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_chmod(struct all_test_cases *tc_ptr)
+static void do_chmod(struct all_test_cases *tc_ptr)
 {
 	if (stat(tc_ptr->fn_arg[2], &asymlink) == -1)
 		tst_resm(TBROK, "stat(2) Failure when accessing %s object file",
@@ -1660,7 +1660,7 @@ void do_chmod(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_utime(struct all_test_cases *tc_ptr)
+static void do_utime(struct all_test_cases *tc_ptr)
 {
 	struct utimbuf utimes;
 
@@ -1716,7 +1716,7 @@ void do_utime(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_rename(struct all_test_cases *tc_ptr)
+static void do_rename(struct all_test_cases *tc_ptr)
 {
 	int pts_at_object = 0;
 
@@ -1753,7 +1753,7 @@ void do_rename(struct all_test_cases *tc_ptr)
  *   Argument is pointer to test_objects array of structures of type
  *   all_test_cases
  ***********************************************************************/
-void do_open(struct all_test_cases *tc_ptr)
+static void do_open(struct all_test_cases *tc_ptr)
 {
 	int fd = -1;
 	int ret, pts_at_object = 0;
@@ -1850,7 +1850,7 @@ void do_open(struct all_test_cases *tc_ptr)
 /***************************************************************
  * setup() - performs all ONE TIME setup for this test.
  ***************************************************************/
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -1866,14 +1866,14 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *              completion or premature exit.
  ***************************************************************/
-void cleanup(void)
+static void cleanup(void)
 {
 
 	tst_rmdir();
 
 }
 
-void help(void)
+static void help(void)
 {
 	int ind;
 

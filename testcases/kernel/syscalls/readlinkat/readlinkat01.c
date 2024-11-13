@@ -40,7 +40,7 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "readlinkat01";
+static char *TCID = "readlinkat01";
 
 static int dir_fd, fd;
 static int fd_invalid = 100;
@@ -65,7 +65,7 @@ static struct test_case {
 	{&fd_atcwd, TEST_SYMLINK, TEST_FILE, sizeof(TEST_FILE)-1, 0},
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void verify_readlinkat(struct test_case *test)
 {

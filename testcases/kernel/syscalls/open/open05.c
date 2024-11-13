@@ -37,8 +37,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "open05";
-int TST_TOTAL = 1;
+static char *TCID = "open05";
+static int TST_TOTAL = 1;
 
 static char fname[20];
 static int fd;

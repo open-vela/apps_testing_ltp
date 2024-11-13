@@ -42,7 +42,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "statfs02";
+static char *TCID = "statfs02";
 
 static int fd;
 
@@ -69,7 +69,7 @@ static struct test_case_t {
 	{TEST_SYMLINK, &buf, ELOOP},
 };
 
-int TST_TOTAL = ARRAY_SIZE(TC);
+static int TST_TOTAL = ARRAY_SIZE(TC);
 static void setup(void);
 static void cleanup(void);
 static void statfs_verify(const struct test_case_t *);

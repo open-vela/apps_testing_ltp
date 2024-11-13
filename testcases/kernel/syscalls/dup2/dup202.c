@@ -55,20 +55,20 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "dup202";
-int TST_TOTAL = 3;
+static char *TCID = "dup202";
+static int TST_TOTAL = 3;
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 
-char testfile[40];
-int fail;
-int newfd;
+static char testfile[40];
+static int fail;
+static int newfd;
 
 /* set these to a known index into our local file descriptor table */
-int duprdo = 10, dupwro = 20, duprdwr = 30;
+static int duprdo = 10, dupwro = 20, duprdwr = 30;
 
-struct test_case_t {
+static struct test_case_t {
 	int *nfd;
 	mode_t mode;
 } TC[] = {
@@ -143,7 +143,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -161,7 +161,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }

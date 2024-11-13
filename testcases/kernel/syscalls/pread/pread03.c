@@ -61,7 +61,7 @@
  *             -t   : Turn on syscall timing.
  *
  * HISTORY
- *	04/2002 Ported by André Merlier
+ *	04/2002 Ported by Andrï¿½ Merlier
  *
  * RESTRICTIONS:
  *  None.
@@ -84,15 +84,15 @@
 #define K1              2048
 #define NBUFS           1
 
-char *TCID = "pread03";
-int TST_TOTAL = 1;
+static char *TCID = "pread03";
+static int TST_TOTAL = 1;
 
-char *read_buf[NBUFS];		/* buffer to hold data read from file */
-int fd1;
+static char *read_buf[NBUFS];		/* buffer to hold data read from file */
+static int fd1;
 
-void setup();			/* Main setup function of test */
-void cleanup();			/* cleanup function for the test */
-void init_buffers();		/* function to initialize/allocate buffers */
+static void setup();			/* Main setup function of test */
+static void cleanup();			/* cleanup function for the test */
+static void init_buffers();		/* function to initialize/allocate buffers */
 
 int main(int ac, char **av)
 {
@@ -146,7 +146,7 @@ int main(int ac, char **av)
  * setup() - performs all ONE TIME setup for this test.
  *           create temporary directory and open it
  */
-void setup(void)
+static void setup(void)
 {
 	tst_sig(FORK, DEF_HANDLER, cleanup);
 
@@ -178,7 +178,7 @@ void setup(void)
  *
  *  Allocate read buffer.
  */
-void init_buffers(void)
+static void init_buffers(void)
 {
 	int count;		/* counter variable for loop */
 
@@ -199,7 +199,7 @@ void init_buffers(void)
  *
  *  Close/Remove the temporary directory created.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	int count;
 

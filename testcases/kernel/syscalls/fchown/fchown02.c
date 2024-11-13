@@ -47,11 +47,11 @@
 #define TESTFILE2	"testfile2"
 
 TCID_DEFINE(fchown02);
-int TST_TOTAL = 2;
+static int TST_TOTAL = 2;
 static int fd1;
 static int fd2;
 
-struct test_case {
+static struct test_case {
 	int *fd;
 	char *pathname;
 	char *desc;

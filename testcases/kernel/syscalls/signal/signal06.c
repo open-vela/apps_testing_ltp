@@ -50,8 +50,8 @@
 #include "test.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "signal06";
-int TST_TOTAL = 5;
+static char *TCID = "signal06";
+static int TST_TOTAL = 5;
 
 #if __x86_64__
 

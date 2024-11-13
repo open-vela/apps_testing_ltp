@@ -57,8 +57,8 @@ static struct test_case_t {
 	{&old_fd, &new_fd, INVALID_FLAG, EINVAL}
 };
 
-char *TCID = "dup3_02";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "dup3_02";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

@@ -15,7 +15,7 @@
 
 static int fds[2];
 
-int sample_fn(int clk_id, long long usec)
+static int sample_fn(int clk_id, long long usec)
 {
 	unsigned int sleep_ms = usec / 1000;
 

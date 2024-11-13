@@ -70,14 +70,14 @@
 #include <unistd.h>
 #include "test.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "sigaction01";
-int TST_TOTAL = 4;
+static char *TCID = "sigaction01";
+static int TST_TOTAL = 4;
 
-volatile sig_atomic_t testcase_no;
-volatile sig_atomic_t pass;
+static volatile sig_atomic_t testcase_no;
+static volatile sig_atomic_t pass;
 
 /*
  * handler()
@@ -86,7 +86,7 @@ volatile sig_atomic_t pass;
  * 	being executed and compares the current conditions to the ones it
  * 	expects (based on the test case number).
  */
-void handler(int sig, siginfo_t * sip, void *ucp)
+static void handler(int sig, siginfo_t * sip, void *ucp)
 {
 	struct sigaction oact;
 	int err;
@@ -189,7 +189,7 @@ void handler(int sig, siginfo_t * sip, void *ucp)
  * 	Establish a signal handler for SIGUSR1 with the specified flags and
  * 	signal to mask while the handler executes.
  */
-int set_handler(int flags, int sig_to_mask)
+static int set_handler(int flags, int sig_to_mask)
 {
 	struct sigaction sa;
 
@@ -210,7 +210,7 @@ int set_handler(int flags, int sig_to_mask)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	TEST_PAUSE;
@@ -220,7 +220,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 }

@@ -36,15 +36,15 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "getrusage03_child";
-int TST_TOTAL = 1;
+static char *TCID = "getrusage03_child";
+static int TST_TOTAL = 1;
 
 #define DELTA_MAX	10240
 
 static int opt_consume, opt_grand, opt_show, opt_self, opt_child;
 static char *consume_str, *grand_consume_str, *self_str, *child_str;
 
-option_t child_options[] = {
+static option_t child_options[] = {
 	{"n:", &opt_consume, &consume_str},
 	{"g:", &opt_grand, &grand_consume_str},
 	{"v", &opt_show, NULL},

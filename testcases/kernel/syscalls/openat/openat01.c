@@ -42,7 +42,7 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "openat01";
+static char *TCID = "openat01";
 
 static int dir_fd, fd;
 static int fd_invalid = 100;
@@ -66,7 +66,7 @@ static struct test_case {
 	{&fd_atcwd, TEST_DIR TEST_FILE, 0, 0}
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void verify_openat(struct test_case *test)
 {

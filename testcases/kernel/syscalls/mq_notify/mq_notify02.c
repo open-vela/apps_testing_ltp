@@ -26,7 +26,7 @@
 #include <mqueue.h>
 #include "test.h"
 
-char *TCID = "mq_notify02";
+static char *TCID = "mq_notify02";
 static void setup(void);
 static void cleanup(void);
 
@@ -38,7 +38,7 @@ static struct test_case_t {
 	{{.sigev_notify = SIGEV_SIGNAL, .sigev_signo = _NSIG+1}, EINVAL},
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void mq_notify_verify(struct test_case_t *);
 
 int main(int argc, char **argv)

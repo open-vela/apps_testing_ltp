@@ -30,8 +30,8 @@
 
 #include "test.h"
 
-char *TCID = "pause02";
-int TST_TOTAL = 1;
+static char *TCID = "pause02";
+static int TST_TOTAL = 1;
 static pid_t cpid;
 
 static void do_child(void);

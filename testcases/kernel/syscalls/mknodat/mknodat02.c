@@ -79,8 +79,8 @@ static struct test_case_t {
 
 static void mknodat_verify(struct test_case_t *tc);
 
-char *TCID = "mknodat";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "mknodat";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

@@ -35,7 +35,7 @@
 
 #include "common_checkzero.h"
 
-int read_eof(char *filename)
+static int read_eof(char *filename)
 {
 	int fd;
 	int i;

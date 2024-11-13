@@ -53,7 +53,7 @@
 
 static char longpath[PATH_MAX + 2];
 
-struct test_case_t {
+static struct test_case_t {
 	char *file1;
 	char *desc1;
 	char *file2;
@@ -81,8 +81,8 @@ struct test_case_t {
 	{"regfile", "regfile", "regfile2", "regfile2", EEXIST},
 };
 
-char *TCID = "link04";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "link04";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void setup(void);
 static void cleanup(void);

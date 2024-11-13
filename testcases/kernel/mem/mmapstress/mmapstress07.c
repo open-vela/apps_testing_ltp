@@ -61,15 +61,15 @@ extern char *ctime(const time_t *);
 extern void exit(int);
 static int checkchars(int fd, char val, int n);
 
-char *TCID = "mmapstress07";
+static char *TCID = "mmapstress07";
 
-int local_flag = PASSED;
-int block_number;
-FILE *temp;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static int block_number;
+static FILE *temp;
+static int TST_TOTAL = 1;
 
-int anyfail();
-void ok_exit();
+static int anyfail();
+static void ok_exit();
 
  /*ARGSUSED*/ static
 void cleanup(int sig)
@@ -311,12 +311,12 @@ static int checkchars(int fd, char val, int n)
 }
 
 /*****	**	LTP Port	**	*****/
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_brkm(TFAIL, tst_rmdir, "Test failed\n");
 }
 
-void ok_exit(void)
+static void ok_exit(void)
 {
 	tst_resm(TPASS, "Test passed\n");
 	tst_rmdir();

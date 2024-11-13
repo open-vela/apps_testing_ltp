@@ -36,7 +36,7 @@
 #define TEST_SYMLINK	"statvfs_symlink"
 #define TEST_FILE	"statvfs_file"
 
-char *TCID = "statvfs02";
+static char *TCID = "statvfs02";
 
 static struct statvfs buf;
 static char nametoolong[PATH_MAX+2];
@@ -55,7 +55,7 @@ static struct test_case_t {
 	{"statvfs_file/test", &buf, ENOTDIR},
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void statvfs_verify(const struct test_case_t *);
 
 int main(int argc, char **argv)

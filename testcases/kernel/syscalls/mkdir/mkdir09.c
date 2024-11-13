@@ -56,24 +56,24 @@
 #define MODE_RWX	07770
 #define DIR_NAME	"./X.%d"
 
-char *TCID = "mkdir09";
-int TST_TOTAL = 1;
+static char *TCID = "mkdir09";
+static int TST_TOTAL = 1;
 
-char testdir[MAXPATHLEN];
-int parent_pid, sigchld, sigterm, jump;
-void term(int sig);
-void chld(int sig);
-int *pidlist, child_count;
-jmp_buf env_buf;
+static char testdir[MAXPATHLEN];
+static int parent_pid, sigchld, sigterm, jump;
+static void term(int sig);
+static void chld(int sig);
+static int *pidlist, child_count;
+static jmp_buf env_buf;
 
-int getchild(int group, int child, int children);
-int dochild1(void);
-int dochild2(void);
-int dochild3(int group);
-int massmurder(void);
-int runtest(void);
-void setup(void);
-void cleanup(void);
+static int getchild(int group, int child, int children);
+static int dochild1(void);
+static int dochild2(void);
+static int dochild3(int group);
+static int massmurder(void);
+static int runtest(void);
+static void setup(void);
+static void cleanup(void);
 
 static int child_groups = 2;
 static int test_time = 5;
@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-int runtest(void)
+static int runtest(void)
 {
 	int i, j;
 	int count, child, status;
@@ -261,7 +261,7 @@ int runtest(void)
 	return 0;
 }
 
-int getchild(int group, int child, int children)
+static int getchild(int group, int child, int children)
 {
 	int pid;
 
@@ -295,7 +295,7 @@ int getchild(int group, int child, int children)
 	return 0;
 }
 
-void term(int sig)
+static void term(int sig)
 {
 	/* Routine to handle SIGTERM signal. */
 
@@ -308,7 +308,7 @@ void term(int sig)
 	}
 }
 
-void chld(int sig)
+static void chld(int sig)
 {
 	/* Routine to handle SIGCHLD signal. */
 
@@ -318,7 +318,7 @@ void chld(int sig)
 	}
 }
 
-int dochild1(void)
+static int dochild1(void)
 {
 	/* Child routine which attempts to create directories in the test
 	 * directory that already exist. Runs until a SIGTERM signal is
@@ -353,7 +353,7 @@ int dochild1(void)
 	exit(0);
 }
 
-int dochild2(void)
+static int dochild2(void)
 {
 	/* Child routine which attempts to remove directories from the
 	 * test directory which do not exist. Runs until a SIGTERM
@@ -387,7 +387,7 @@ int dochild2(void)
 	return 0;
 }
 
-int dochild3(int group)
+static int dochild3(int group)
 {
 	/* Child routine which creates and deletes directories in the
 	 * test directory. Runs until a SIGTERM signal is received, then
@@ -430,7 +430,7 @@ int dochild3(int group)
 	exit(0);
 }
 
-int massmurder(void)
+static int massmurder(void)
 {
 	register int j;
 	for (j = 0; j < child_count; j++) {
@@ -445,7 +445,7 @@ int massmurder(void)
 	return 0;
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
@@ -454,7 +454,7 @@ void setup(void)
 	tst_tmpdir();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }

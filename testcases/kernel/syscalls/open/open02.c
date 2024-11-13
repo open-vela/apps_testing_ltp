@@ -33,7 +33,7 @@ static struct tcase {
 	{TEST_FILE2, O_RDONLY | O_NOATIME, EPERM},
 };
 
-void setup(void)
+static void setup(void)
 {
 	struct passwd *ltpuser;
 
@@ -66,7 +66,7 @@ static void verify_open(unsigned int n)
 	tst_res(TPASS | TTERRNO, "open() failed as expected");
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	SAFE_SETEUID(0);
 }

@@ -36,14 +36,14 @@
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-char *TCID = "mmapstress08";
-FILE *temp;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static char *TCID = "mmapstress08";
+static FILE *temp;
+static int TST_TOTAL = 1;
 
 #if defined(__i386__) || defined(__x86_64__)
-int anyfail();
-void ok_exit();
+static int anyfail();
+static void ok_exit();
 /*****  **      **      *****/
 
 #define NPTEPG		(1024)
@@ -105,13 +105,13 @@ extern long sysconf(int name);
 }
 
 /*****  LTP Port        *****/
-void ok_exit(void)
+static void ok_exit(void)
 {
 	tst_resm(TPASS, "Test passed\n");
 	tst_exit();
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_brkm(TFAIL, NULL, "Test failed\n");
 }

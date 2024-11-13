@@ -33,8 +33,8 @@ static void setup(void);
 static void umount2_verify(void);
 static void cleanup(void);
 
-char *TCID = "umount2_01";
-int TST_TOTAL = 1;
+static char *TCID = "umount2_01";
+static int TST_TOTAL = 1;
 
 #define DIR_MODE	(S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)
 #define FILE_MODE	(S_IRWXU | S_IRWXG | S_IRWXO | S_ISUID | S_ISGID)

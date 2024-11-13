@@ -53,8 +53,8 @@
 #include "tst_kernel.h"
 #include "lapi/abisize.h"
 
-char *TCID = "vma03";
-int TST_TOTAL = 1;
+static char *TCID = "vma03";
+static int TST_TOTAL = 1;
 
 #ifdef __NR_mmap2
 #define TESTFILE "testfile"

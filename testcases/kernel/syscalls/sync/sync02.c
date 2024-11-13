@@ -80,13 +80,13 @@
 #define TEMP_FILE	"temp_file"
 #define FILE_MODE       S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
 
-char *TCID = "sync02";
-int TST_TOTAL = 1;
-char write_buffer[BUFSIZ];	/* buffer used to write data to file */
-int fildes;			/* file descriptor for temporary file */
+static char *TCID = "sync02";
+static int TST_TOTAL = 1;
+static char write_buffer[BUFSIZ];	/* buffer used to write data to file */
+static int fildes;			/* file descriptor for temporary file */
 
-void setup();			/* Main setup function of test */
-void cleanup();			/* cleanup function for the test */
+static void setup();			/* Main setup function of test */
+static void cleanup();			/* cleanup function for the test */
 
 int main(int ac, char **av)
 {
@@ -149,7 +149,7 @@ int main(int ac, char **av)
  *  Create a test file under temporary directory and write some
  *  data into it.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -189,7 +189,7 @@ void setup(void)
  *             completion or premature exit.
  *  Remove the test directory and testfile created in the setup.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	/* Close the temporary file */

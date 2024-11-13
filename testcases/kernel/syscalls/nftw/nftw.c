@@ -28,42 +28,42 @@
 #include <pwd.h>
 #include "nftw.h"
 
-void setup(void);
-void blenter(void);
-void blexit(void);
-void anyfail(void);
+static void setup(void);
+static void blenter(void);
+static void blexit(void);
+static void anyfail(void);
 
-char progname[] = "nftw.c";
+static char progname[] = "nftw.c";
 
 /** LTP Port **/
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
+static int local_flag = PASSED;
+static int block_number;
 
-FILE *temp;
-char *TCID = "nftw01";
-int TST_TOTAL = 10;
+static FILE *temp;
+static char *TCID = "nftw01";
+static int TST_TOTAL = 10;
 
-struct passwd *ltpuser;		/* password struct for ltpuser */
+static struct passwd *ltpuser;		/* password struct for ltpuser */
 /**************/
 
 /* Used for error return for some library routines */
-int s2;
+static int s2;
 
 /* error messages formatted here. */
-char ebuf[ERR_BUF_SIZ];
+static char ebuf[ERR_BUF_SIZ];
 
 /*
  * Local data declarations.
  */
-char *dirlist[NDIRLISTENTS];
+static char *dirlist[NDIRLISTENTS];
 
-int visit;
-int next_fd[4];
+static int visit;
+static int next_fd[4];
 
-pathdata pathdat[] = {
+static pathdata pathdat[] = {
 	{
 	 "./tmp/data",
 	 S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH,
@@ -212,7 +212,7 @@ pathdata pathdat[] = {
 										"./loop"}
 };
 
-char *goodlist[] = {
+static char *goodlist[] = {
 	"/dirh",
 	"/dirh/dir_left.1",
 	"/dirh/dir_right.1",
@@ -222,7 +222,7 @@ char *goodlist[] = {
 	"/dirh/dir_right.1/dir_right.2/right.3"
 };
 
-struct list badlist[] = {
+static struct list badlist[] = {
 	{"/dirg", FTW_D},
 	{"/dirg/dir_left.1", FTW_D},
 	/* not FTW_NS in following since stat can't fail if file exists */
@@ -234,7 +234,7 @@ struct list badlist[] = {
 	{"/dirg/dir_left.1/dir_left.2/left.3", FTW_F},
 };
 
-struct list mnem[] = {
+static struct list mnem[] = {
 	{"FTW_F", FTW_F},
 	{"FTW_D", FTW_D},
 	{"FTW_DNR", FTW_DNR},
@@ -247,7 +247,7 @@ struct list mnem[] = {
 #endif
 };
 
-int npathdats, ngoods, nbads, nmnem;
+static int npathdats, ngoods, nbads, nmnem;
 
 /*--------------------------------------------------------------*/
 int main(void)
@@ -671,7 +671,7 @@ int main(void)
  *
  * Do set up - here its a dummy function
  */
-void setup(void)
+static void setup(void)
 {
 	/* Direct debug output to stderr */
 	temp = stderr;
@@ -693,7 +693,7 @@ void setup(void)
  *
  * Description: Print message on entering a new block
  */
-void blenter(void)
+static void blenter(void)
 {
 	local_flag = PASSED;
 	return;
@@ -706,7 +706,7 @@ void blenter(void)
  *              of a test. It will report the status if the test ie fail or
  *              pass.
  */
-void blexit(void)
+static void blexit(void)
 {
 	(local_flag == PASSED) ? tst_resm(TPASS, "Test block %d", block_number)
 	    : tst_resm(TFAIL, "Test block %d", block_number);
@@ -720,7 +720,7 @@ void blexit(void)
  *
  * Description: Exit a test.
  */
-void anyfail(void)
+static void anyfail(void)
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL, "Test failed")
 	    : tst_resm(TPASS, "Test passed");

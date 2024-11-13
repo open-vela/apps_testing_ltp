@@ -72,8 +72,8 @@
  *
  * parse_args: parse command line arguments
  */
-void process_file(char *);
-void parse_args(int, char **);
+static void process_file(char *);
+static void parse_args(int, char **);
 
 /*
  * Global variables:
@@ -170,7 +170,7 @@ int main(int argc, char **argv)
 |            end-of-file and then closes the file..                    |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void process_file(char *filename)
+static void process_file(char *filename)
 {
 	char record[100];	/* holds each record of the file read */
 	FILE *datafile;		/* file pointer to the open file */
@@ -211,7 +211,7 @@ void process_file(char *filename)
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int pflg = 0, tflg = 0;

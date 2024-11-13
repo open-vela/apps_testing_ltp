@@ -64,21 +64,21 @@
 #endif /* Not def: OFF_T */
 
 TCID_DEFINE(sendfile02);
-int TST_TOTAL = 4;
+static int TST_TOTAL = 4;
 
-char in_file[100];
-char out_file[100];
-int out_fd;
-pid_t child_pid;
+static char in_file[100];
+static char out_file[100];
+static int out_fd;
+static pid_t child_pid;
 static int sockfd, s;
 static struct sockaddr_in sin1;	/* shared between do_child and create_server */
 
-void cleanup(void);
-void do_child(void);
-void setup(void);
-int create_server(void);
+static void cleanup(void);
+static void do_child(void);
+static void setup(void);
+static int create_server(void);
 
-struct test_case_t {
+static struct test_case_t {
 	char *desc;
 	int offset;
 	int exp_retval;
@@ -95,7 +95,7 @@ struct test_case_t {
 static char *argv0;
 #endif
 
-void do_sendfile(OFF_T offset, int i)
+static void do_sendfile(OFF_T offset, int i)
 {
 	int in_fd;
 	struct stat sb;
@@ -154,7 +154,7 @@ void do_sendfile(OFF_T offset, int i)
 /*
  * do_child
  */
-void do_child(void)
+static void do_child(void)
 {
 	int lc;
 	socklen_t length;
@@ -171,7 +171,7 @@ void do_child(void)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 	int fd;
 	char buf[100];
@@ -199,7 +199,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	close(out_fd);
@@ -208,7 +208,7 @@ void cleanup(void)
 
 }
 
-int create_server(void)
+static int create_server(void)
 {
 	static int count = 0;
 	socklen_t slen = sizeof(sin1);

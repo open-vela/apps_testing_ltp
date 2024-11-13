@@ -36,7 +36,7 @@ unsigned long count;
 volatile int start = 0;
 volatile double f = 2744545.34456455;
 
-void sighandler(UNUSED int signo)
+static void sighandler(UNUSED int signo)
 {
 	start = !start;
 }

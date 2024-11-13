@@ -35,18 +35,18 @@
 #include "test.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "tkill02";
-int testno;
+static char *TCID = "tkill02";
+static int testno;
 
 static pid_t inval_tid = -1;
 static pid_t unused_tid;
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }
 
-void setup(void)
+static void setup(void)
 {
 	TEST_PAUSE;
 	tst_tmpdir();
@@ -54,7 +54,7 @@ void setup(void)
 	unused_tid = tst_get_unused_pid(cleanup);
 }
 
-struct test_case_t {
+static struct test_case_t {
 	int *tid;
 	int exp_errno;
 } test_cases[] = {
@@ -62,7 +62,7 @@ struct test_case_t {
 	{&unused_tid, ESRCH}
 };
 
-int TST_TOTAL = sizeof(test_cases) / sizeof(test_cases[0]);
+static int TST_TOTAL = sizeof(test_cases) / sizeof(test_cases[0]);
 
 int main(int ac, char **av)
 {

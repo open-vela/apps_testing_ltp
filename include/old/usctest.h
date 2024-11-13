@@ -51,8 +51,8 @@
  ***********************************************************************/
 extern int STD_LOOP_COUNT; /* changed by -in to set loop count to n */
 
-extern long TEST_RETURN;
-extern int TEST_ERRNO;
+static long TEST_RETURN;
+static int TEST_ERRNO;
 
 /***********************************************************************
  * TEST: calls a system call

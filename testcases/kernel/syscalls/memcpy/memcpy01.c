@@ -46,7 +46,7 @@
 
 #include "test.h"
 
-char *TCID = "memcpy1";
+static char *TCID = "memcpy1";
 
 #undef  BSIZE
 #define BSIZE	4096
@@ -54,21 +54,21 @@ char *TCID = "memcpy1";
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
-FILE *temp;
-int TST_TOTAL = 1;
-char buf[BSIZE];
+static int local_flag = PASSED;
+static int block_number;
+static FILE *temp;
+static int TST_TOTAL = 1;
+static char buf[BSIZE];
 
 
-int anyfail();
-int blenter();
-int blexit();
+static int anyfail();
+static int blenter();
+static int blexit();
 
-void setup();
-void clearit();
-void fill(char *str);
-int checkit(char *str);
+static void setup();
+static void clearit();
+static void fill(char *str);
+static int checkit(char *str);
 
 int main(int argc, char *argv[])
 {
@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-void clearit(void)
+static void clearit(void)
 {
 	register int i;
 
@@ -144,14 +144,14 @@ void clearit(void)
 		buf[i] = 0;
 }
 
-void fill(char *str)
+static void fill(char *str)
 {
 	register int i;
 	for (i = 0; i < LEN; i++)
 		*str++ = 'a';
 }
 
-int checkit(char *str)
+static int checkit(char *str)
 {
 	register int i;
 	for (i = 0; i < LEN; i++)
@@ -161,7 +161,7 @@ int checkit(char *str)
 	return (0);
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL,
 					  "Test failed") : tst_resm(TPASS,
@@ -169,18 +169,18 @@ int anyfail(void)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	temp = stderr;
 }
 
-int blenter(void)
+static int blenter(void)
 {
 	local_flag = PASSED;
 	return 0;
 }
 
-int blexit(void)
+static int blexit(void)
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL,
 					  "Test failed") : tst_resm(TPASS,

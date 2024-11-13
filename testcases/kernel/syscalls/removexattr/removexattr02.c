@@ -39,7 +39,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "removexattr02";
+static char *TCID = "removexattr02";
 
 #ifdef HAVE_SYS_XATTR_H
 
@@ -60,7 +60,7 @@ static void verify_removexattr(struct test_case *tc);
 static void setup(void);
 static void cleanup(void);
 
-int TST_TOTAL = ARRAY_SIZE(tc);
+static int TST_TOTAL = ARRAY_SIZE(tc);
 
 int main(int ac, char **av)
 {

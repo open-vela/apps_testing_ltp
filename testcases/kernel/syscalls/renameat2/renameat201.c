@@ -47,7 +47,7 @@
 #define TEST_FILE3 "test_file3"
 #define NON_EXIST "non_exist"
 
-char *TCID = "renameat201";
+static char *TCID = "renameat201";
 
 static int olddirfd;
 static int newdirfd;
@@ -71,7 +71,7 @@ static struct test_case {
 				| RENAME_EXCHANGE, EINVAL}
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void setup(void);
 static void cleanup(void);

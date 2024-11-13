@@ -49,7 +49,7 @@ static void setup(void);
 static void cleanup(void);
 
 TCID_DEFINE(setreuid01);
-int TST_TOTAL = 5;
+static int TST_TOTAL = 5;
 
 static uid_t ruid, euid;	/* real and effective user ids */
 

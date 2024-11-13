@@ -73,7 +73,7 @@ static int waitpid_errno_check(int err, int exp_err)
 	return 0;
 }
 
-int waitpid_ret_test(pid_t wp_pid, int *wp_status, int wp_opts,
+static int waitpid_ret_test(pid_t wp_pid, int *wp_status, int wp_opts,
 		     pid_t wp_ret, int wp_errno)
 {
 	pid_t ret;

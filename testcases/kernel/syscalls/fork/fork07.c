@@ -47,8 +47,8 @@
 #include <sys/stat.h>
 #include "test.h"
 
-char *TCID = "fork07";
-int TST_TOTAL = 1;
+static char *TCID = "fork07";
+static int TST_TOTAL = 1;
 
 static void help(void);
 static void setup(void);

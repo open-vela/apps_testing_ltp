@@ -56,10 +56,10 @@
 static void cleanup(void);
 static void setup(void);
 
-char *TCID = "mprotect03";
-int TST_TOTAL = 1;
-int status;
-char file1[BUFSIZ];
+static char *TCID = "mprotect03";
+static int TST_TOTAL = 1;
+static int status;
+static char file1[BUFSIZ];
 
 int main(int ac, char **av)
 {

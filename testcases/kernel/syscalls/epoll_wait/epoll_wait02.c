@@ -20,7 +20,7 @@ static struct epoll_event epevs[1] = {
        {.events = EPOLLIN}
 };
 
-int sample_fn(int clk_id, long long usec)
+static int sample_fn(int clk_id, long long usec)
 {
 	unsigned int sleep_ms = usec / 1000;
 

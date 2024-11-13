@@ -35,7 +35,7 @@ static struct test_case {
 	{ FNAME2, BUFSIZE, 1000 }
 };
 
-void verify(const char *fname, size_t bytes, size_t decrement)
+static void verify(const char *fname, size_t bytes, size_t decrement)
 {
 	struct stat s;
 	int fd, i;
@@ -67,19 +67,19 @@ void verify(const char *fname, size_t bytes, size_t decrement)
 	tst_res(TPASS, "File size reported as expected");
 }
 
-void verify_stat_size(unsigned int nr)
+static void verify_stat_size(unsigned int nr)
 {
 	struct test_case *tcase = &tcases[nr];
 
 	verify(tcase->filename, tcase->bytes_to_write, tcase->decrement);
 }
 
-void setup(void)
+static void setup(void)
 {
 	buffer = SAFE_MALLOC(BUFSIZE);
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	free(buffer);
 }

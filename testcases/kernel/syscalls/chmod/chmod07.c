@@ -35,7 +35,7 @@
 #define PERMS		01777	/* Permissions with sticky bit set. */
 #define TESTFILE	"testfile"
 
-void test_chmod(void)
+static void test_chmod(void)
 {
 	struct stat stat_buf;
 
@@ -63,7 +63,7 @@ void test_chmod(void)
 	}
 }
 
-void setup(void)
+static void setup(void)
 {
 	struct passwd *ltpuser;
 	struct group *ltpgroup;

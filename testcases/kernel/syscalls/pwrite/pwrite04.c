@@ -40,14 +40,14 @@
 #include <errno.h>
 #include "test.h"
 
-char *TCID = "pwrite04";
-int TST_TOTAL = 1;
-int local_flag;
+static char *TCID = "pwrite04";
+static int TST_TOTAL = 1;
+static int local_flag;
 
 #define PASSED 1
 #define FAILED 0
 
-int block_cnt = 0;
+static int block_cnt = 0;
 
 #define K1    		1024
 #define K2    		(K1 * 2)
@@ -57,7 +57,7 @@ int block_cnt = 0;
 #define	NBUFS 		4
 #define DATA_FILE	"pwrite04_file"
 
-char name[256], fname[256];
+static char name[256], fname[256];
 
 void init_buffers(char *[]);
 void l_seek(int, off_t, int, off_t);
@@ -259,7 +259,7 @@ void l_seek(int fdesc, off_t offset, int whence, off_t checkoff)
  *	created during setup().
  *	Exit the test program with normal exit code.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	tst_rmdir();

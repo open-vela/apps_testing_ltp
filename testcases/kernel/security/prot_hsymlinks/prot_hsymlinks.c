@@ -45,8 +45,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "prot_hsymlinks";
-int TST_TOTAL = 396;
+static char *TCID = "prot_hsymlinks";
+static int TST_TOTAL = 396;
 
 /* create 3 files and 1 dir in each base dir */
 #define MAX_FILES_CREATED	4

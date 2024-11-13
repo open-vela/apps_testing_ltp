@@ -29,8 +29,8 @@
 #include "test.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "timer_getoverrun01";
-int TST_TOTAL = 1;
+static char *TCID = "timer_getoverrun01";
+static int TST_TOTAL = 1;
 
 static void cleanup(void)
 {

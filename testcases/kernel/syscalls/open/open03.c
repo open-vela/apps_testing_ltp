@@ -36,8 +36,8 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "open03";
-int TST_TOTAL = 1;
+static char *TCID = "open03";
+static int TST_TOTAL = 1;
 
 static char fname[255];
 static int fd;

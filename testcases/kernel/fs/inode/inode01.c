@@ -64,33 +64,33 @@ CALLS:	mkdir, stat, open
 /** LTP Port **/
 #include "test.h"
 
-void blexit(void);
-void blenter(void);
-void setup(void);
-void fail_exit(void);
-void anyfail(void);
-void ok_exit(void);
+static void blexit(void);
+static void blenter(void);
+static void setup(void);
+static void fail_exit(void);
+static void anyfail(void);
+static void ok_exit(void);
 
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
-FILE *temp;
+static int local_flag = PASSED;
+static int block_number;
+static FILE *temp;
 
-char *TCID = "inode01";		/* Test program identifier.    */
-int TST_TOTAL = 2;		/* Total number of test cases. */
+static char *TCID = "inode01";		/* Test program identifier.    */
+static int TST_TOTAL = 2;		/* Total number of test cases. */
 /**************/
 
 #ifdef LINUX
 #include <string.h>
 #endif
 
-char name[NAME_LENGTH + 1];
-char path_string[PATH_STRING_LENGTH + 1];
-char read_string[PATH_STRING_LENGTH + 1];
-char write_string[PATH_STRING_LENGTH + 1];
-char rm_string[200];
+static char name[NAME_LENGTH + 1];
+static char path_string[PATH_STRING_LENGTH + 1];
+static char read_string[PATH_STRING_LENGTH + 1];
+static char write_string[PATH_STRING_LENGTH + 1];
+static char rm_string[200];
 
 FILE *list_stream = NULL;
 int file_id;
@@ -709,7 +709,7 @@ int term(void)
  *
  * Do set up - here its a dummy function
  */
-void setup(void)
+static void setup(void)
 {
 	tst_tmpdir();
 	temp = stderr;
@@ -724,7 +724,7 @@ gical unit
 fail or
  *              pass.
  */
-void blexit(void)
+static void blexit(void)
 {
 	(local_flag == PASSED) ? tst_resm(TPASS, "Test block %d", block_number)
 	    : tst_resm(TFAIL, "Test block %d", block_number);
@@ -737,7 +737,7 @@ void blexit(void)
  *
  * Description: Print message on entering a new block
  */
-void blenter(void)
+static void blenter(void)
 {
 	local_flag = PASSED;
 	return;
@@ -748,7 +748,7 @@ void blenter(void)
  *
  * Exit on failure
  */
-void fail_exit(void)
+static void fail_exit(void)
 {
 	tst_brkm(TFAIL, tst_rmdir, "Test failed");
 }
@@ -759,7 +759,7 @@ void fail_exit(void)
  *
  * Description: Exit a test.
  */
-void anyfail(void)
+static void anyfail(void)
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL, "Test failed")
 	    : tst_resm(TPASS, "Test passed");
@@ -772,7 +772,7 @@ void anyfail(void)
  *
  * Calling block passed the test
  */
-void ok_exit(void)
+static void ok_exit(void)
 {
 	local_flag = PASSED;
 	return;

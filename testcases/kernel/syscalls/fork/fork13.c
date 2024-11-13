@@ -56,8 +56,8 @@
 #include <stdlib.h>
 #include "test.h"
 
-char *TCID = "fork13";
-int TST_TOTAL = 1;
+static char *TCID = "fork13";
+static int TST_TOTAL = 1;
 
 static unsigned long pid_max;
 

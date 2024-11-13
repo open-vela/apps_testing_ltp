@@ -47,7 +47,7 @@
 #include "ltp_signal.h"
 
 TCID_DEFINE(signalfd01);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 #ifndef HAVE_SIGNALFD
 #define  USE_STUB
@@ -82,10 +82,10 @@ int signalfd(int fd, const sigset_t * mask, int flags)
 }
 #endif
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
-int do_test1(uint32_t sig)
+static int do_test1(uint32_t sig)
 {
 	int sfd_for_next;
 	int sfd;
@@ -177,7 +177,7 @@ out:
 	return sfd_for_next;
 }
 
-void do_test2(int fd, uint32_t sig)
+static void do_test2(int fd, uint32_t sig)
 {
 	int sfd;
 	sigset_t mask;
@@ -291,7 +291,7 @@ int main(int argc, char **argv)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	TEST_PAUSE;
@@ -301,7 +301,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 }

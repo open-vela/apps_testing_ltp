@@ -25,8 +25,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "setegid02";
-int TST_TOTAL = 1;
+static char *TCID = "setegid02";
+static int TST_TOTAL = 1;
 static void setup(void);
 static void setegid_verify(void);
 static void cleanup(void);

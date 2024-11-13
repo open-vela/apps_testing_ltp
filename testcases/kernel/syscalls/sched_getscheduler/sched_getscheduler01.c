@@ -50,13 +50,13 @@
 #include <stdio.h>
 #include "test.h"
 
-char *TCID = "sched_getscheduler01";
-int TST_TOTAL = 3;
+static char *TCID = "sched_getscheduler01";
+static int TST_TOTAL = 3;
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 
-struct test_case_t {
+static struct test_case_t {
 	int prio;
 	int policy;
 } TC[] = {
@@ -114,7 +114,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_require_root();
@@ -124,6 +124,6 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }

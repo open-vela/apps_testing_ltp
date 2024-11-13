@@ -106,7 +106,7 @@ static void doparent(void)
 	SAFE_CLOSE(fd);
 }
 
-void dochild(void)
+static void dochild(void)
 {
 	int fd;
 	struct flock flocks;

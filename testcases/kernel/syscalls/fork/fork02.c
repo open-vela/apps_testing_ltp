@@ -49,8 +49,8 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "fork02";
-int TST_TOTAL = 1;
+static char *TCID = "fork02";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

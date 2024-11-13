@@ -50,8 +50,8 @@
 
 static int modes[] = { 0, 07, 070, 0700, 0777, 02777, 04777, 06777 };
 
-char *TCID = "chmod02";
-int TST_TOTAL = ARRAY_SIZE(modes);
+static char *TCID = "chmod02";
+static int TST_TOTAL = ARRAY_SIZE(modes);
 
 #define FNAME "test_file"
 

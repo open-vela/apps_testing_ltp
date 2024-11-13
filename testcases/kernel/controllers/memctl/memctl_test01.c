@@ -49,8 +49,8 @@
 #include "libcontrollers.h"
 #include "test.h"
 
-char *TCID = "memory_controller_test01-03";
-int TST_TOTAL = 3;
+static char *TCID = "memory_controller_test01-03";
+static int TST_TOTAL = 3;
 
 pid_t scriptpid;
 typedef size_t record_t;
@@ -58,7 +58,7 @@ record_t **array_of_chunks;
 record_t tmp;
 int num_of_chunks, chunk_size, test_num, limit;
 
-void cleanup();
+static void cleanup();
 void signal_handler_sigusr1(int signal);
 void signal_handler_sigusr2(int signal);
 int allocate_memory(void);
@@ -120,7 +120,7 @@ int main(void)
  * Function: cleanup()
  * signals for system cleanup in case test breaks
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	if (kill(scriptpid, SIGUSR1) == -1)
 		tst_resm(TWARN | TERRNO, "kill failed");

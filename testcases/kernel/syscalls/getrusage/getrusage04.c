@@ -53,8 +53,8 @@
 #include "safe_macros.h"
 #include "lapi/posix_clocks.h"
 
-char *TCID = "getrusage04";
-int TST_TOTAL = 1;
+static char *TCID = "getrusage04";
+static int TST_TOTAL = 1;
 
 #define RECORD_MAX    20
 #define FACTOR_MAX    10
@@ -69,7 +69,7 @@ static int opt_factor;
 static char *factor_str;
 static long factor_nr = 1;
 
-option_t child_options[] = {
+static option_t child_options[] = {
 	{"m:", &opt_factor, &factor_str},
 	{NULL, NULL, NULL}
 };

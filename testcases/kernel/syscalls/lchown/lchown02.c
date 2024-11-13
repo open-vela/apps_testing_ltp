@@ -72,7 +72,7 @@
 #define SFILE3		"t_file/sfile"
 
 TCID_DEFINE(lchown02);
-int TST_TOTAL = 7;
+static int TST_TOTAL = 7;
 
 static void setup(void);
 static void cleanup(void);

@@ -41,7 +41,7 @@
 
 #include "test.h"
 
-char *TCID = "memset01";
+static char *TCID = "memset01";
 
 #undef BSIZE
 #define BSIZE	4096
@@ -49,14 +49,14 @@ char *TCID = "memset01";
 #define FAILED 0
 #define PASSED 1
 
-char buf[BSIZE];
+static char buf[BSIZE];
 
-int local_flag = PASSED;
-int block_number;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static int block_number;
+static int TST_TOTAL = 1;
 
-void fill(void);
-int checkit(char *str);
+static void fill(void);
+static int checkit(char *str);
 
 int main(int argc, char *argv[])
 {
@@ -97,14 +97,14 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-void fill(void)
+static void fill(void)
 {
 	register int i;
 	for (i = 0; i < BSIZE; i++)
 		buf[i] = 'a';
 }
 
-int checkit(char *str)
+static int checkit(char *str)
 {
 	register int i = 0;
 

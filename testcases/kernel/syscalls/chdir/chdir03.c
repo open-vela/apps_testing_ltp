@@ -49,7 +49,7 @@ void verify_chdir(void)
 	}
 }
 
-void setup(void)
+static void setup(void)
 {
 	struct passwd *pw;
 
