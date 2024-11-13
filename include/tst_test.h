@@ -15,7 +15,10 @@
 #include <limits.h>
 #include <string.h>
 #include <errno.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
+#include "lapi/syscalls.h"
 #include "tst_common.h"
 #include "tst_res_flags.h"
 #include "tst_checkpoint.h"

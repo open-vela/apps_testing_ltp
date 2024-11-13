@@ -37,6 +37,7 @@
 #include <string.h>
 #include <sys/param.h>
 #include <sys/signal.h>
+#include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <time.h>
