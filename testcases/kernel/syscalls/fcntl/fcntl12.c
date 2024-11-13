@@ -45,13 +45,13 @@
 #include <errno.h>
 #include "test.h"
 
-char *TCID = "fcntl12";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl12";
+static int TST_TOTAL = 1;
 
-int fail;
-char fname[20];
-void setup(void);
-void cleanup(void);
+static int fail;
+static char fname[20];
+static void setup(void);
+static void cleanup(void);
 
 int main(int ac, char **av)
 {
@@ -103,7 +103,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(FORK, DEF_HANDLER, cleanup);
 
@@ -113,7 +113,7 @@ void setup(void)
 	tst_tmpdir();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	unlink(fname);
 	tst_rmdir();

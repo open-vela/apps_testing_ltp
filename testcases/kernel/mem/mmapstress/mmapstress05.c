@@ -47,13 +47,13 @@
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-char *TCID = "mmapstress05";	//mfile_insque
-FILE *temp;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static char *TCID = "mmapstress05";	//mfile_insque
+static FILE *temp;
+static int TST_TOTAL = 1;
 
-int anyfail();
-void ok_exit();
+static int anyfail();
+static void ok_exit();
 /*****	**	**	*****/
 
 #define ERROR(M)	(void)fprintf(stderr, "%s:  errno = %d; " M "\n", \
@@ -202,14 +202,14 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-void ok_exit(void)
+static void ok_exit(void)
 {
 	tst_resm(TPASS, "Test passed\n");
 	tst_rmdir();
 	tst_exit();
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_brkm(TFAIL, tst_rmdir, "Test failed\n");
 }

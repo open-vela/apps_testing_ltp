@@ -118,14 +118,14 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "dup05";
-int TST_TOTAL = 1;
+static char *TCID = "dup05";
+static int TST_TOTAL = 1;
 
-char Fname[255];
-int fd;
+static char Fname[255];
+static int fd;
 
 int main(int ac, char **av)
 {
@@ -156,7 +156,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	fd = -1;
 
@@ -172,7 +172,7 @@ void setup(void)
 		tst_brkm(TBROK, cleanup, "open failed");
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (fd != -1)
 		if (close(fd) == -1)

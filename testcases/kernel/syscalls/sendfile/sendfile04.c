@@ -65,22 +65,22 @@
 
 TCID_DEFINE(sendfile04);
 
-char in_file[100];
-char out_file[100];
-int out_fd;
-pid_t child_pid;
+static char in_file[100];
+static char out_file[100];
+static int out_fd;
+static pid_t child_pid;
 static int sockfd, s;
 static struct sockaddr_in sin1;	/* shared between do_child and create_server */
 
-void cleanup(void);
-void do_child(void);
-void setup(void);
-int create_server(void);
+static void cleanup(void);
+static void do_child(void);
+static void setup(void);
+static int create_server(void);
 
 #define PASS_MAPPED_BUFFER 0
 #define PASS_UNMAPPED_BUFFER 1
 
-struct test_case_t {
+static struct test_case_t {
 	int protection;
 	int pass_unmapped_buffer;
 } testcases[] = {
@@ -91,13 +91,13 @@ struct test_case_t {
 	PROT_EXEC | PROT_READ, PASS_MAPPED_BUFFER}, {
 PROT_READ | PROT_WRITE, PASS_UNMAPPED_BUFFER},};
 
-int TST_TOTAL = sizeof(testcases) / sizeof(testcases[0]);
+static int TST_TOTAL = sizeof(testcases) / sizeof(testcases[0]);
 
 #ifdef UCLINUX
 static char *argv0;
 #endif
 
-void do_sendfile(int prot, int pass_unmapped_buffer)
+static void do_sendfile(int prot, int pass_unmapped_buffer)
 {
 	OFF_T *protected_buffer;
 	int in_fd;
@@ -151,7 +151,7 @@ void do_sendfile(int prot, int pass_unmapped_buffer)
 /*
  * do_child
  */
-void do_child(void)
+static void do_child(void)
 {
 	int lc;
 	socklen_t length;
@@ -168,7 +168,7 @@ void do_child(void)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 	int fd;
 	char buf[100];
@@ -196,7 +196,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	close(out_fd);
@@ -205,7 +205,7 @@ void cleanup(void)
 
 }
 
-int create_server(void)
+static int create_server(void)
 {
 	static int count = 0;
 	socklen_t slen = sizeof(sin1);

@@ -21,7 +21,7 @@ static gid_t neg_one = -1;
 struct group nobody_gr, daemon_gr, root_gr, bin_gr;
 struct passwd nobody;
 
-struct tcase {
+static struct tcase {
 	gid_t *real_gid;
 	gid_t *eff_gid;
 	int *exp_ret;

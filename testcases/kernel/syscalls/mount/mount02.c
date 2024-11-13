@@ -49,7 +49,7 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "mount02";
+static char *TCID = "mount02";
 
 #define DIR_MODE	(S_IRWXU | S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP)
 #define FILE_MODE	(S_IRWXU | S_IRWXG | S_IRWXO)
@@ -96,7 +96,7 @@ static struct test_case {
 	{&device, &file, &fs_type, 0, ENOTDIR, NULL, NULL},
 };
 
-int TST_TOTAL = ARRAY_SIZE(tc);
+static int TST_TOTAL = ARRAY_SIZE(tc);
 
 static void verify_mount(struct test_case *tc)
 {

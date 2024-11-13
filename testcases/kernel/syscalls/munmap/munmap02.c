@@ -80,17 +80,17 @@
 
 #define TEMPFILE	"mmapfile"
 
-char *TCID = "munmap02";
-int TST_TOTAL = 1;
+static char *TCID = "munmap02";
+static int TST_TOTAL = 1;
 
 static size_t page_sz;
-char *addr;			/* addr of memory mapped region */
-int fildes;			/* file descriptor for tempfile */
-unsigned int map_len;		/* length of the region to be mapped */
+static char *addr;			/* addr of memory mapped region */
+static int fildes;			/* file descriptor for tempfile */
+static unsigned int map_len;		/* length of the region to be mapped */
 
-void setup();			/* Main setup function of test */
-void cleanup();			/* cleanup function for the test */
-void sig_handler();		/* signal catching function */
+static void setup();			/* Main setup function of test */
+static void cleanup();			/* cleanup function for the test */
+static void sig_handler();		/* signal catching function */
 
 #ifndef UCLINUX
 
@@ -153,7 +153,7 @@ int main(void)
  * write one byte data into it, map the open file for the specified
  * map length.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -233,7 +233,7 @@ void setup(void)
  *   this function is invoked when SIGSEGV generated and it calls test
  *   cleanup function and exit the program.
  */
-void sig_handler(void)
+static void sig_handler(void)
 {
 	tst_resm(TPASS, "Functionality of munmap() successful");
 
@@ -250,7 +250,7 @@ void sig_handler(void)
  *  Close the temporary file.
  *  Remove the temporary directory.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	/*

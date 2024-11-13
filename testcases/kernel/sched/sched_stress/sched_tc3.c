@@ -76,9 +76,9 @@
  *
  * parse_args: parse command line arguments
  */
-void parse_args(int, char **);
-void multiply_matrices();
-void signal_handler();
+static void parse_args(int, char **);
+static void multiply_matrices();
+static void signal_handler();
 
 /*
  * Global variables:
@@ -91,10 +91,10 @@ void signal_handler();
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-int signaled = 0;
-char *priority = DEFAULT_PRIORITY_TYPE;
+static int verbose = 0;
+static int debug = 0;
+static int signaled = 0;
+static char *priority = DEFAULT_PRIORITY_TYPE;
 
 /*---------------------------------------------------------------------+
 |                                 main                                 |
@@ -175,7 +175,7 @@ int main(int argc, char **argv)
 |            them together.                                            |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void multiply_matrices()
+static void multiply_matrices()
 {
 	int i, j, k;		/* various indeces to access the arrays */
 	float matrix_1[MATRIX_SIZE][MATRIX_SIZE];
@@ -211,7 +211,7 @@ void multiply_matrices()
 | Function:  ...                                                       |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void signal_handler(int signal)
+static void signal_handler(int signal)
 {
 	if (signal == SIGUSR1) {
 		signaled++;
@@ -239,7 +239,7 @@ void signal_handler(int signal)
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int pflg = 0;

@@ -57,11 +57,11 @@
 #include <sys/utsname.h>
 #include <string.h>
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
-char *TCID = "uname03";
-int TST_TOTAL = 1;
+static char *TCID = "uname03";
+static int TST_TOTAL = 1;
 
 #define LINUX	"Linux"
 
@@ -114,7 +114,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -126,7 +126,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 }

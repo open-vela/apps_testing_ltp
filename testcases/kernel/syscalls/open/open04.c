@@ -35,8 +35,8 @@
 #include <unistd.h>
 #include "test.h"
 
-char *TCID = "open04";
-int TST_TOTAL = 1;
+static char *TCID = "open04";
+static int TST_TOTAL = 1;
 
 static int fd, ifile, mypid, first;
 static int nfile;

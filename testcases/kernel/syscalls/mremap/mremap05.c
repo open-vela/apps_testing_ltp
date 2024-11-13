@@ -43,7 +43,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "mremap05";
+static char *TCID = "mremap05";
 
 #ifdef HAVE_MREMAP_FIXED
 

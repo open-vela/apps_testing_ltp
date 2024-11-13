@@ -35,11 +35,11 @@
 
 #include "test.h"
 
-char *TCID = "waitid01";
-int testno;
-int TST_TOTAL = 3;
+static char *TCID = "waitid01";
+static int testno;
+static int TST_TOTAL = 3;
 
-void setup(void)
+static void setup(void)
 {
 	TEST_PAUSE;
 }

@@ -47,11 +47,11 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "mknod01";
+static char *TCID = "mknod01";
 
 #define PATH "test_node"
 
-int tcases[] = {		/* modes to give nodes created (1 per text case) */
+static int tcases[] = {		/* modes to give nodes created (1 per text case) */
 	S_IFREG | 0777,		/* ordinary file with mode 0777 */
 	S_IFIFO | 0777,		/* fifo special with mode 0777 */
 	S_IFCHR | 0777,		/* character special with mode 0777 */
@@ -62,7 +62,7 @@ int tcases[] = {		/* modes to give nodes created (1 per text case) */
 	S_IFREG | 06700,	/* ordinary file with mode 06700 (sgid & suid) */
 };
 
-int TST_TOTAL = ARRAY_SIZE(tcases);
+static int TST_TOTAL = ARRAY_SIZE(tcases);
 
 int main(int ac, char **av)
 {
@@ -107,7 +107,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_require_root();
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -117,7 +117,7 @@ void setup(void)
 	tst_tmpdir();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }

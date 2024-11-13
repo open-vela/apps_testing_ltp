@@ -25,8 +25,8 @@
    TODO: all of the other securebits tests.
  */
 
-char *TCID = "keepcaps";
-int TST_TOTAL = 1;
+static char *TCID = "keepcaps";
+static int TST_TOTAL = 1;
 
 #if (HAVE_LINUX_SECUREBITS_H && HAVE_LIBCAP)
 #include <linux/securebits.h>

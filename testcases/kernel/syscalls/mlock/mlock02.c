@@ -41,7 +41,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "mlock02";
+static char *TCID = "mlock02";
 
 #if !defined(UCLINUX)
 
@@ -58,7 +58,7 @@ static struct passwd *ltpuser;
 
 static void (*test_func[])(void) = { test_enomem1, test_enomem2, test_eperm };
 
-int TST_TOTAL = ARRAY_SIZE(test_func);
+static int TST_TOTAL = ARRAY_SIZE(test_func);
 
 int main(int ac, char **av)
 {

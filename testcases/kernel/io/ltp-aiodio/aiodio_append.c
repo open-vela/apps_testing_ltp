@@ -35,7 +35,7 @@
 #include "config.h"
 #include "test.h"
 
-char *TCID = "aiodio_append";
+static char *TCID = "aiodio_append";
 
 #ifdef HAVE_LIBAIO
 #include <libaio.h>

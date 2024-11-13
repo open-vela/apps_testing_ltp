@@ -69,9 +69,9 @@
  *
  * parse_args: parse command line arguments
  */
-void process_file(char *);
-void parse_args(int, char **);
-void signal_handler();
+static void process_file(char *);
+static void parse_args(int, char **);
+static void signal_handler();
 
 /*
  * Global variables:
@@ -84,10 +84,10 @@ void signal_handler();
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-int signaled = 0;
-char *priority = DEFAULT_PRIORITY_TYPE;
+static int verbose = 0;
+static int debug = 0;
+static int signaled = 0;
+static char *priority = DEFAULT_PRIORITY_TYPE;
 
 /*---------------------------------------------------------------------+
 |                                 main                                 |
@@ -157,7 +157,7 @@ int main(int argc, char **argv)
 |            end-of-file and then closes the file..                    |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void process_file(char *filename)
+static void process_file(char *filename)
 {
 	char record[100];	/* holds each record of the file read */
 	FILE *datafile;		/* file pointer to the open file */
@@ -190,7 +190,7 @@ void process_file(char *filename)
 | Function:  ...                                                       |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void signal_handler(int signal)
+static void signal_handler(int signal)
 {
 	printf("signal received is %d\n", signal);
 	if (signal == SIGUSR1) {
@@ -219,7 +219,7 @@ void signal_handler(int signal)
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int pflg = 0;

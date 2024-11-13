@@ -65,20 +65,20 @@
 #define	OPEN	1
 #define	FORK_	2
 
-char *TCID = "fcntl15";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl15";
+static int TST_TOTAL = 1;
 
 static int parent, child1, child2, status;
 static volatile sig_atomic_t parent_flag, child_flag, alarm_flag;
 static char tmpname[40];
-struct flock flock;
+static struct flock flock;
 
 #ifdef UCLINUX
 static char *argv0;		/* set by main, passed to self_exec */
 #endif
 
 
-void alarm_sig(int sig)
+static void alarm_sig(int sig)
 {
 	signal(SIGALRM, alarm_sig);
 	alarm_flag = 1;
@@ -89,19 +89,19 @@ void alarm_sig(int sig)
 	}
 }
 
-void child_sig(int sig)
+static void child_sig(int sig)
 {
 	signal(SIGUSR1, child_sig);
 	child_flag++;
 }
 
-void parent_sig(int sig)
+static void parent_sig(int sig)
 {
 	signal(SIGUSR2, parent_sig);
 	parent_flag++;
 }
 
-int dochild1(int file_flag, int file_mode)
+static int dochild1(int file_flag, int file_mode)
 {
 	int fd_B;
 	sigset_t newmask, zeromask, oldmask;
@@ -181,7 +181,7 @@ void dochild2_uc(void)
 }
 #endif
 
-int dofork(int file_flag, int file_mode)
+static int dofork(int file_flag, int file_mode)
 {
 	/* create child process */
 	if ((child1 = FORK_OR_VFORK()) < 0) {
@@ -238,7 +238,7 @@ int dofork(int file_flag, int file_mode)
 	return 0;
 }
 
-int dochild2(int file_flag, int file_mode, int dup_flag)
+static int dochild2(int file_flag, int file_mode, int dup_flag)
 {
 	int fd_C;
 	sigset_t newmask, zeromask, oldmask;
@@ -349,14 +349,14 @@ int dochild2(int file_flag, int file_mode, int dup_flag)
 	exit(0);
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(FORK, DEF_HANDLER, NULL);
 
 	TEST_PAUSE;
 }
 
-int run_test(int file_flag, int file_mode, int dup_flag)
+static int run_test(int file_flag, int file_mode, int dup_flag)
 {
 	int fd_A, fd_B;
 	fd_B = -1;

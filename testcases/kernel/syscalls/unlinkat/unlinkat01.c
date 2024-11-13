@@ -45,11 +45,11 @@
 #define AT_REMOVEDIR 0x200
 #endif
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "unlinkat01";
-int TST_TOTAL = TEST_CASES;
+static char *TCID = "unlinkat01";
+static int TST_TOTAL = TEST_CASES;
 
 static const char pathname[] = "unlinkattestdir",
 		  subpathname[] = "unlinkatsubtestdir",
@@ -100,7 +100,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
@@ -134,7 +134,7 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (fds[0] > 0)
 		close(fds[0]);

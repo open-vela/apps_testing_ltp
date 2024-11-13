@@ -30,8 +30,8 @@
 #include "lapi/fcntl.h"
 #include "openat.h"
 
-char *TCID = "openat03";
-int TST_TOTAL = 3;
+static char *TCID = "openat03";
+static int TST_TOTAL = 3;
 static ssize_t size;
 static char buf[1024];
 static const ssize_t blocks_num = 4;
@@ -80,7 +80,7 @@ static void write_file(int fd)
 		SAFE_WRITE(cleanup, 1, fd, buf, size);
 }
 
-void test01(void)
+static void test01(void)
 {
 	int fd;
 	char path[PATH_MAX], tmp[PATH_MAX];

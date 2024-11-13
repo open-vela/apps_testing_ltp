@@ -58,9 +58,9 @@
 #define	MAX_IOVEC	16
 #define DATA_FILE	"readv_data_file"
 
-char buf1[K_1], buf2[K_1], buf3[K_1];
+static char buf1[K_1], buf2[K_1], buf3[K_1];
 
-struct iovec rd_iovec[MAX_IOVEC] = {
+static struct iovec rd_iovec[MAX_IOVEC] = {
 	/* iov_base *//* iov_len */
 
 	/* Test case #1 */
@@ -82,22 +82,22 @@ struct iovec rd_iovec[MAX_IOVEC] = {
 	{(buf2 + CHUNK * 9), CHUNK}
 };
 
-char f_name[K_1];
+static char f_name[K_1];
 
-int fd[4];
-char *buf_list[NBUFS];
+static int fd[4];
+static char *buf_list[NBUFS];
 
-char *TCID = "readv02";
-int TST_TOTAL = 1;
+static char *TCID = "readv02";
+static int TST_TOTAL = 1;
 
-char *bad_addr = 0;
+static char *bad_addr = 0;
 
-int init_buffs(char **);
-int fill_mem(char *, int, int);
-long l_seek(int, long, int);
+static int init_buffs(char **);
+static int fill_mem(char *, int, int);
+static long l_seek(int, long, int);
 char *getenv();
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
 int main(int ac, char **av)
 {
@@ -183,7 +183,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 	int nbytes;
 
@@ -234,14 +234,14 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	SAFE_UNLINK(NULL, f_name);
 	tst_rmdir();
 
 }
 
-int init_buffs(char *pbufs[])
+static int init_buffs(char *pbufs[])
 {
 	int i;
 
@@ -263,7 +263,7 @@ int init_buffs(char *pbufs[])
 	return 0;
 }
 
-int fill_mem(char *c_ptr, int c1, int c2)
+static int fill_mem(char *c_ptr, int c1, int c2)
 {
 	int count;
 
@@ -277,7 +277,7 @@ int fill_mem(char *c_ptr, int c1, int c2)
 	return 0;
 }
 
-long l_seek(int fdesc, long offset, int whence)
+static long l_seek(int fdesc, long offset, int whence)
 {
 	SAFE_LSEEK(cleanup, fdesc, offset, whence);
 	return 0;

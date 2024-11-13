@@ -89,13 +89,13 @@
 				 */
 #define TESTDIR		"testdir_4"
 
-char *TCID = "chmod04";
-int TST_TOTAL = 1;
-char nobody_uid[] = "nobody";
-struct passwd *ltpuser;
+static char *TCID = "chmod04";
+static int TST_TOTAL = 1;
+static char nobody_uid[] = "nobody";
+static struct passwd *ltpuser;
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
 int main(int ac, char **av)
 {
@@ -156,7 +156,7 @@ int main(int ac, char **av)
  *  Create a temporary directory and cd to it.
  *  Create another test directory under temporary directory.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -183,7 +183,7 @@ void setup(void)
  *		completion or premature exit.
  *  Remove the test directory and temporary directory created in setup().
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	tst_rmdir();

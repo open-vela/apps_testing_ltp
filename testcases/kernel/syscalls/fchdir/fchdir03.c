@@ -42,7 +42,7 @@ void verify_fchdir(void)
 	tst_res(TPASS | TTERRNO, "fchdir() failed expectedly");
 }
 
-void setup(void)
+static void setup(void)
 {
 	struct passwd *pw;
 

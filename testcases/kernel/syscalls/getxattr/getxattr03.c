@@ -44,7 +44,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "getxattr03";
+static char *TCID = "getxattr03";
 
 #ifdef HAVE_SYS_XATTR_H
 #define XATTR_TEST_KEY "user.testkey"
@@ -55,7 +55,7 @@ char *TCID = "getxattr03";
 static void setup(void);
 static void cleanup(void);
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 int main(int argc, char *argv[])
 {

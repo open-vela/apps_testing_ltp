@@ -61,12 +61,12 @@
 #include <errno.h>
 #include <sys/wait.h>
 
-void cleanup(void);
-void setup(void);
-void do_child(void);
+static void cleanup(void);
+static void setup(void);
+static void do_child(void);
 
-char *TCID = "kill03";
-int TST_TOTAL = 1;
+static char *TCID = "kill03";
+static int TST_TOTAL = 1;
 
 #define TEST_SIG 2000
 
@@ -138,7 +138,7 @@ int main(int ac, char **av)
 /*
  * do_child()
  */
-void do_child(void)
+static void do_child(void)
 {
 	int exno = 1;
 
@@ -149,7 +149,7 @@ void do_child(void)
 /*
  * setup() - performs all ONE TIME setup for this test
  */
-void setup(void)
+static void setup(void)
 {
 
 	TEST_PAUSE;
@@ -159,7 +159,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 }

@@ -51,18 +51,18 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "pipe04";
-int TST_TOTAL = 1;
+static char *TCID = "pipe04";
+static int TST_TOTAL = 1;
 
-int fildes[2];			/* fds for pipe read and write */
+static int fildes[2];			/* fds for pipe read and write */
 
-void setup(void);
-void cleanup(void);
-void c1func(void);
-void c2func(void);
-void alarmfunc(int);
+static void setup(void);
+static void cleanup(void);
+static void c1func(void);
+static void c2func(void);
+static void alarmfunc(int);
 
-ssize_t do_read(int fd, void *buf, size_t count)
+static ssize_t do_read(int fd, void *buf, size_t count)
 {
 	ssize_t n;
 
@@ -201,7 +201,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -213,11 +213,11 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 }
 
-void c1func(void)
+static void c1func(void)
 {
 	if (close(fildes[0]) == -1)
 		tst_resm(TWARN, "Could not close fildes[0] - errno %d", errno);
@@ -226,7 +226,7 @@ void c1func(void)
 			tst_resm(TBROK | TERRNO, "[child 1] pipe write failed");
 }
 
-void c2func(void)
+static void c2func(void)
 {
 	if (close(fildes[0]) == -1)
 		tst_resm(TWARN, "Could not close fildes[0] - errno %d", errno);
@@ -235,7 +235,7 @@ void c2func(void)
 			tst_resm(TBROK | TERRNO, "[child 2] pipe write failed");
 }
 
-void alarmfunc(int sig LTP_ATTRIBUTE_UNUSED)
+static void alarmfunc(int sig LTP_ATTRIBUTE_UNUSED)
 {
 	/* for some reason tst_brkm doesn't seem to work in a signal handler */
 	tst_brkm(TFAIL, cleanup, "one or more children did't die in 60 second "

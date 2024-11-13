@@ -35,8 +35,8 @@
 #include "safe_macros.h"
 #include "lapi/fcntl.h"
 
-char *TCID = "fcntl29";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl29";
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

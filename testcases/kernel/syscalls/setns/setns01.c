@@ -37,7 +37,7 @@
 #include "lapi/syscalls.h"
 #include "safe_macros.h"
 
-char *TCID = "setns01";
+static char *TCID = "setns01";
 
 #if defined(__NR_setns)
 #include "setns.h"
@@ -63,7 +63,7 @@ static void setup4(struct testcase_t *, int);
 static void cleanup1(struct testcase_t *);
 static void cleanup4(struct testcase_t *);
 
-struct testcase_t tdat[] = {
+static struct testcase_t tdat[] = {
 	{
 		.msg = "invalid fd",
 		.fd = -1,

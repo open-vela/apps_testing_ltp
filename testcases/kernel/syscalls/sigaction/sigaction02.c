@@ -63,8 +63,8 @@
 void setup();
 void cleanup();
 
-char *TCID = "sigaction02";
-int TST_TOTAL = 1;
+static char *TCID = "sigaction02";
+static int TST_TOTAL = 1;
 
 volatile sig_atomic_t testcase_no;
 
@@ -86,7 +86,7 @@ void handler(int sig)
  * Returns
  *	0 on success, errno on failure
  */
-int set_handler(int sig, int sig_to_mask, int flag)
+static int set_handler(int sig, int sig_to_mask, int flag)
 {
 	struct sigaction sa;
 	int err;

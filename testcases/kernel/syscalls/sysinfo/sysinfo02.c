@@ -72,11 +72,11 @@
 
 #define INVALID_ADDRESS ((uintptr_t)-1)
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "sysinfo02";
-int TST_TOTAL = 1;
+static char *TCID = "sysinfo02";
+static int TST_TOTAL = 1;
 
 #if !defined(UCLINUX)
 
@@ -130,7 +130,7 @@ int main(void)
  *	performs one time setup
  *
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -144,6 +144,6 @@ void setup(void)
  * cleanup()
  *
  */
-void cleanup(void)
+static void cleanup(void)
 {
 }

@@ -51,8 +51,8 @@
 
 #define TEMPFILE	"mmapfile"
 
-char *TCID = "mmap04";
-int TST_TOTAL = 1;
+static char *TCID = "mmap04";
+static int TST_TOTAL = 1;
 
 static size_t page_sz;
 static char *addr;

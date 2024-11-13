@@ -38,8 +38,8 @@
 #include "safe_macros.h"
 #include "lapi/abisize.h"
 
-char *TCID = "mmap15";
-int TST_TOTAL = 1;
+static char *TCID = "mmap15";
+static int TST_TOTAL = 1;
 
 #ifdef __ia64__
 # define HIGH_ADDR (void *)(0xa000000000000000UL)

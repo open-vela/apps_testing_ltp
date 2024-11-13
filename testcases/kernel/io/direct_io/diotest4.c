@@ -72,8 +72,8 @@
 #include "safe_macros.h"
 #include "lapi/mmap.h"
 
-char *TCID = "diotest4";	/* Test program identifier.    */
-int TST_TOTAL = 17;		/* Total number of test conditions */
+static char *TCID = "diotest4";	/* Test program identifier.    */
+static int TST_TOTAL = 17;		/* Total number of test conditions */
 
 static long fs_type;
 

@@ -115,11 +115,11 @@
 #include <signal.h>
 #include "test.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "uname01";
-int TST_TOTAL = 1;
+static char *TCID = "uname01";
+static int TST_TOTAL = 1;
 
 struct utsname un;
 
@@ -148,7 +148,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	void trapper();
 
@@ -157,6 +157,6 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }

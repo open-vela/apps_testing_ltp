@@ -44,8 +44,8 @@
 #include <stdio.h>
 #include "test.h"
 
-char *TCID = "fork03";
-int TST_TOTAL = 1;
+static char *TCID = "fork03";
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

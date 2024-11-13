@@ -59,8 +59,8 @@
 #include "lapi/syscalls.h"
 #include "ltp_signal.h"
 
-char *TCID = "rt_sigprocmask02";
-int TST_TOTAL = 2;
+static char *TCID = "rt_sigprocmask02";
+static int TST_TOTAL = 2;
 
 static void cleanup(void)
 {
@@ -85,7 +85,7 @@ static struct test_case_t {
 	(sigset_t *) - 1, SIGSETSIZE, EFAULT}
 };
 
-int test_count = sizeof(test_cases) / sizeof(struct test_case_t);
+static int test_count = sizeof(test_cases) / sizeof(struct test_case_t);
 
 int main(int ac, char **av)
 {

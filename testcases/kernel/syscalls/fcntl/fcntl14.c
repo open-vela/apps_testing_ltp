@@ -540,23 +540,23 @@ static char tmpname[40];
 
 #define FILEDATA	"ten bytes!"
 
-void catch1(int sig);
-void catch_alarm(int sig);
+static void catch1(int sig);
+static void catch_alarm(int sig);
 
-char *TCID = "fcntl14";
-int TST_TOTAL = 1;
-int NO_NFS = 1;
+static char *TCID = "fcntl14";
+static int TST_TOTAL = 1;
+static int NO_NFS = 1;
 
 #ifdef UCLINUX
 static char *argv0;
 #endif
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }
 
-void setup(void)
+static void setup(void)
 {
 	struct sigaction act;
 
@@ -590,7 +590,7 @@ void setup(void)
 	}
 }
 
-void wake_parent(void)
+static void wake_parent(void)
 {
 	if ((kill(parent, SIGUSR1)) < 0) {
 		tst_resm(TFAIL, "Attempt to send signal to parent " "failed");
@@ -599,14 +599,14 @@ void wake_parent(void)
 	}
 }
 
-void do_usleep_child(void)
+static void do_usleep_child(void)
 {
 	usleep(100000);		/* XXX how long is long enough? */
 	wake_parent();
 	exit(0);
 }
 
-void dochild(void)
+static void dochild(void)
 {
 	int rc;
 	pid_t pid;
@@ -774,7 +774,7 @@ void dochild(void)
 	}
 }
 
-void run_test(int file_flag, int file_mode, int seek, int start, int end)
+static void run_test(int file_flag, int file_mode, int seek, int start, int end)
 {
 	fail = 0;
 
@@ -899,7 +899,7 @@ void run_test(int file_flag, int file_mode, int seek, int start, int end)
 	unlink(tmpname);
 }
 
-void catch_alarm(int sig)
+static void catch_alarm(int sig)
 {
 	/*
 	 * Timer has runout and child has not signaled, need
@@ -914,7 +914,7 @@ void catch_alarm(int sig)
 	}
 }
 
-void catch1(int sig)
+static void catch1(int sig)
 {
 	struct sigaction act;
 

@@ -43,8 +43,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "sendto01";
-int testno;
+static char *TCID = "sendto01";
+static int testno;
 
 static char buf[1024], bigbuf[128 * 1024];
 static int s;
@@ -77,7 +77,7 @@ static void cleanup0(void);
 static void cleanup1(void);
 static void do_child(void);
 
-struct test_case_t tdat[] = {
+static struct test_case_t tdat[] = {
 	{.domain = PF_INET,
 	 .type = SOCK_STREAM,
 	 .proto = 0,

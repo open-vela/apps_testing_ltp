@@ -36,7 +36,7 @@
 #include "lapi/posix_clocks.h"
 #include "safe_macros.h"
 
-char *TCID = "cpufreq_boost";
+static char *TCID = "cpufreq_boost";
 
 #define SYSFS_CPU_DIR "/sys/devices/system/cpu/"
 

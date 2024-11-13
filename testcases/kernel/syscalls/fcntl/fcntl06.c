@@ -56,18 +56,18 @@
 #define F_RGETLK 10		/* kludge code */
 #define F_RSETLK 11		/* kludge code */
 
-char *TCID = "fcntl06";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl06";
+static int TST_TOTAL = 1;
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
 #define STRINGSIZE	27
 #define	STRING		"abcdefghijklmnopqrstuvwxyz\n"
 
-int fd;
-void unlock_file();
-int do_lock(int, short, short, int, int);
+static int fd;
+static void unlock_file();
+static int do_lock(int, short, short, int, int);
 
 int main(int ac, char **av)
 {
@@ -113,7 +113,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	char *buf = STRING;
 	char template[PATH_MAX];
@@ -135,7 +135,7 @@ void setup(void)
 		tst_resm(TBROK | TERRNO, "write failed");
 }
 
-int do_lock(int cmd, short type, short whence, int start, int len)
+static int do_lock(int cmd, short type, short whence, int start, int len)
 {
 	struct flock fl;
 
@@ -146,7 +146,7 @@ int do_lock(int cmd, short type, short whence, int start, int len)
 	return (fcntl(fd, cmd, &fl));
 }
 
-void unlock_file(void)
+static void unlock_file(void)
 {
 	if (do_lock(F_RSETLK, (short)F_UNLCK, (short)0, 0, 0) == -1) {
 		/* Same as FIXME comment above. */
@@ -154,7 +154,7 @@ void unlock_file(void)
 	}
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 
 	if (close(fd) == -1)

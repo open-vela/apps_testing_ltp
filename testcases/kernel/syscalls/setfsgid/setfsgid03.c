@@ -34,7 +34,7 @@
 #include "compat_16.h"
 
 TCID_DEFINE(setfsgid03);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static char nobody_uid[] = "nobody";
 static struct passwd *ltpuser;

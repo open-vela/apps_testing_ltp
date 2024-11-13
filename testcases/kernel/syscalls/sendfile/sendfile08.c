@@ -41,7 +41,7 @@
 #define TEST_MSG_ALL (TEST_MSG_OUT TEST_MSG_IN)
 
 TCID_DEFINE(sendfile08);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static int in_fd;
 static int out_fd;

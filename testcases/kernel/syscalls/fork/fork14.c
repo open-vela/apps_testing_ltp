@@ -37,8 +37,8 @@
 #include "safe_macros.h"
 #include "lapi/abisize.h"
 
-char *TCID = "fork14";
-int TST_TOTAL = 1;
+static char *TCID = "fork14";
+static int TST_TOTAL = 1;
 
 #define GB		(1024 * 1024 * 1024L)
 

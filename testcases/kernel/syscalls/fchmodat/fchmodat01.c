@@ -49,11 +49,11 @@
 #ifndef AT_FDCWD
 #define AT_FDCWD -100
 #endif
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "fchmodat01";
-int TST_TOTAL = TEST_CASES;
+static char *TCID = "fchmodat01";
+static int TST_TOTAL = TEST_CASES;
 char pathname[256];
 char testfile[256];
 char testfile2[256];
@@ -105,7 +105,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
@@ -141,7 +141,7 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (fds[0] > 0)
 		close(fds[0]);

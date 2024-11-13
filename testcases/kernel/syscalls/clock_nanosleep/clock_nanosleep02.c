@@ -12,7 +12,7 @@
 #include <errno.h>
 #include "tst_timer_test.h"
 
-int sample_fn(int clk_id, long long usec)
+static int sample_fn(int clk_id, long long usec)
 {
 	struct timespec t = tst_timespec_from_us(usec);
 

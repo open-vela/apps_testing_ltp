@@ -48,8 +48,8 @@
 
 #include "test.h"
 
-char *TCID = "diotest06";
-int TST_TOTAL = 3;
+static char *TCID = "diotest06";
+static int TST_TOTAL = 3;
 
 #ifdef O_DIRECT
 
@@ -82,7 +82,7 @@ static void prg_usage(void)
  *	For each iteration, write data starting at offse+iter*bufsize
  *	location in the file and read from there.
 */
-int runtest(int fd_r, int fd_w, int childnum, int action)
+static int runtest(int fd_r, int fd_w, int childnum, int action)
 {
 	off64_t seekoff;
 	int i, ret = -1;
@@ -171,7 +171,7 @@ err:
 /*
  * child_function: open the file for read and write. Call the runtest routine.
 */
-int child_function(int childnum, int action)
+static int child_function(int childnum, int action)
 {
 	int fd_w, fd_r;
 

@@ -81,7 +81,7 @@ void verify_preadv(unsigned int n)
 		 "with content '%c' expectedly", tc->size, tc->content);
 }
 
-void setup(void)
+static void setup(void)
 {
 	char buf[CHUNK];
 
@@ -94,7 +94,7 @@ void setup(void)
 	SAFE_WRITE(1, fd, buf, sizeof(buf));
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (fd > 0)
 		SAFE_CLOSE(fd);

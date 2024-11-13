@@ -41,13 +41,13 @@
 #include <unistd.h>
 #include "lapi/syscalls.h"
 
-char *TCID = "gettimeofday01";
-int TST_TOTAL = 1;
+static char *TCID = "gettimeofday01";
+static int TST_TOTAL = 1;
 
 #if !defined UCLINUX
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
 int main(int ac, char **av)
 {
@@ -86,7 +86,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -94,7 +94,7 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }
 #else

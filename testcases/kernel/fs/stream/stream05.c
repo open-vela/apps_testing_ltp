@@ -41,15 +41,15 @@
 #include <errno.h>
 #include "test.h"
 
-char *TCID = "stream05";
-int TST_TOTAL = 1;
-int local_flag;
+static char *TCID = "stream05";
+static int TST_TOTAL = 1;
+static int local_flag;
 
 #define PASSED 1
 #define FAILED 0
 
-char progname[] = "stream05()";
-char tempfile[40] = "";
+static char progname[] = "stream05()";
+static char tempfile[40] = "";
 
 /*--------------------------------------------------------------------*/
 int main(int ac, char *av[])

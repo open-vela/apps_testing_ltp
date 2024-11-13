@@ -53,12 +53,12 @@
 #include <string.h>
 #include "test.h"
 
-char *TCID = "pipe08";
-int TST_TOTAL = 1;
+static char *TCID = "pipe08";
+static int TST_TOTAL = 1;
 
-void setup(void);
-void cleanup(void);
-void sighandler(int);
+static void setup(void);
+static void cleanup(void);
+static void sighandler(int);
 
 int main(int ac, char **av)
 {
@@ -109,7 +109,7 @@ int main(int ac, char **av)
 /*
  * sighandler - catch signals and look for SIGPIPE
  */
-void sighandler(int sig)
+static void sighandler(int sig)
 {
 	if (sig != SIGPIPE)
 		tst_resm(TFAIL, "expected SIGPIPE, got %d", sig);
@@ -120,7 +120,7 @@ void sighandler(int sig)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, sighandler, cleanup);
@@ -132,6 +132,6 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 }

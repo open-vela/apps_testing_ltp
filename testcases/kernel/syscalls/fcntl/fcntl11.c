@@ -51,35 +51,35 @@
 #define STRING		"abcdefghijklmnopqrstuvwxyz\n"
 #define STOP		0xFFF0
 
-int parent_pipe[2];
-int child_pipe[2];
-int fd;
-pid_t parent_pid, child_pid;
+static int parent_pipe[2];
+static int child_pipe[2];
+static int fd;
+static pid_t parent_pid, child_pid;
 
-void parent_put();
-void parent_get();
-void child_put();
-void child_get();
-void stop_child();
-void compare_lock(struct flock *, short, short, int, int, pid_t);
-void unlock_file();
-void do_test(struct flock *, short, short, int, int);
-void catch_child();
-char *str_type();
-int do_lock(int, short, short, int, int);
+static void parent_put();
+static void parent_get();
+static void child_put();
+static void child_get();
+static void stop_child();
+static void compare_lock(struct flock *, short, short, int, int, pid_t);
+static void unlock_file();
+static void do_test(struct flock *, short, short, int, int);
+static void catch_child();
+static char *str_type();
+static int do_lock(int, short, short, int, int);
 
-char *TCID = "fcntl11";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl11";
+static int TST_TOTAL = 1;
 
-int fail;
+static int fail;
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 
 }
 
-void setup(void)
+static void setup(void)
 {
 	char *buf = STRING;
 	char template[PATH_MAX];
@@ -111,7 +111,7 @@ void setup(void)
 			 "sigaction(SIGCHLD, ..) failed");
 }
 
-void do_child(void)
+static void do_child(void)
 {
 	struct flock fl;
 
@@ -125,7 +125,7 @@ void do_child(void)
 	}
 }
 
-int do_lock(int cmd, short type, short whence, int start, int len)
+static int do_lock(int cmd, short type, short whence, int start, int len)
 {
 	struct flock fl;
 
@@ -136,7 +136,7 @@ int do_lock(int cmd, short type, short whence, int start, int len)
 	return (fcntl(fd, cmd, &fl));
 }
 
-void do_test(struct flock *fl, short type, short whence, int start, int len)
+static void do_test(struct flock *fl, short type, short whence, int start, int len)
 {
 	fl->l_type = type;
 	fl->l_whence = whence;
@@ -148,7 +148,7 @@ void do_test(struct flock *fl, short type, short whence, int start, int len)
 	parent_get(fl);
 }
 
-void
+static void
 compare_lock(struct flock *fl, short type, short whence, int start, int len,
 	     pid_t pid)
 {
@@ -174,7 +174,7 @@ compare_lock(struct flock *fl, short type, short whence, int start, int len,
 			 pid, fl->l_pid);
 }
 
-void unlock_file(void)
+static void unlock_file(void)
 {
 	struct flock fl;
 
@@ -184,7 +184,7 @@ void unlock_file(void)
 	compare_lock(&fl, (short)F_UNLCK, (short)0, 0, 0, (pid_t) 0);
 }
 
-char *str_type(int type)
+static char *str_type(int type)
 {
 	static char buf[20];
 
@@ -201,29 +201,29 @@ char *str_type(int type)
 	}
 }
 
-void parent_put(struct flock *l)
+static void parent_put(struct flock *l)
 {
 	SAFE_WRITE(cleanup, 1, parent_pipe[1], l, sizeof(*l));
 }
 
-void parent_get(struct flock *l)
+static void parent_get(struct flock *l)
 {
 	SAFE_READ(cleanup, 1, child_pipe[0], l, sizeof(*l));
 }
 
-void child_put(struct flock *l)
+static void child_put(struct flock *l)
 {
 	SAFE_WRITE(NULL, 1, child_pipe[1], l, sizeof(*l));
 }
 
-void child_get(struct flock *l)
+static void child_get(struct flock *l)
 {
 	SAFE_READ(NULL, 1, parent_pipe[0], l, sizeof(*l));
 	if (l->l_type == (short)STOP)
 		exit(0);
 }
 
-void stop_child(void)
+static void stop_child(void)
 {
 	struct flock fl;
 
@@ -233,7 +233,7 @@ void stop_child(void)
 	wait(0);
 }
 
-void catch_child(void)
+static void catch_child(void)
 {
 	tst_brkm(TFAIL, cleanup, "Unexpected death of child process");
 }

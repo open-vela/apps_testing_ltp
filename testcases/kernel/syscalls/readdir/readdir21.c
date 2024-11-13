@@ -43,7 +43,7 @@
 #include "lapi/syscalls.h"
 #include "lapi/readdir.h"
 
-char *TCID = "readdir21";
+static char *TCID = "readdir21";
 
 #define TEST_DIR	"test_dir"
 #define TEST_DIR4	"test_dir4"
@@ -73,7 +73,7 @@ static struct test_case_t {
 #endif
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void readdir_verify(const struct test_case_t *);
 
 int main(int argc, char **argv)

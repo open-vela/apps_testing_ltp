@@ -116,7 +116,7 @@ static void sigterm_handler(int sig)
 /*
  * Generate a child process which will send a signal
  */
-pid_t create_sig_proc(unsigned long usec, int sig, unsigned count)
+static pid_t create_sig_proc(unsigned long usec, int sig, unsigned count)
 {
 	pid_t pid, cpid;
 

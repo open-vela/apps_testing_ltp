@@ -11,17 +11,17 @@
 #define FAIL 0
 #define SUCCESS 1
 
-int openlog[2] = { 0, 0 };
+static int openlog[2] = { 0, 0 };
 
 #define MAXNUM 0x100000
 
 #define  MAXERROR 1024
 
 extern int box_muler(int, int);
-extern void create_or_delete(char *);
+static void create_or_delete(char *);
 
-int delete_file(char *filename);
-int create_file(char *filename);
+static int delete_file(char *filename);
+static int create_file(char *filename);
 
 int cfilecount = 0;
 int dfilecount = 0;
@@ -70,7 +70,7 @@ int main(int ac, char **av)
 #define POOLDISKSPACE (AVEFSIZE*128)
 
 static int disk_space_pool = 0;
-void create_or_delete(char *fname)
+static void create_or_delete(char *fname)
 {
 	int r;
 
@@ -91,7 +91,7 @@ void create_or_delete(char *fname)
 	}
 }
 
-int create_file(char *filename)
+static int create_file(char *filename)
 {
 	int fd;
 	int randomsize;
@@ -118,7 +118,7 @@ int create_file(char *filename)
 #include <sys/stat.h>
 #include <unistd.h>
 
-int delete_file(char *filename)
+static int delete_file(char *filename)
 {
 	struct stat buf;
 	int st;

@@ -36,15 +36,15 @@
 #include <inttypes.h>
 #include "test.h"
 
-char *TCID = "stream03";
-int TST_TOTAL = 1;
-int local_flag;
+static char *TCID = "stream03";
+static int TST_TOTAL = 1;
+static int local_flag;
 
 #define PASSED 1
 #define FAILED 0
 
-char progname[] = "stream03()";
-char tempfile1[40] = "";
+static char progname[] = "stream03()";
+static char tempfile1[40] = "";
 
 int main(int ac, char *av[])
 {

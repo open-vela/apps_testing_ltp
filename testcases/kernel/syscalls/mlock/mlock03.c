@@ -40,8 +40,8 @@
 
 #define KB 1024
 
-char *TCID = "mlock03";
-int TST_TOTAL = 1;
+static char *TCID = "mlock03";
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

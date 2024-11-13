@@ -35,11 +35,11 @@
 #include <sys/stat.h>
 #include "test.h"
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 
-char *TCID = "fcntl01";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl01";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

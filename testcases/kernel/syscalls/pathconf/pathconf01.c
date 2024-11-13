@@ -115,11 +115,11 @@
 #include <signal.h>
 #include "test.h"
 
-void setup();
-void cleanup();
-void help();
+static void setup();
+static void cleanup();
+static void help();
 
-struct pathconf_args {
+static struct pathconf_args {
 	char *define_tag;
 	int value;
 } args[] = {
@@ -133,14 +133,14 @@ struct pathconf_args {
 	NULL, 0}
 };
 
-char *TCID = "pathconf01";
-int TST_TOTAL = ARRAY_SIZE(args);
+static char *TCID = "pathconf01";
+static int TST_TOTAL = ARRAY_SIZE(args);
 
 int i;
 
 
 int lflag;
-char *path;
+static char *path;
 
 option_t options[] = {
 	{"l:", &lflag, &path},	/* -l <path to test> */
@@ -208,7 +208,7 @@ int main(int ac, char **av)
 /***************************************************************
  * setup() - performs all ONE TIME setup for this test.
  ***************************************************************/
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -220,7 +220,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *		completion or premature exit.
  ***************************************************************/
-void cleanup(void)
+static void cleanup(void)
 {
 	if (!lflag) {
 		tst_rmdir();
@@ -231,7 +231,7 @@ void cleanup(void)
 /***************************************************************
  * help
  ***************************************************************/
-void help(void)
+static void help(void)
 {
 	printf("  -l path a path to test with pathconf(2) (def: /tmp)\n");
 }

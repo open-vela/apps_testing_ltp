@@ -48,7 +48,7 @@
 #define SFILE		"slink_file"
 
 TCID_DEFINE(lchown01);
-int TST_TOTAL = 5;
+static int TST_TOTAL = 5;
 
 struct test_case_t {
 	char *desc;

@@ -36,8 +36,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "zram03";
-int TST_TOTAL = 1;
+static char *TCID = "zram03";
+static int TST_TOTAL = 1;
 
 #define PATH_ZRAM	"/sys/block/zram0"
 #define OBSOLETE_ZRAM_FILE	"/sys/block/zram0/num_reads"

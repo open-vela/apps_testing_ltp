@@ -37,8 +37,8 @@
 
 #include "test.h"
 
-char *TCID = "openfile01";	/* Test program identifier.    */
-int TST_TOTAL = 1;
+static char *TCID = "openfile01";	/* Test program identifier.    */
+static int TST_TOTAL = 1;
 
 #define MAXFILES        32768
 #define MAXTHREADS      10
@@ -53,15 +53,15 @@ struct cb {
 
 /* Global Variables */
 int numthreads = 10, numfiles = 10;
-int debug = 0;
+static int debug = 0;
 char *filename = "FILETOOPEN";
 
-void setup(void)
+static void setup(void)
 {
 	tst_tmpdir();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 

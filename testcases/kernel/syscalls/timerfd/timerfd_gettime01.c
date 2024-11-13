@@ -33,7 +33,7 @@
 #include "safe_macros.h"
 #include "lapi/timerfd.h"
 
-char *TCID = "timerfd_gettime01";
+static char *TCID = "timerfd_gettime01";
 
 static int bad_clockfd = -1;
 static int clockfd;
@@ -49,7 +49,7 @@ static struct test_case_t {
 	{&fd, NULL, EINVAL},
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void setup(void);
 static void timerfd_gettime_verify(const struct test_case_t *);
 static void cleanup(void);

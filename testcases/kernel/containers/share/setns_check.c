@@ -21,7 +21,7 @@
 #include "test.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "setns_check";
+static char *TCID = "setns_check";
 
 int main(void)
 {

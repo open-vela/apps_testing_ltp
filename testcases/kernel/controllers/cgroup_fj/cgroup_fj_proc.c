@@ -33,7 +33,7 @@
 
 static int test_switch = 0;
 
-void sighandler(UNUSED int signo)
+static void sighandler(UNUSED int signo)
 {
 	test_switch = !test_switch;
 }

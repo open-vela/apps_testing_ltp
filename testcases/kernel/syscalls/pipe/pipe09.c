@@ -55,13 +55,13 @@
 
 #define	PIPEWRTCNT	100	/* must be an even number */
 
-char *TCID = "pipe09";
-int TST_TOTAL = 1;
+static char *TCID = "pipe09";
+static int TST_TOTAL = 1;
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 
-ssize_t do_read(int fd, void *buf, size_t count)
+static ssize_t do_read(int fd, void *buf, size_t count)
 {
 	ssize_t n;
 
@@ -196,7 +196,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -208,6 +208,6 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 }

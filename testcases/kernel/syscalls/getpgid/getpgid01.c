@@ -50,11 +50,11 @@
 #include <sys/types.h>
 #include "test.h"
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 
-char *TCID = "getpgid01";
-int TST_TOTAL = 1;
+static char *TCID = "getpgid01";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {
@@ -180,7 +180,7 @@ int main(int ac, char **av)
 
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -188,6 +188,6 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }

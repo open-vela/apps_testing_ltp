@@ -47,7 +47,7 @@ static void setup(void);
 static void cleanup(void);
 
 TCID_DEFINE(fchown01);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static int fd;
 

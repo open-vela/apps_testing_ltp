@@ -56,8 +56,8 @@ static struct test_case_t {
 		"umount2('mntpoint', UMOUNT_NOFOLLOW) expected success"},
 };
 
-char *TCID = "umount2_03";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "umount2_03";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

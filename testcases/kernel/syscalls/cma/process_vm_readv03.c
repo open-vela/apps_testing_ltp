@@ -34,8 +34,8 @@
 #include "safe_macros.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "process_vm_readv03";
-int TST_TOTAL = 1;
+static char *TCID = "process_vm_readv03";
+static int TST_TOTAL = 1;
 
 #define NUM_LOCAL_VECS 4
 

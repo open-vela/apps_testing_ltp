@@ -31,8 +31,8 @@
 
 static pid_t cpid;
 
-char *TCID = "pause03";
-int TST_TOTAL = 1;
+static char *TCID = "pause03";
+static int TST_TOTAL = 1;
 
 static void do_child(void);
 static void setup(void);

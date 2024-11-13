@@ -117,14 +117,14 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "close08";
-int TST_TOTAL = 1;
+static char *TCID = "close08";
+static int TST_TOTAL = 1;
 
-char fname[255];
-int fd;
+static char fname[255];
+static int fd;
 
 int main(int ac, char **av)
 {
@@ -158,7 +158,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -170,7 +170,7 @@ void setup(void)
 	sprintf(fname, "tfile_%d", getpid());
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 

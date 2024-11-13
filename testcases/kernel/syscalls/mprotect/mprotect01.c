@@ -45,8 +45,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "mprotect01";
-int TST_TOTAL = 3;
+static char *TCID = "mprotect01";
+static int TST_TOTAL = 3;
 
 struct test_case {
 	void *addr;
@@ -64,7 +64,7 @@ static void setup3(struct test_case *self);
 
 static int fd;
 
-struct test_case TC[] = {
+static struct test_case TC[] = {
 	/* Check for ENOMEM passing memory that cannot be accessed. */
 	{NULL, 0, PROT_READ, ENOMEM, setup1},
 

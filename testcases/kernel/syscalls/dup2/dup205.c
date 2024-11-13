@@ -38,11 +38,11 @@
 #include <unistd.h>
 #include "test.h"
 
-char *TCID = "dup205";
-int TST_TOTAL = 1;
-int *fildes;
-int min;
-int local_flag;
+static char *TCID = "dup205";
+static int TST_TOTAL = 1;
+static int *fildes;
+static int min;
+static int local_flag;
 
 #define PASSED 1
 #define FAILED 0

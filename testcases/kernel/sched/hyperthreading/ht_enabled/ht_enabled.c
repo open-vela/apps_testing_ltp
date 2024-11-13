@@ -16,8 +16,8 @@
 #include "test.h"
 #include "ht_utils.h"
 
-char *TCID = "smt_smp_enabled";
-int TST_TOTAL = 1;
+static char *TCID = "smt_smp_enabled";
+static int TST_TOTAL = 1;
 
 int main(int argc, char *argv[])
 {

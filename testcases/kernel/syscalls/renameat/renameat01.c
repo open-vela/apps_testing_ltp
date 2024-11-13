@@ -106,8 +106,8 @@ static void setup(void);
 static void cleanup(void);
 static void renameat_verify(const struct test_case_t *);
 
-char *TCID = "renameat01";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "renameat01";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

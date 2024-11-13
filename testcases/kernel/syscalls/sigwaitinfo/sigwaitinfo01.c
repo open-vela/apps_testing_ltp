@@ -484,7 +484,7 @@ const char *TCID = "sigtimedwait01";
 const char *TCID = "sigwait01";
 #endif
 
-int TST_TOTAL = ARRAY_SIZE(tests);
+static int TST_TOTAL = ARRAY_SIZE(tests);
 
 int main(int argc, char **argv)
 {

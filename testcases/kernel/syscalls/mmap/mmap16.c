@@ -53,8 +53,8 @@ static int parentfd = -1;
 static int page_size;
 static int bug_reproduced;
 
-char *TCID = "mmap16";
-int TST_TOTAL = 1;
+static char *TCID = "mmap16";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

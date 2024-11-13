@@ -48,20 +48,20 @@
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
+static int local_flag = PASSED;
 
-char *TCID = "rename14";
-int TST_TOTAL = 1;
+static char *TCID = "rename14";
+static int TST_TOTAL = 1;
 
 #define RUNTIME	5
 
-int kidpid[2];
-int parent_pid;
+static int kidpid[2];
+static int parent_pid;
 
-int term(void);
-int al(void);
-void dochild1(void);
-void dochild2(void);
+static int term(void);
+static int al(void);
+static void dochild1(void);
+static void dochild2(void);
 
 int main(int argc, char *argv[])
 {
@@ -139,7 +139,7 @@ int term(void)
 	return 0;
 }
 
-int al(void)
+static int al(void)
 {
 	if (kidpid[0])
 		return (kill(kidpid[0], SIGTERM));
@@ -148,7 +148,7 @@ int al(void)
 	return 0;
 }
 
-void dochild1(void)
+static void dochild1(void)
 {
 	int fd;
 
@@ -159,7 +159,7 @@ void dochild1(void)
 	}
 }
 
-void dochild2(void)
+static void dochild2(void)
 {
 	for (;;)
 		rename("./rename14", "./rename14xyz");

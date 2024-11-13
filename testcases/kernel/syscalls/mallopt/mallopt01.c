@@ -53,15 +53,15 @@
 #define PASSED 1
 #define MAX_FAST_SIZE	(80 * sizeof(size_t) / 4)
 
-int local_flag = PASSED;
+static int local_flag = PASSED;
 
-char *TCID = "mallopt01";
-int block_number;
-FILE *temp;
-int TST_TOTAL = 6;
+static char *TCID = "mallopt01";
+static int block_number;
+static FILE *temp;
+static int TST_TOTAL = 6;
 extern int tst_COUNT;		/* Test Case counter for tst_routines */
 
-void printinfo();
+static void printinfo();
 
 #if defined(__GLIBC__)
 struct mallinfo info;
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-void printinfo(void)
+static void printinfo(void)
 {
 
 	fprintf(stderr, "mallinfo structure:\n");

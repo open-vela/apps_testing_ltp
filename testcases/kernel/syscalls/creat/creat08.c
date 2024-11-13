@@ -54,9 +54,9 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "creat08";
-int TST_TOTAL = 1;
-int local_flag;
+static char *TCID = "creat08";
+static int TST_TOTAL = 1;
+static int local_flag;
 
 #define PASSED 1
 #define FAILED 0

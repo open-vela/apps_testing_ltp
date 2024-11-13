@@ -43,8 +43,8 @@
 #include <pwd.h>
 #include "test.h"
 
-char *TCID = "open10";
-int TST_TOTAL = 1;
+static char *TCID = "open10";
+static int TST_TOTAL = 1;
 static int local_flag;
 
 #define PASSED 1

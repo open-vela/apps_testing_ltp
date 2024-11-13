@@ -60,11 +60,11 @@
 static void setup();
 static void cleanup();
 
-char *TCID = "mem03";
-int TST_TOTAL = 1;
+static char *TCID = "mem03";
+static int TST_TOTAL = 1;
 
-int f1 = -1, f2 = -1;
-char *mm1 = NULL, *mm2 = NULL;
+static int f1 = -1, f2 = -1;
+static char *mm1 = NULL, *mm2 = NULL;
 
 /*--------------------------------------------------------------------*/
 int main(void)
@@ -144,7 +144,7 @@ int main(void)
 /*
  * setup() - performs all ONE TIME setup for this test
  */
-void setup(void)
+static void setup(void)
 {
 	/*
 	 * Create a temporary directory and cd into it.
@@ -156,7 +156,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	if (mm1)
 		munmap(mm1, 64);

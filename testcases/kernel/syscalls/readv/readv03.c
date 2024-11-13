@@ -60,21 +60,21 @@
 #define	K_1	1024
 #define MODES   S_IRWXU
 
-char buf1[K_1];
+static char buf1[K_1];
 
-struct iovec rd_iovec[1] = {
+static struct iovec rd_iovec[1] = {
 	{buf1, K_1}
 };
 
-const char *TEST_DIR = "alpha";
-int r_val;
-int fd;
+static const char *TEST_DIR = "alpha";
+static int r_val;
+static int fd;
 
-char *TCID = "readv03";
-int TST_TOTAL = 1;
+static char *TCID = "readv03";
+static int TST_TOTAL = 1;
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
 int main(int ac, char **av)
 {
@@ -111,7 +111,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -140,7 +140,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *	       completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	SAFE_CLOSE(cleanup, fd);
 	tst_rmdir();

@@ -26,7 +26,7 @@
 #include <string.h>
 #include <unistd.h>
 
-void sigusr_handler(int __attribute__ ((unused)) signo)
+static void sigusr_handler(int __attribute__ ((unused)) signo)
 {
 	char *p;
 	int size = getpagesize() * 2;

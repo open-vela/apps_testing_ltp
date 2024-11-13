@@ -47,8 +47,8 @@
 
 #define TEMPFILE	"mmapfile"
 
-char *TCID = "mmap02";
-int TST_TOTAL = 1;
+static char *TCID = "mmap02";
+static int TST_TOTAL = 1;
 
 static char *addr;
 static char *dummy;

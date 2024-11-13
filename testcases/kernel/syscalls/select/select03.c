@@ -55,12 +55,12 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "select03";
-int TST_TOTAL = 1;
+static char *TCID = "select03";
+static int TST_TOTAL = 1;
 
-int Fd;
-fd_set saved_Readfds, saved_Writefds;
-fd_set Readfds, Writefds;
+static int Fd;
+static fd_set saved_Readfds, saved_Writefds;
+static fd_set Readfds, Writefds;
 
 int main(int ac, char **av)
 {

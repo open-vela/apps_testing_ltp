@@ -38,7 +38,7 @@
 #include "lapi/syscalls.h"
 #include "lapi/sched.h"
 
-char *TCID = "sched_getattr02";
+static char *TCID = "sched_getattr02";
 
 static pid_t pid;
 static pid_t unused_pid;
@@ -60,7 +60,7 @@ static struct test_case {
 static void setup(void);
 static void sched_getattr_verify(const struct test_case *test);
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void sched_getattr_verify(const struct test_case *test)
 {
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	unused_pid = tst_get_unused_pid(setup);
 

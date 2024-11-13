@@ -21,7 +21,7 @@ static struct group nobody_gr, daemon_gr, root_gr, bin_gr;
  * is used for a separate test.  The tests are executed in the for loop below.
  */
 
-struct test_data_t {
+static struct test_data_t {
 	gid_t *real_gid;
 	gid_t *eff_gid;
 	struct group *exp_real_usr;

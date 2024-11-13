@@ -48,7 +48,7 @@
 #define TESTFILE	"testfile"
 
 TCID_DEFINE(fchown03);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static int fildes;
 char nobody_uid[] = "nobody";

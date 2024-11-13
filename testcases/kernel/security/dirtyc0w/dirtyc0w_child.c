@@ -71,7 +71,7 @@ void *proc_self_mem_thread(void *arg)
 	return NULL;
 }
 
-void sighandler(int sig)
+static void sighandler(int sig)
 {
 	(void) sig;
 

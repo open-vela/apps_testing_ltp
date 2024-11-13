@@ -118,15 +118,15 @@
 
 #include "test.h"
 
-void setup();
-void cleanup();
-void alarm_handler(int sig);
-void do_child();
+static void setup();
+static void cleanup();
+static void alarm_handler(int sig);
+static void do_child();
 
-char *TCID = "kill09";
-int TST_TOTAL = 1;
+static char *TCID = "kill09";
+static int TST_TOTAL = 1;
 
-int fork_pid;
+static int fork_pid;
 
 int main(int ac, char **av)
 {
@@ -176,7 +176,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void do_child(void)
+static void do_child(void)
 {
 	/*
 	 * Setup alarm signal if we don't get the signal to prevent this process
@@ -188,7 +188,7 @@ void do_child(void)
 	exit(1);
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -199,11 +199,11 @@ void setup(void)
 
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }
 
-void alarm_handler(int sig)
+static void alarm_handler(int sig)
 {
 	exit(8);
 }

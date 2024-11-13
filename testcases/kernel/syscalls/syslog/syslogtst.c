@@ -30,10 +30,10 @@
 #include <unistd.h>
 #include "test.h"
 
-char *TCID = "syslogtst";
-int TST_TOTAL = 1;
+static char *TCID = "syslogtst";
+static int TST_TOTAL = 1;
 
-void sig_handler(int signal);
+static void sig_handler(int signal);
 
 int main(int argc, char *argv[])
 {
@@ -301,7 +301,7 @@ int main(int argc, char *argv[])
 
 }
 
-void sig_handler(int signal)
+static void sig_handler(int signal)
 {
 
 	switch (signal) {

@@ -89,12 +89,12 @@
 #define TESTFILE	"testfile"
 
 TCID_DEFINE(chown03);
-int TST_TOTAL = 1;		/* Total number of test conditions */
-char nobody_uid[] = "nobody";
-struct passwd *ltpuser;
+static int TST_TOTAL = 1;		/* Total number of test conditions */
+static char nobody_uid[] = "nobody";
+static struct passwd *ltpuser;
 
-void setup();			/* setup function for the test */
-void cleanup();			/* cleanup function for the test */
+static void setup();			/* setup function for the test */
+static void cleanup();			/* cleanup function for the test */
 
 int main(int ac, char **av)
 {
@@ -155,7 +155,7 @@ int main(int ac, char **av)
  *  Create a test file under temporary directory and close it
  *  Change the group ownership on testfile.
  */
-void setup(void)
+static void setup(void)
 {
 	int fd;			/* file handler for testfile */
 
@@ -190,7 +190,7 @@ void setup(void)
 	SAFE_CLOSE(cleanup, fd);
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (setegid(0) == -1)
 		tst_resm(TWARN | TERRNO, "setegid(0) failed");
