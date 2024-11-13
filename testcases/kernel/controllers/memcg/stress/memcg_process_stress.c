@@ -12,16 +12,16 @@
 #include <string.h>
 #include <unistd.h>
 
-int flag_exit;
+static int flag_exit;
 int flag_ready;
 
 int interval;
-unsigned long memsize;
+static unsigned long memsize;
 
 char **pages;
 int nr_page;
 
-void touch_memory(void)
+static void touch_memory(void)
 {
 	int i;
 
@@ -29,7 +29,7 @@ void touch_memory(void)
 		pages[i][0] = 0xef;
 }
 
-void sigusr_handler(int __attribute__ ((unused)) signo)
+static void sigusr_handler(int __attribute__ ((unused)) signo)
 {
 	int i;
 	int pagesize;

@@ -29,8 +29,8 @@
 #include <fcntl.h>
 #include "test.h"
 
-char *TCID = "open09";
-int TST_TOTAL = 2;
+static char *TCID = "open09";
+static int TST_TOTAL = 2;
 
 #define PASSED 1
 #define FAILED 0

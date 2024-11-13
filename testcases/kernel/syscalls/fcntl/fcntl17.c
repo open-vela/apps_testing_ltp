@@ -55,8 +55,8 @@
 
 #include "test.h"
 
-char *TCID = "fcntl17";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl17";
+static int TST_TOTAL = 1;
 
 #define STRINGSIZE	27
 #define STRING		"abcdefghijklmnopqrstuvwxyz\n"
@@ -64,37 +64,37 @@ int TST_TOTAL = 1;
 #define TIME_OUT	10
 
 /* global variables */
-int parent_pipe[2];
-int child_pipe1[2];
-int child_pipe2[2];
-int child_pipe3[2];
-int file_fd;
-pid_t parent_pid, child_pid1, child_pid2, child_pid3;
-int child_stat;
-struct flock lock1 = { (short)F_WRLCK, (short)0, 2, 5, (short)0 };
-struct flock lock2 = { (short)F_WRLCK, (short)0, 9, 5, (short)0 };
-struct flock lock3 = { (short)F_WRLCK, (short)0, 17, 5, (short)0 };
-struct flock lock4 = { (short)F_WRLCK, (short)0, 17, 5, (short)0 };
-struct flock lock5 = { (short)F_WRLCK, (short)0, 2, 14, (short)0 };
-struct flock unlock = { (short)F_UNLCK, (short)0, 0, 0, (short)0 };
+static int parent_pipe[2];
+static int child_pipe1[2];
+static int child_pipe2[2];
+static int child_pipe3[2];
+static int file_fd;
+static pid_t parent_pid, child_pid1, child_pid2, child_pid3;
+static int child_stat;
+static struct flock lock1 = { (short)F_WRLCK, (short)0, 2, 5, (short)0 };
+static struct flock lock2 = { (short)F_WRLCK, (short)0, 9, 5, (short)0 };
+static struct flock lock3 = { (short)F_WRLCK, (short)0, 17, 5, (short)0 };
+static struct flock lock4 = { (short)F_WRLCK, (short)0, 17, 5, (short)0 };
+static struct flock lock5 = { (short)F_WRLCK, (short)0, 2, 14, (short)0 };
+static struct flock unlock = { (short)F_UNLCK, (short)0, 0, 0, (short)0 };
 
 /* prototype declarations */
-int setup();
-void cleanup();
-int parent_wait();
-void parent_free();
-void child_wait();
-void child_free();
-void do_child1();
-void do_child2();
-void do_child3();
-int do_test(struct flock *, pid_t);
-void stop_children();
-void catch_child();
-void catch_alarm();
-char *str_type();
+static int setup();
+static void cleanup();
+static int parent_wait();
+static void parent_free();
+static void child_wait();
+static void child_free();
+static void do_child1();
+static void do_child2();
+static void do_child3();
+static int do_test(struct flock *, pid_t);
+static void stop_children();
+static void catch_child();
+static void catch_alarm();
+static char *str_type();
 
-int setup(void)
+static int setup(void)
 {
 	char *buf = STRING;
 	char template[PATH_MAX];
@@ -158,7 +158,7 @@ int setup(void)
 	return 0;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (child_pid1 > 0)
 		kill(child_pid1, 9);
@@ -174,7 +174,7 @@ void cleanup(void)
 
 }
 
-void do_child1(void)
+static void do_child1(void)
 {
 	int err;
 
@@ -206,7 +206,7 @@ void do_child1(void)
 	exit(1);
 }
 
-void do_child2(void)
+static void do_child2(void)
 {
 	int err;
 
@@ -244,7 +244,7 @@ void do_child2(void)
 	exit(1);
 }
 
-void do_child3(void)
+static void do_child3(void)
 {
 	int err;
 
@@ -282,7 +282,7 @@ void do_child3(void)
 	exit(1);
 }
 
-int do_test(struct flock *lock, pid_t pid)
+static int do_test(struct flock *lock, pid_t pid)
 {
 	struct flock fl;
 
@@ -330,7 +330,7 @@ int do_test(struct flock *lock, pid_t pid)
 	return 0;
 }
 
-char *str_type(int type)
+static char *str_type(int type)
 {
 	static char buf[20];
 
@@ -347,7 +347,7 @@ char *str_type(int type)
 	}
 }
 
-void parent_free(int arg)
+static void parent_free(int arg)
 {
 	if (write(parent_pipe[1], &arg, sizeof(arg)) != sizeof(arg)) {
 		tst_resm(TFAIL, "couldn't send message to parent");
@@ -355,7 +355,7 @@ void parent_free(int arg)
 	}
 }
 
-int parent_wait(void)
+static int parent_wait(void)
 {
 	int arg;
 
@@ -366,7 +366,7 @@ int parent_wait(void)
 	return (arg);
 }
 
-void child_free(int fd, int arg)
+static void child_free(int fd, int arg)
 {
 	if (write(fd, &arg, sizeof(arg)) != sizeof(arg)) {
 		tst_resm(TFAIL, "couldn't send message to child");
@@ -374,7 +374,7 @@ void child_free(int fd, int arg)
 	}
 }
 
-void child_wait(int fd)
+static void child_wait(int fd)
 {
 	int arg;
 
@@ -386,7 +386,7 @@ void child_wait(int fd)
 	}
 }
 
-void stop_children(void)
+static void stop_children(void)
 {
 	int arg;
 
@@ -403,13 +403,13 @@ void stop_children(void)
 	child_pid3 = 0;
 }
 
-void catch_child(void)
+static void catch_child(void)
 {
 	tst_resm(TFAIL, "Unexpected death of child process");
 	cleanup();
 }
 
-void catch_alarm(void)
+static void catch_alarm(void)
 {
 	sighold(SIGCHLD);
 	/*

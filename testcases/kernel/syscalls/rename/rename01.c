@@ -74,19 +74,19 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "rename01";
-int TST_TOTAL = 2;
+static char *TCID = "rename01";
+static int TST_TOTAL = 2;
 
-char fname[255], mname[255];
+static char fname[255], mname[255];
 char fdir[255], mdir[255];
-struct stat buf1;
+static struct stat buf1;
 dev_t f_olddev, d_olddev;
 ino_t f_oldino, d_oldino;
 
-struct test_case_t {
+static struct test_case_t {
 	char *name1;
 	char *name2;
 	char *desc;
@@ -173,7 +173,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -208,7 +208,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *             completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	/*

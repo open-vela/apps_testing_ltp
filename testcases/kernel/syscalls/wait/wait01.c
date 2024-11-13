@@ -27,8 +27,8 @@
 
 #include "test.h"
 
-char *TCID = "wait01";
-int TST_TOTAL = 1;
+static char *TCID = "wait01";
+static int TST_TOTAL = 1;
 static void setup(void);
 static void wait_verify(void);
 static void cleanup(void);

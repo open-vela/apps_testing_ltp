@@ -86,7 +86,7 @@ static struct test_case_t {
 };
 
 TCID_DEFINE(chown04);
-int TST_TOTAL = ARRAY_SIZE(tc);
+static int TST_TOTAL = ARRAY_SIZE(tc);
 
 static char *bad_addr;
 

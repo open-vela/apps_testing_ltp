@@ -46,7 +46,7 @@
 #include "lapi/syscalls.h"
 #include "safe_macros.h"
 
-char *TCID = "perf_event_open01";
+static char *TCID = "perf_event_open01";
 
 #if HAVE_PERF_EVENT_ATTR
 static void setup(void);
@@ -73,7 +73,7 @@ static struct test_case_t {
 	  PERF_COUNT_SW_TASK_CLOCK },
 };
 
-int TST_TOTAL = ARRAY_SIZE(event_types);
+static int TST_TOTAL = ARRAY_SIZE(event_types);
 
 static void verify(struct test_case_t *tc);
 static struct perf_event_attr pe;

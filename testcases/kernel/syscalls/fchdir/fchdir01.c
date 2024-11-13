@@ -63,22 +63,23 @@
 #include <libgen.h>
 #include <string.h>
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
-char *TCID = "fchdir01";
-int TST_TOTAL = 1;
+static char *TCID = "fchdir01";
+static int TST_TOTAL = 1;
 
-int fd;
-char *temp_dir;
+static int fd;
+static char *temp_dir;
 const char *TEST_DIR = "alpha";
 
 #define MODES	S_IRWXU
 
+static void check_functionality(void);
+
 int main(int ac, char **av)
 {
 	int lc;
-	void check_functionality(void);
 	int r_val;
 
 	tst_parse_opts(ac, av, NULL, NULL);
@@ -137,7 +138,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void check_functionality(void)
+static void check_functionality(void)
 {
 	char *buf = NULL;
 	char *dir;
@@ -155,7 +156,7 @@ void check_functionality(void)
 		tst_resm(TFAIL, "fchdir call failed");
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -165,7 +166,7 @@ void setup(void)
 	tst_tmpdir();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }

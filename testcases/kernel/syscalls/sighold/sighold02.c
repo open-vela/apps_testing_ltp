@@ -61,8 +61,8 @@
 # define NUMSIGS NSIG
 #endif
 
-char *TCID = "sighold02";
-int TST_TOTAL = 2;
+static char *TCID = "sighold02";
+static int TST_TOTAL = 2;
 
 static int pid;
 static void do_child(void);
@@ -138,7 +138,7 @@ static void handle_sigs(int sig)
 	sigs_catched++;
 }
 
-void do_child(void)
+static void do_child(void)
 {
 	int cnt;
 	int sig;

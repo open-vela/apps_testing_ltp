@@ -41,7 +41,7 @@ struct iovec iovec_zero_null[] = {
 	{ NULL, 0 }
 };
 
-struct testcase_t {
+static struct testcase_t {
 	const char *desc;
 	int *pfd;
 	struct iovec (*piovec)[];
@@ -97,7 +97,7 @@ struct testcase_t {
 	},
 };
 
-void setup(void)
+static void setup(void)
 {
 	sigset_t block_mask;
 

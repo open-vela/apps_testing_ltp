@@ -56,11 +56,11 @@
 #include <errno.h>
 #include <sys/time.h>
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
-char *TCID = "setitimer01";
-int TST_TOTAL = 1;
+static char *TCID = "setitimer01";
+static int TST_TOTAL = 1;
 
 #define SEC0	0
 #define SEC1	20
@@ -139,7 +139,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -151,7 +151,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 }

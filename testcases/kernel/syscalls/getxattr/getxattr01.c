@@ -50,7 +50,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "getxattr01";
+static char *TCID = "getxattr01";
 
 #ifdef HAVE_SYS_XATTR_H
 #define XATTR_TEST_KEY "user.testkey"

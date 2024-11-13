@@ -88,19 +88,19 @@
 #define DIR_TEMP	"testdir_5"
 #define TNODE		"tnode_%d"
 
-struct stat buf;		/* struct. to hold stat(2) o/p contents */
-struct passwd *user1;		/* struct. to hold getpwnam(3) o/p contents */
+static struct stat buf;		/* struct. to hold stat(2) o/p contents */
+static struct passwd *user1;		/* struct. to hold getpwnam(3) o/p contents */
 
-char *TCID = "mknod05";
-int TST_TOTAL = 1;
+static char *TCID = "mknod05";
+static int TST_TOTAL = 1;
 char node_name[PATH_MAX];	/* buffer to hold node name created */
 
-gid_t group1_gid, group2_gid, mygid;	/* user and process group id's */
-uid_t save_myuid, user1_uid;	/* user and process user id's */
-pid_t mypid;			/* process id */
+static gid_t group1_gid, group2_gid, mygid;	/* user and process group id's */
+static uid_t save_myuid, user1_uid;	/* user and process user id's */
+static pid_t mypid;			/* process id */
 
-void setup();			/* setup function for the test */
-void cleanup();			/* cleanup function for the test */
+static void setup();			/* setup function for the test */
+static void cleanup();			/* cleanup function for the test */
 
 int main(int ac, char **av)
 {
@@ -192,7 +192,7 @@ int main(int ac, char **av)
  *	of test directory to guest user and process, change mode permissions
  *	to set group id bit on it.
  */
-void setup(void)
+static void setup(void)
 {
 	tst_require_root();
 
@@ -260,7 +260,7 @@ void setup(void)
  *	created during setup().
  *	Exit the test program with normal exit code.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	tst_rmdir();

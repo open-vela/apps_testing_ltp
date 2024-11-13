@@ -48,12 +48,12 @@
 #include "test.h"
 #include "tst_kernel.h"
 
-char *TCID = "mmapstress03";
-FILE *temp;
-int TST_TOTAL = 1;
+static char *TCID = "mmapstress03";
+static FILE *temp;
+static int TST_TOTAL = 1;
 
-int anyfail();
-void ok_exit();
+static int anyfail();
+static void ok_exit();
 
 #define AS_SVSM_VSEG_MAX	48UL
 #define AS_SVSM_MMAP_MAX	16UL
@@ -201,13 +201,13 @@ static void do_test(void* brk_max, long pagesize)
 	}
 }
 
-void ok_exit(void)
+static void ok_exit(void)
 {
 	tst_resm(TPASS, "Test passed");
 	tst_exit();
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_brkm(TFAIL, NULL, "Test failed");
 }

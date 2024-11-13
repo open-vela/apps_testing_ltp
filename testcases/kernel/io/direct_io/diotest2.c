@@ -57,8 +57,8 @@
 
 #include "test.h"
 
-char *TCID = "diotest02";	/* Test program identifier.    */
-int TST_TOTAL = 3;		/* Total number of test conditions */
+static char *TCID = "diotest02";	/* Test program identifier.    */
+static int TST_TOTAL = 3;		/* Total number of test conditions */
 
 #ifdef O_DIRECT
 

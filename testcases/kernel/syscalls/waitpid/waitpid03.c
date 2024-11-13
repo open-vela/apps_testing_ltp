@@ -59,8 +59,8 @@ static void do_child(int);
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "waitpid03";
-int TST_TOTAL = 1;
+static char *TCID = "waitpid03";
+static int TST_TOTAL = 1;
 
 #define	MAXUPRC	25
 

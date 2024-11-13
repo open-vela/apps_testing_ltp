@@ -209,6 +209,6 @@ const char *tst_strerrno(int err);
 #else
 #define TCID_BIT_SUFFIX ""
 #endif
-#define TCID_DEFINE(ID) char *TCID = (#ID TCID_BIT_SUFFIX)
+#define TCID_DEFINE(ID) static char *TCID = (#ID TCID_BIT_SUFFIX)
 
 #endif	/* __TEST_H__ */

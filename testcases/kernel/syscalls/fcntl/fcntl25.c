@@ -95,14 +95,14 @@
 #include <signal.h>
 #include "test.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "fcntl25";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl25";
+static int TST_TOTAL = 1;
 
-char fname[255];
-int fd;
+static char fname[255];
+static int fd;
 
 int main(int ac, char **av)
 {
@@ -182,7 +182,7 @@ int main(int ac, char **av)
 /***************************************************************
  * setup() - performs all ONE TIME setup for this test.
  ***************************************************************/
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -203,7 +203,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *				 completion or premature exit.
  ***************************************************************/
-void cleanup(void)
+static void cleanup(void)
 {
 
 	/* close the file we've had open */

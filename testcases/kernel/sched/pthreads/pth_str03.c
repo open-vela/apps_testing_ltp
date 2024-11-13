@@ -58,26 +58,26 @@ struct kid_info {
 typedef struct kid_info c_info;
 
 /* Global variables */
-int depth = 3;
-int breadth = 4;
-int timeout = 30;		/* minutes */
-int cdepth;			/* current depth */
-int debug = 0;
+static int depth = 3;
+static int breadth = 4;
+static int timeout = 30;		/* minutes */
+static int cdepth;			/* current depth */
+static int debug = 0;
 
-c_info *child_info;		/* pointer to info array */
-int node_count;			/* number of nodes created so far */
-pthread_mutex_t node_mutex;	/* mutex for the node_count */
-pthread_cond_t node_condvar;	/* condition variable for node_count */
-pthread_attr_t attr;		/* attributes for created threads */
+static c_info *child_info;		/* pointer to info array */
+static int node_count;			/* number of nodes created so far */
+static pthread_mutex_t node_mutex;	/* mutex for the node_count */
+static pthread_cond_t node_condvar;	/* condition variable for node_count */
+static pthread_attr_t attr;		/* attributes for created threads */
 
-int num_nodes(int, int);
-int synchronize_children(c_info *);
-void *doit(void *);
+static int num_nodes(int, int);
+static int synchronize_children(c_info *);
+static void *doit(void *);
 
-char *TCID = "pth_str03";
-int TST_TOTAL = 1;
+static char *TCID = "pth_str03";
+static int TST_TOTAL = 1;
 
-void testexit(int value)
+static void testexit(int value)
 {
 	if (value == 0)
 		tst_resm(TPASS, "Test passed");
@@ -160,7 +160,7 @@ static void parse_args(int argc, char *argv[])
  *
  * Caculate the number of child nodes for a given breadth and depth tree.
  *--------------------------------------------------------------------------------*/
-int num_nodes(int b, int d)
+static int num_nodes(int b, int d)
 {
 	int n, sum = 1, partial_exp = 1;
 
@@ -185,7 +185,7 @@ int num_nodes(int b, int d)
  * Register the child with the parent and then wait for all of the children
  * at the same level to register also.  Return when everything is synched up.
  *--------------------------------------------------------------------------------*/
-int synchronize_children(c_info * parent)
+static int synchronize_children(c_info * parent)
 {
 	int my_index, rc;
 	c_info *info_p;
@@ -319,7 +319,7 @@ int synchronize_children(c_info * parent)
  *
  * Do it.
  *--------------------------------------------------------------------------------*/
-void *doit(void *param)
+static void *doit(void *param)
 {
 	c_info *parent = (c_info *) param;
 	int rc, child, my_index;

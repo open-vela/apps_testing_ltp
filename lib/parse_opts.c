@@ -576,8 +576,8 @@ int Help = 0;
 int Help2 = 0;
 char *ptr;
 
-long TEST_RETURN;
-int TEST_ERRNO;
+static long TEST_RETURN;
+static int TEST_ERRNO;
 
 /* for test specific parse_opts options */
 option_t Options[] = {

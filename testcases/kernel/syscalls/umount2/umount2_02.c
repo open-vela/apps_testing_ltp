@@ -67,8 +67,8 @@ static struct test_case_t {
 		"second call to umount2(2) with MNT_EXPIRE expected success"},
 };
 
-char *TCID = "umount2_02";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "umount2_02";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

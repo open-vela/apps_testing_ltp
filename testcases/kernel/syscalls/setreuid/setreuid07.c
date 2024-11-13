@@ -40,7 +40,7 @@
 #include "compat_16.h"
 
 TCID_DEFINE(setreuid07);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static char testfile[256] = "";
 static struct passwd *ltpuser;

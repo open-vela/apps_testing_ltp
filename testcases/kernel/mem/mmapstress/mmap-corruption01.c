@@ -57,15 +57,15 @@
 extern int tst_count;
 
 /* Global Variables */
-char *TCID = "mmap-corruption01";	/* test program identifier.          */
-int TST_TOTAL = 1;		/* total number of tests in this file.   */
+static char *TCID = "mmap-corruption01";	/* test program identifier.          */
+static int TST_TOTAL = 1;		/* total number of tests in this file.   */
 
-long kMemSize = 128 << 20;
-int kPageSize = 4096;
+static long kMemSize = 128 << 20;
+static int kPageSize = 4096;
 
-char *usage = "-h hours -m minutes -s secs\n";
+static char *usage = "-h hours -m minutes -s secs\n";
 
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_brkm(TFAIL, tst_rmdir, "Test failed\n");
 }

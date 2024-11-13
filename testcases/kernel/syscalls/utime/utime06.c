@@ -55,7 +55,7 @@
 #define TEMP_FILE	"tmp_file"
 #define MNT_POINT	"mntpoint"
 
-char *TCID = "utime06";
+static char *TCID = "utime06";
 static struct passwd *ltpuser;
 static const struct utimbuf times;
 static const char *dev;
@@ -63,7 +63,7 @@ static int mount_flag;
 static void setup_nobody(void);
 static void cleanup_nobody(void);
 
-struct test_case_t {
+static struct test_case_t {
 	char *pathname;
 	int exp_errno;
 	const struct utimbuf *times;
@@ -76,7 +76,7 @@ struct test_case_t {
 	{MNT_POINT, EROFS, NULL, NULL, NULL},
 };
 
-int TST_TOTAL = ARRAY_SIZE(Test_cases);
+static int TST_TOTAL = ARRAY_SIZE(Test_cases);
 static void setup(void);
 static void utime_verify(const struct test_case_t *);
 static void cleanup(void);

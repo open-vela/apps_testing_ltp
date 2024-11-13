@@ -48,7 +48,7 @@ static struct test_case_t {
 	{128, NULL, &time_buf, EINVAL},
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void setup(void);
 static void cleanup(void);

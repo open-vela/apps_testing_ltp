@@ -46,11 +46,11 @@
 #include <unistd.h>
 #include "test.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "getdtablesize01";
-int TST_TOTAL = 1;
+static char *TCID = "getdtablesize01";
+static int TST_TOTAL = 1;
 
 int main(void)
 {
@@ -107,13 +107,13 @@ int main(void)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }

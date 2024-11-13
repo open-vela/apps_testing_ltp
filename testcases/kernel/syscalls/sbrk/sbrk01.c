@@ -46,7 +46,7 @@
 
 #include "test.h"
 
-char *TCID = "sbrk01";
+static char *TCID = "sbrk01";
 
 static struct test_case_t {
 	long increment;
@@ -59,7 +59,7 @@ static void setup(void);
 static void sbrk_verify(const struct test_case_t *);
 static void cleanup(void);
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

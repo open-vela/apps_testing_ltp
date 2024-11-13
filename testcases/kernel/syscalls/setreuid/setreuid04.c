@@ -42,7 +42,7 @@ static struct passwd nobody, root;
  * is used for a separate test.  The tests are executed in the for loop below.
  */
 
-struct test_data_t {
+static struct test_data_t {
 	uid_t *real_uid;
 	uid_t *eff_uid;
 	struct passwd *exp_real_usr;
@@ -54,7 +54,7 @@ struct test_data_t {
 &nobody.pw_uid, &nobody.pw_uid, &nobody, &nobody,
 		    "After setreuid(-1, -1),"},};
 
-int TST_TOTAL = ARRAY_SIZE(test_data);
+static int TST_TOTAL = ARRAY_SIZE(test_data);
 
 static void setup(void);
 static void cleanup(void);

@@ -57,8 +57,8 @@
 
 #include "test.h"
 
-char *TCID = "diotest03";	/* Test program identifier.    */
-int TST_TOTAL = 3;		/* Total number of test conditions */
+static char *TCID = "diotest03";	/* Test program identifier.    */
+static int TST_TOTAL = 3;		/* Total number of test conditions */
 
 #ifdef O_DIRECT
 
@@ -88,7 +88,7 @@ static void prg_usage(void)
  *
  * XXX (garrcoop): shouldn't use libltp APIs because it runs forked.
  */
-int runtest(int fd_r, int fd_w, int childnum, int action)
+static int runtest(int fd_r, int fd_w, int childnum, int action)
 {
 	char *buf1;
 	char *buf2;

@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include "test.h"
 
-const char *TCID = "pm_get_sched_values";
+static const char *TCID = "pm_get_sched_values";
 
 int get_supp_sched_mc(void)
 {

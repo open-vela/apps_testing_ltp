@@ -38,7 +38,7 @@ int startc = 0;
 int showchar[] = { 124, 47, 45, 92, 124, 47, 45, 92 };
 
 int nullFileHandle;
-int openlog[2] = { 0, 0 };
+static int openlog[2] = { 0, 0 };
 
 int cFileCount, dFileCount, errorCount;
 static int disk_space_pool = 0;
@@ -51,8 +51,8 @@ int makedir(char *dir1);
 int changedir(char *dir);
 int do_random_access_test(int maxNum);
 int do_random_create_delete(int maxNum);
-int create_file(char *filename);
-int delete_file(char *filename);
+static int create_file(char *filename);
+static int delete_file(char *filename);
 int gen_random_file_size(int min, int max);
 int open_read_close(char *fname);
 int create_or_delete(char *fname);
@@ -329,7 +329,7 @@ int changedir(char *dir)
 	return 0;
 }
 
-int create_file(char *filename)
+static int create_file(char *filename)
 {
 	int fileHandle;
 	int randomsize;
@@ -360,7 +360,7 @@ int create_file(char *filename)
 	return 0;
 }
 
-int delete_file(char *filename)
+static int delete_file(char *filename)
 {
 	struct stat buf;
 	int st;

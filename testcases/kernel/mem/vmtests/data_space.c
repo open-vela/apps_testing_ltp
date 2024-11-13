@@ -49,11 +49,11 @@
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
+static int local_flag = PASSED;
+static int block_number;
 
-char *TCID = "data_space";	/* Test program identifier.    */
-int TST_TOTAL = 1;		/* Total number of test cases. */
+static char *TCID = "data_space";	/* Test program identifier.    */
+static int TST_TOTAL = 1;		/* Total number of test cases. */
 /**************/
 
 #define MAXCHILD	100	/* max number of children to allow */
@@ -66,31 +66,31 @@ int allchild[MAXCHILD + 1];
 	tst_brkm(TCONF, NULL, \
 	    "bad argument - %s - could not parse as number.", str)
 
-int nchild;			/* # kids */
-int csize;			/* chunk size */
-int iterations;			/* # total iterations */
-int rep_freq;			/* report frequency */
-int max_size;			/* max file size */
-int parent_pid;
+static int nchild;			/* # kids */
+static int csize;			/* chunk size */
+static int iterations;			/* # total iterations */
+static int rep_freq;			/* report frequency */
+static int max_size;			/* max file size */
+static int parent_pid;
 
-int usage(char *);
-int runtest();
-int dotest(int, int);
-void bfill(char *, char, int);
-int dumpbuf(char *);
-void dumpbits(char *, int);
-int massmurder();
-int okexit(int);
+static int usage(char *);
+static int runtest();
+static int dotest(int, int);
+static void bfill(char *, char, int);
+static int dumpbuf(char *);
+static void dumpbits(char *, int);
+static int massmurder();
+static int okexit(int);
 
-char *prog;			/* invoked name */
-int chld_flag = 0;
+static char *prog;			/* invoked name */
+static int chld_flag = 0;
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }
 
-int usage(prog)
+static int usage(prog)
 char *prog;
 {
 	tst_resm(TCONF, "Usage: %s <nchild> <size> <chunk_size> <iterations>",
@@ -98,13 +98,14 @@ char *prog;
 	tst_brkm(TCONF, NULL, "DEFAULTS: 10 1024*1024 4096 25");
 }
 
+static int term();
+static int chld();
+
 int main(argc, argv)
 int argc;
 char *argv[];
 {
 	int i = 1;
-	int term();
-	int chld();
 
 	prog = argv[0];
 
@@ -145,7 +146,7 @@ char *argv[];
 	tst_exit();
 }
 
-int runtest()
+static int runtest()
 {
 	register int i;
 	int child;
@@ -211,11 +212,11 @@ int runtest()
  *
  */
 
-int nchunks;
+static int nchunks;
 
 #define	CHUNK(i)	((i) * csize)
 
-int dotest(testers, me)
+static int dotest(testers, me)
 int testers;
 int me;
 {
@@ -357,7 +358,7 @@ int me;
 	return 0;
 }
 
-void bfill(buf, val, size)
+static void bfill(buf, val, size)
 register char *buf;
 char val;
 register int size;
@@ -373,7 +374,7 @@ register int size;
  *	Dump the buffer.
  */
 
-int dumpbuf(buf)
+static int dumpbuf(buf)
 register char *buf;
 {
 	register int i;
@@ -425,7 +426,7 @@ register char *buf;
  *	Dump the bit-map.
  */
 
-void dumpbits(bits, size)
+static void dumpbits(bits, size)
 char *bits;
 register int size;
 {
@@ -447,7 +448,7 @@ register int size;
  *	Parent - kill kids and return when signal arrives.
  *	Child - exit.
  */
-int term()
+static int term()
 {
 #ifdef DEBUG
 	tst_resm(TINFO, "\tterm -[%d]- got sig term.\n", getpid());
@@ -461,7 +462,7 @@ int term()
 	exit(0);
 }
 
-int chld()
+static int chld()
 {
 	if (sigset(SIGUSR1, (void (*)())chld) == SIG_ERR) {
 		tst_resm(TBROK, "sigset shichld");
@@ -471,7 +472,7 @@ int chld()
 	return 0;
 }
 
-int massmurder()
+static int massmurder()
 {
 	int i;
 	for (i = 0; i < MAXCHILD; i++) {
@@ -482,7 +483,7 @@ int massmurder()
 	return 0;
 }
 
-int okexit(me)
+static int okexit(me)
 int me;
 {
 	kill(parent_pid, SIGUSR1);

@@ -47,23 +47,23 @@ int bd_arg(char *);
 /** LTP Port **/
 #include "test.h"
 
-void blenter(void);
-void setup(void);
-void anyfail(void);
-void ok_exit(void);
-void forkfail(void);
-void terror(char *);
-int instress(void);
+static void blenter(void);
+static void setup(void);
+static void anyfail(void);
+static void ok_exit(void);
+static void forkfail(void);
+static void terror(char *);
+static int instress(void);
 
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
-FILE *temp;
+static int local_flag = PASSED;
+static int block_number;
+static FILE *temp;
 
-char *TCID = "page01";		/* Test program identifier.    */
-int TST_TOTAL = 1;		/* Total number of test cases. */
+static char *TCID = "page01";		/* Test program identifier.    */
+static int TST_TOTAL = 1;		/* Total number of test cases. */
 /**************/
 
 int main(argc, argv)
@@ -205,7 +205,7 @@ char *str;
  *
  * Do set up - here its a dummy function
  */
-void setup()
+static void setup()
 {
 	tst_tmpdir();
 	temp = stderr;
@@ -216,7 +216,7 @@ void setup()
  *
  * Description: Print message on entering a new block
  */
-void blenter()
+static void blenter()
 {
 	local_flag = PASSED;
 	return;
@@ -228,7 +228,7 @@ void blenter()
  *
  * Description: Exit a test.
  */
-void anyfail()
+static void anyfail()
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL, "Test failed")
 	    : tst_resm(TPASS, "Test passed");
@@ -241,7 +241,7 @@ void anyfail()
  *
  * Calling block passed the test
  */
-void ok_exit()
+static void ok_exit()
 {
 	local_flag = PASSED;
 	return;
@@ -252,7 +252,7 @@ void ok_exit()
  *
  * exit on failure
  */
-void forkfail()
+static void forkfail()
 {
 	tst_brkm(TBROK, tst_rmdir, "Reason: %s\n", strerror(errno));
 }
@@ -264,7 +264,7 @@ void forkfail()
  *              test case failed, for example fork() failed. We will log this
  *              failure as TBROK instead of TFAIL.
  */
-void terror(char *message)
+static void terror(char *message)
 {
 	tst_resm(TBROK, "Reason: %s:%s\n", message, strerror(errno));
 	return;
@@ -276,7 +276,7 @@ void terror(char *message)
  * Assume that we are always running under stress, so this function will
  * return > 0 value always.
  */
-int instress()
+static int instress()
 {
 	tst_resm(TINFO, "System resource may be too low, fork() malloc()"
 		 " etc are likely to fail.\n");

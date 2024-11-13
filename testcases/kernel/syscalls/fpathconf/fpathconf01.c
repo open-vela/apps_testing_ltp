@@ -63,8 +63,8 @@ static struct pathconf_args {
 	{"_PC_NO_TRUNC", _PC_NO_TRUNC},
 };
 
-char *TCID = "fpathconf01";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "fpathconf01";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static int fd;
 

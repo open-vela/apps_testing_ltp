@@ -116,11 +116,11 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "dup02";
-int TST_TOTAL = 2;
+static char *TCID = "dup02";
+static int TST_TOTAL = 2;
 
 int Fds[] = { -1, 1500 };
 
@@ -162,7 +162,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -173,7 +173,7 @@ void setup(void)
 
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 }

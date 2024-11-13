@@ -82,7 +82,7 @@
  *
  * parse_args: parse command line arguments
  */
-void parse_args(int, char **);
+static void parse_args(int, char **);
 void read_raw_device();
 
 /*
@@ -94,11 +94,11 @@ void read_raw_device();
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-int priority = DEFAULT_PRIORITY;
-char *logfile = DEFAULT_LOGFILE;
-char *priority_type = DEFAULT_PRIORITY_TYPE;
+static int verbose = 0;
+static int debug = 0;
+static int priority = DEFAULT_PRIORITY;
+static char *logfile = DEFAULT_LOGFILE;
+static char *priority_type = DEFAULT_PRIORITY_TYPE;
 
 /*---------------------------------------------------------------------+
 |                                 main                                 |
@@ -240,7 +240,7 @@ void read_raw_device()
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int lflg = 0, pflg = 0, tflg = 0;

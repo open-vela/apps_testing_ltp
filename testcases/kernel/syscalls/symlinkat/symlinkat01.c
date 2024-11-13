@@ -67,7 +67,7 @@ static char dpathname[256] = "%s/" TEST_DIR2 "/" TEST_FILE1;
 static int olddirfd, newdirfd = -1, cwd_fd = AT_FDCWD, stdinfd = 0, crapfd =
     -1, deldirfd;
 
-struct test_struct {
+static struct test_struct {
 	const char *oldfn;
 	int *newfd;
 	const char *newfn;
@@ -120,8 +120,8 @@ struct test_struct {
 	    /*      { TEST_FIFO, &newdirfd, TEST_FILE1, TEST_DIR1"/"TEST_FIFO, TEST_DIR2"/"TEST_FILE1, 0 }, */
 };
 
-char *TCID = "symlinkat01";
-int TST_TOTAL = sizeof(test_desc) / sizeof(*test_desc);
+static char *TCID = "symlinkat01";
+static int TST_TOTAL = sizeof(test_desc) / sizeof(*test_desc);
 
 static int mysymlinkat(const char *oldfilename,
 		       int newdirfd, const char *newfilename)

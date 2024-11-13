@@ -47,7 +47,7 @@ static void verify_mkdir(void)
 	SAFE_RMDIR(TESTDIR);
 }
 
-void setup(void)
+static void setup(void)
 {
 	struct passwd *pw;
 

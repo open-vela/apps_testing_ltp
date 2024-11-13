@@ -18,7 +18,7 @@
 
 #include "test.h"
 
-char *TCID = "setpgid03_child";
+static char *TCID = "setpgid03_child";
 
 
 int main(void)

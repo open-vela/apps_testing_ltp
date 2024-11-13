@@ -38,15 +38,15 @@
 #include "test.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "eventfd2_03";
-int TST_TOTAL = 1;
+static char *TCID = "eventfd2_03";
+static int TST_TOTAL = 1;
 
 #ifndef EFD_SEMLIKE
 #define EFD_SEMLIKE (1 << 0)
 #endif
 
 /* Dummy function as syscall from linux_syscall_numbers.h uses cleanup(). */
-void cleanup(void)
+static void cleanup(void)
 {
 }
 

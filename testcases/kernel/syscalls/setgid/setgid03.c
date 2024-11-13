@@ -28,7 +28,7 @@
 #include <compat_16.h>
 
 TCID_DEFINE(setgid03);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static char ltpuser1[] = "nobody";
 static char root[] = "root";

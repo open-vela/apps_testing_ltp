@@ -126,7 +126,7 @@ int setup_uid(char *uname);
 int setup_euid(char *uname, uid_t *old_uid);
 int cleanup_euid(uid_t old_uid);
 
-pid_t create_sig_proc(unsigned long usec, int sig, unsigned count);
+static pid_t create_sig_proc(unsigned long usec, int sig, unsigned count);
 
 int _setup_file(char *testdir, char *fname, char *path, int flags, mode_t mode);
 int setup_file(char *testdir, char *fname, char *path);

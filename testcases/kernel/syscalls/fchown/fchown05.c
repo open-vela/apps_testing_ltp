@@ -53,7 +53,7 @@ static struct test_case_t {
 	{NULL, 0, 0}
 };
 
-int TST_TOTAL = ARRAY_SIZE(tc);
+static int TST_TOTAL = ARRAY_SIZE(tc);
 
 static void setup(void);
 static void cleanup(void);

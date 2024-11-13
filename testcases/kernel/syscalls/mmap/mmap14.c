@@ -34,8 +34,8 @@
 #define MMAPSIZE        (1UL<<20)
 #define LINELEN         256
 
-char *TCID = "mmap14";
-int TST_TOTAL = 1;
+static char *TCID = "mmap14";
+static int TST_TOTAL = 1;
 
 static char *addr;
 

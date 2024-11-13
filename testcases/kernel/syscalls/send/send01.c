@@ -44,8 +44,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "send01";
-int testno;
+static char *TCID = "send01";
+static int testno;
 
 static char buf[1024], bigbuf[128 * 1024];
 static int s;
@@ -155,7 +155,7 @@ static struct test_case_t tdat[] = {
 #endif
 };
 
-int TST_TOTAL = sizeof(tdat) / sizeof(tdat[0]);
+static int TST_TOTAL = sizeof(tdat) / sizeof(tdat[0]);
 
 #ifdef UCLINUX
 static char *argv0;

@@ -23,7 +23,7 @@
 #define MODE_RW	        0666
 #define DIR_MODE        0755
 
-struct passwd *ltpuser;
+static struct passwd *ltpuser;
 
 static char long_dir[PATH_MAX + 2] = {[0 ... PATH_MAX + 1] = 'a'};
 static char loop_dir[PATH_MAX] = ".";

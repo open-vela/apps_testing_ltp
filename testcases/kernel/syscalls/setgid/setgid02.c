@@ -31,7 +31,7 @@
 #include "compat_16.h"
 
 TCID_DEFINE(setgid02);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static char root[] = "root";
 static char nobody_uid[] = "nobody";

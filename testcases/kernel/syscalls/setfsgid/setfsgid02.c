@@ -34,7 +34,7 @@
 #include "compat_16.h"
 
 TCID_DEFINE(setfsgid02);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

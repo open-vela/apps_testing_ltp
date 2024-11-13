@@ -34,8 +34,8 @@
 #include <sys/param.h>
 #include "test.h"
 
-char *TCID = "dup06";
-int TST_TOTAL = 1;
+static char *TCID = "dup06";
+static int TST_TOTAL = 1;
 
 static int cnt_free_fds(int maxfd)
 {

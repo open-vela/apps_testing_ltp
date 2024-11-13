@@ -69,8 +69,8 @@ static struct test_case_t {
 	{&epfd, &ev_rdonly, 1, EFAULT}
 };
 
-char *TCID = "epoll_wait03";
-int TST_TOTAL = ARRAY_SIZE(tc);
+static char *TCID = "epoll_wait03";
+static int TST_TOTAL = ARRAY_SIZE(tc);
 
 static void setup(void);
 static void verify_epoll_wait(struct test_case_t *tc);

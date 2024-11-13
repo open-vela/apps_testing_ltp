@@ -78,8 +78,8 @@
  *
  * parse_args: parse command line arguments
  */
-void parse_args(int, char **);
-void invert_matrix();
+static void parse_args(int, char **);
+static void invert_matrix();
 
 /*
  * Global variables:
@@ -90,11 +90,11 @@ void invert_matrix();
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-int priority = DEFAULT_PRIORITY;
-char *logfile = DEFAULT_LOGFILE;
-char *priority_type = DEFAULT_PRIORITY_TYPE;
+static int verbose = 0;
+static int debug = 0;
+static int priority = DEFAULT_PRIORITY;
+static char *logfile = DEFAULT_LOGFILE;
+static char *priority_type = DEFAULT_PRIORITY_TYPE;
 
 /*---------------------------------------------------------------------+
 |                                 main                                 |
@@ -177,7 +177,7 @@ int main(int argc, char **argv)
 |               inverse..                                              |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void invert_matrix()
+static void invert_matrix()
 {
 	int i, j, k;
 	float t1;
@@ -243,7 +243,7 @@ void invert_matrix()
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int lflg = 0, pflg = 0, tflg = 0;

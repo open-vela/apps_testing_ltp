@@ -38,8 +38,8 @@ static struct {
 	CANARY,
 };
 
-char *TCID = "gethostbyname_r01";
-int TST_TOTAL = 1;
+static char *TCID = "gethostbyname_r01";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

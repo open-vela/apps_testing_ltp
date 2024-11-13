@@ -34,7 +34,7 @@ static void cleanup(void);
 static void setup(void);
 
 TCID_DEFINE(getegid02);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

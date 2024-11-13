@@ -42,8 +42,8 @@
 
 #define mapsize (1 << 14)
 
-char *TCID = "mmap09";
-int TST_TOTAL = 3;
+static char *TCID = "mmap09";
+static int TST_TOTAL = 3;
 
 static int fd;
 static char *maddr;

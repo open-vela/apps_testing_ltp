@@ -67,17 +67,17 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "rename13";
-int TST_TOTAL = 1;
+static char *TCID = "rename13";
+static int TST_TOTAL = 1;
 
-int fd;
-char fname[255], mname[255];
-struct stat buf1, buf2;
-dev_t olddev;
-ino_t oldino;
+static int fd;
+static char fname[255], mname[255];
+static struct stat buf1, buf2;
+static dev_t olddev;
+static ino_t oldino;
 
 int main(int ac, char **av)
 {

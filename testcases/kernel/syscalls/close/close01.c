@@ -29,17 +29,17 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
-char *TCID = "close01";
-int TST_TOTAL = 2;
+static char *TCID = "close01";
+static int TST_TOTAL = 2;
 
-char fname[40] = "";
+static char fname[40] = "";
 
-int fild, newfd, pipefildes[2];
+static int fild, newfd, pipefildes[2];
 
-struct test_case_t {
+static struct test_case_t {
 	int *fd;
 	char *type;
 } TC[] = {
@@ -99,7 +99,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	int mypid;
 
@@ -115,7 +115,7 @@ void setup(void)
 	sprintf(fname, "fname.%d", mypid);
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	close(fild);
 

@@ -67,10 +67,10 @@ void *thread(void *);
 
 int num_threads = DEFAULT_NUM_THREADS;
 int test_limit = 0;
-int debug = 0;
+static int debug = 0;
 
-char *TCID = "pth_str02";
-int TST_TOTAL = 1;
+static char *TCID = "pth_str02";
+static int TST_TOTAL = 1;
 
 /*---------------------------------------------------------------------+
 |                               main ()                                |

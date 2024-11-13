@@ -43,7 +43,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "munmap03";
+static char *TCID = "munmap03";
 
 static size_t page_sz;
 static char *global_addr;
@@ -56,7 +56,7 @@ static void test_einval1(void);
 static void test_einval2(void);
 static void test_einval3(void);
 static void (*testfunc[])(void) = { test_einval1, test_einval2, test_einval3 };
-int TST_TOTAL = ARRAY_SIZE(testfunc);
+static int TST_TOTAL = ARRAY_SIZE(testfunc);
 
 int main(int ac, char **av)
 {

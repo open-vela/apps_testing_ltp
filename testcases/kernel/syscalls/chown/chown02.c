@@ -90,10 +90,10 @@
 
 TCID_DEFINE(chown02);
 
-int setup1();			/* Test specific setup functions */
-int setup2();
+static int setup1();			/* Test specific setup functions */
+static int setup2();
 
-struct test_case_t {
+static struct test_case_t {
 	char *pathname;
 	uid_t user_id;
 	gid_t group_id;
@@ -107,10 +107,10 @@ struct test_case_t {
 	{
 TESTFILE2, 700, 701, 2, setup2},};
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
-void setup();			/* setup function for the test */
-void cleanup();			/* cleanup function for the test */
+static void setup();			/* setup function for the test */
+static void cleanup();			/* cleanup function for the test */
 
 int main(int ac, char **av)
 {
@@ -207,7 +207,7 @@ int main(int ac, char **av)
  *  Create a temporary directory and change directory to it.
  *  Create a test file under temporary directory and close it
  */
-void setup(void)
+static void setup(void)
 {
 	int i;
 
@@ -230,7 +230,7 @@ void setup(void)
  *	      set on an executable file will not be cleared.
  *  Creat a testfile and set setuid/setgid bits on the mode of file.$
  */
-int setup1(void)
+static int setup1(void)
 {
 	int fd;			/* File descriptor for testfile1 */
 
@@ -252,7 +252,7 @@ int setup1(void)
  *	      set on non-group executable file will not be cleared.
  *  Creat a testfile and set setgid bit on the mode of file.
  */
-int setup2(void)
+static int setup2(void)
 {
 	int fd;			/* File descriptor for testfile2 */
 
@@ -275,7 +275,7 @@ int setup2(void)
  *	       completion or premature exit.
  *  Remove the test directory and testfile created in the setup.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	tst_rmdir();

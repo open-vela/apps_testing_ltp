@@ -83,15 +83,15 @@
 #include "safe_macros.h"
 #include "fchmod.h"
 
-int fd;				/* file descriptor for test file */
-char *TCID = "fchmod03";
-int TST_TOTAL = 1;
+static int fd;				/* file descriptor for test file */
+static char *TCID = "fchmod03";
+static int TST_TOTAL = 1;
 
-char nobody_uid[] = "nobody";
-struct passwd *ltpuser;
+static char nobody_uid[] = "nobody";
+static struct passwd *ltpuser;
 
-void setup();			/* Main setup function for the test */
-void cleanup();			/* Main cleanup function for the test */
+static void setup();			/* Main setup function for the test */
+static void cleanup();			/* Main cleanup function for the test */
 
 int main(int ac, char **av)
 {
@@ -135,7 +135,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -160,7 +160,7 @@ void setup(void)
 		tst_brkm(TBROK | TERRNO, cleanup, "open failed");
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (close(fd) == -1)
 		tst_resm(TWARN | TERRNO, "close failed");

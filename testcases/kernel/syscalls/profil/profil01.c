@@ -30,7 +30,7 @@
 #include "lapi/abisize.h"
 #include "config.h"
 
-char *TCID = "profil01";
+static char *TCID = "profil01";
 
 #if HAVE_PROFIL
 
@@ -42,7 +42,7 @@ char *TCID = "profil01";
  * just in case compiler put call to get_pc() below "data shuffling" code */
 #define PROFIL_BUFLEN (32*1024)
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static volatile sig_atomic_t profil_done;
 

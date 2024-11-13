@@ -274,10 +274,10 @@ static char tmpname[40];
 
 #define	FILEDATA	"tenbytes!"
 
-extern void catch_int(int sig);	/* signal catching subroutine */
+static void catch_int(int sig);	/* signal catching subroutine */
 
-char *TCID = "fcntl16";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl16";
+static int TST_TOTAL = 1;
 
 #ifdef UCLINUX
 static char *argv0;
@@ -287,13 +287,13 @@ static char *argv0;
  * cleanup - performs all the ONE TIME cleanup for this test at completion or
  *	premature exit
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 
 }
 
-void dochild(int kid)
+static void dochild(int kid)
 {
 	/* child process */
 	struct sigaction sact;
@@ -348,12 +348,12 @@ void dochild_uc(void)
 }
 #endif
 
-void catch_alarm(int sig)
+static void catch_alarm(int sig)
 {
 	alarm_flag = 1;
 }
 
-void catch_usr1(int sig)
+static void catch_usr1(int sig)
 {				/* invoked on catching SIGUSR1 */
 	/*
 	 * Set flag to let parent know that child #1 is ready to have the
@@ -362,7 +362,7 @@ void catch_usr1(int sig)
 	child_flag1 = 1;
 }
 
-void catch_usr2(int sig)
+static void catch_usr2(int sig)
 {				/* invoked on catching SIGUSR2 */
 	/*
 	 * Set flag to let parent know that child #2 is ready to have the
@@ -371,7 +371,7 @@ void catch_usr2(int sig)
 	child_flag2 = 1;
 }
 
-void catch_int(int sig)
+static void catch_int(int sig)
 {				/* invoked on child catching SIGUSR1 */
 	/*
 	 * Set flag to interrupt fcntl call in child and force a controlled
@@ -380,7 +380,7 @@ void catch_int(int sig)
 	parent_flag = 1;
 }
 
-void child_sig(int sig, int nkids)
+static void child_sig(int sig, int nkids)
 {
 	int i;
 
@@ -397,7 +397,7 @@ void child_sig(int sig, int nkids)
 /*
  * setup - performs all ONE TIME steup for this test
  */
-void setup(void)
+static void setup(void)
 {
 	struct sigaction sact;
 
@@ -441,7 +441,7 @@ void setup(void)
 	sigaction(SIGALRM, &sact, NULL);
 }
 
-int run_test(int file_flag, int file_mode, int start, int end)
+static int run_test(int file_flag, int file_mode, int start, int end)
 {
 	int child_count;
 	int child;

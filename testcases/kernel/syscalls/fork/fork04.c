@@ -105,7 +105,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "fork04";
+static char *TCID = "fork04";
 
 #define	KIDEXIT	42
 #define MAX_LINE_LENGTH 256
@@ -113,10 +113,10 @@ char *TCID = "fork04";
 #define ENV_NOT_SET  "getenv() does not find variable set"
 
 /* list of environment variables to test */
-char *environ_list[] = { "TERM", "NoTSetzWq", "TESTPROG" };
+static char *environ_list[] = { "TERM", "NoTSetzWq", "TESTPROG" };
 
 #define NUMBER_OF_ENVIRON (sizeof(environ_list)/sizeof(char *))
-int TST_TOTAL = NUMBER_OF_ENVIRON;
+static int TST_TOTAL = NUMBER_OF_ENVIRON;
 
 static void cleanup(void)
 {

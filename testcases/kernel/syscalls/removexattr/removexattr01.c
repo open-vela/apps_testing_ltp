@@ -34,7 +34,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "removexattr01";
+static char *TCID = "removexattr01";
 
 #ifdef HAVE_SYS_XATTR_H
 #define USER_KEY	"user.test"
@@ -45,7 +45,7 @@ static void verify_removexattr(void);
 static void setup(void);
 static void cleanup(void);
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

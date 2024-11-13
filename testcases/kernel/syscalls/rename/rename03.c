@@ -71,20 +71,20 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void setup2();
-void cleanup();
+static void setup();
+static void setup2();
+static void cleanup();
 
-char *TCID = "rename03";
-int TST_TOTAL = 2;
+static char *TCID = "rename03";
+static int TST_TOTAL = 2;
 
-char fname[255], mname[255];
-char fdir[255], mdir[255];
-struct stat buf1, buf2;
-dev_t f_olddev, d_olddev;
-ino_t f_oldino, d_oldino;
+static char fname[255], mname[255];
+static char fdir[255], mdir[255];
+static struct stat buf1, buf2;
+static dev_t f_olddev, d_olddev;
+static ino_t f_oldino, d_oldino;
 
-struct test_case_t {
+static struct test_case_t {
 	char *name1;
 	char *name2;
 	char *desc;
@@ -174,7 +174,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -193,7 +193,7 @@ void setup(void)
 /*
  * setup2() - set up the files and directories for the tests
  */
-void setup2(void)
+static void setup2(void)
 {
 	SAFE_TOUCH(cleanup, fname, 0700, NULL);
 
@@ -220,7 +220,7 @@ void setup2(void)
  * cleanup() - performs all ONE TIME cleanup for this test at
  *             completion or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	/*

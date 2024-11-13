@@ -47,7 +47,7 @@
 
 #include "common_checkzero.h"
 
-int read_eof(char *filename)
+static int read_eof(char *filename)
 {
 	int fd;
 	int i;
@@ -75,7 +75,7 @@ int read_eof(char *filename)
 	return 0;
 }
 
-void dio_append(char *filename)
+static void dio_append(char *filename)
 {
 	int fd;
 	void *bufptr;

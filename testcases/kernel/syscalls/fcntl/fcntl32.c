@@ -51,8 +51,8 @@ static struct test_case_t {
 	{O_RDWR, O_RDWR},
 };
 
-char *TCID = "fcntl32";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "fcntl32";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

@@ -45,7 +45,7 @@ static void setup(void);
 static void cleanup(void);
 
 TCID_DEFINE(setgid01);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static gid_t gid;
 

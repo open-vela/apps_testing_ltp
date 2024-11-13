@@ -30,7 +30,7 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "mount04";
+static char *TCID = "mount04";
 
 #define DIR_MODE	S_IRWXU | S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP
 
@@ -38,7 +38,7 @@ static char *mntpoint = "mntpoint";
 static const char *fs_type;
 static const char *device;
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static void verify_mount(void)
 {

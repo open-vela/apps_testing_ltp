@@ -67,7 +67,7 @@ static struct tcase {
 
 static char *bad_addr;
 
-void run(unsigned int i)
+static void run(unsigned int i)
 {
 	if (tc[i].setup)
 		tc[i].setup();
@@ -91,17 +91,17 @@ void run(unsigned int i)
 	}
 }
 
-void set_root(void)
+static void set_root(void)
 {
 	SAFE_SETEUID(0);
 }
 
-void set_nobody(void)
+static void set_nobody(void)
 {
 	SAFE_SETEUID(nobody_uid);
 }
 
-void setup(void)
+static void setup(void)
 {
 	struct passwd *nobody;
 	unsigned int i;

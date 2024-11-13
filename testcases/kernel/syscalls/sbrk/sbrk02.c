@@ -25,8 +25,8 @@
 
 #define INC 16*1024*1024
 
-char *TCID = "sbrk02";
-int TST_TOTAL = 1;
+static char *TCID = "sbrk02";
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void sbrk_verify(void);

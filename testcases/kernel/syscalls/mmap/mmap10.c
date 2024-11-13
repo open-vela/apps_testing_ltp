@@ -67,17 +67,17 @@
 #define SIZE (5*1024*1024)
 #define PATH_KSM "/sys/kernel/mm/ksm/"
 
-char *TCID = "mmap10";
-int TST_TOTAL = 1;
+static char *TCID = "mmap10";
+static int TST_TOTAL = 1;
 
 static int fd, opt_anon, opt_ksm;
 static long ps;
 static char *x;
 
-void setup(void);
-void cleanup(void);
-void mmapzero(void);
-void help(void);
+static void setup(void);
+static void cleanup(void);
+static void mmapzero(void);
+static void help(void);
 
 static option_t options[] = {
 	{"a", &opt_anon, NULL},
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-void mmapzero(void)
+static void mmapzero(void)
 {
 	int n;
 
@@ -184,11 +184,11 @@ void mmapzero(void)
 				 WEXITSTATUS(n));
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_require_root();
 
@@ -199,7 +199,7 @@ void setup(void)
 		tst_brkm(TBROK | TERRNO, cleanup, "sysconf(_SC_PAGESIZE)");
 }
 
-void help(void)
+static void help(void)
 {
 	printf("  -a      Test anonymous pages\n");
 	printf("  -s      Add to KSM regions\n");

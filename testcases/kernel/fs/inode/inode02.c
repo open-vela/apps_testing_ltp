@@ -67,23 +67,23 @@ CALLS:	mkdir, stat, open
 #endif
 
 #define MAXCHILD	25
-int allchild[MAXCHILD + 1];
+static int allchild[MAXCHILD + 1];
 
-char name[NAME_LENGTH + 1];
-char path_string[PATH_STRING_LENGTH + 1];
-char read_string[PATH_STRING_LENGTH + 1];
-char write_string[PATH_STRING_LENGTH + 1];
-char remove_string[PATH_STRING_LENGTH + 10];
-int parent_pid;
-int nchild;
+static char name[NAME_LENGTH + 1];
+static char path_string[PATH_STRING_LENGTH + 1];
+static char read_string[PATH_STRING_LENGTH + 1];
+static char write_string[PATH_STRING_LENGTH + 1];
+static char remove_string[PATH_STRING_LENGTH + 10];
+static int parent_pid;
+static int nchild;
 
-FILE *list_stream = NULL;
-int list_id;
-int file_id;
+static FILE *list_stream = NULL;
+static int list_id;
+static int file_id;
 
-int increment_name(), get_next_name(), mode(), escrivez(), massmurder();
-int max_depth, max_breadth, file_length;
-int bd_arg(char *);
+static int increment_name(), get_next_name(), mode(), escrivez(), massmurder();
+static int max_depth, max_breadth, file_length;
+static int bd_arg(char *);
 
 #ifdef LINUX
 void (*sigset(int, void (*)(int))) (int);
@@ -92,30 +92,35 @@ void (*sigset(int, void (*)(int))) (int);
 /** LTP Port **/
 #include "test.h"
 
-void setup(void);
-void fail_exit(void);
-void anyfail(void);
-void ok_exit(void);
-void forkfail(void);
-void terror(char *);
-int instress(void);
+static void setup(void);
+static void fail_exit(void);
+static void anyfail(void);
+static void ok_exit(void);
+static void forkfail(void);
+static void terror(char *);
+static int instress(void);
 
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-FILE *temp;
+static int local_flag = PASSED;
+static FILE *temp;
 
-char *TCID = "inode02";		/* Test program identifier.    */
-int TST_TOTAL = 1;		/* Total number of test cases. */
+static char *TCID = "inode02";		/* Test program identifier.    */
+static int TST_TOTAL = 1;		/* Total number of test cases. */
+
+static int term();
+static int generate(), check();
+
+static int tree();
+
 /**************/
 
 int main(int argc, char *argv[])
 {
-	int pid, tree(), p, status;
+	int pid, p, status;
 	int count, child;
 	register int i;
-	int term();
 
 	setup();
 
@@ -214,7 +219,7 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-int bd_arg(char *str)
+static int bd_arg(char *str)
 {
 	fprintf(temp,
 		"Bad argument - %s - could not parse as number.\n\tinode02 [max_depth] [max_breadth] [file_length] [#children]\n\tdefault: inode02 6 5 8 5\n",
@@ -222,7 +227,7 @@ int bd_arg(char *str)
 	exit(1);
 }
 
-int tree(void)
+static int tree(void)
 
 /************************************************/
 /*						*/
@@ -240,7 +245,6 @@ int tree(void)
 {
 	int gen_ret_val, ch_ret_val, exit_val, level;
 	int ret_val;
-	int generate(), check();
 	char path_list_string[PATH_STRING_LENGTH + 10];
 	int len;
 	int status;
@@ -372,7 +376,7 @@ int tree(void)
 	exit(exit_val);
 }
 
-int generate(char *string, int level)
+static int generate(char *string, int level)
 
 /****************************************/
 /*					*/
@@ -554,7 +558,7 @@ int generate(char *string, int level)
 		return 0;
 }
 
-int check(void)
+static int check(void)
 
 /****************************************/
 /*					*/
@@ -672,7 +676,7 @@ int check(void)
 	}			/* while */
 }
 
-int get_next_name(void)
+static int get_next_name(void)
 
 /****************************************/
 /*					*/
@@ -709,7 +713,7 @@ int get_next_name(void)
 	return 0;
 }
 
-int increment_name(int position)
+static int increment_name(int position)
 
 /****************************************/
 /*					*/
@@ -742,7 +746,7 @@ int increment_name(int position)
 				  /*********************************/
 }
 
-int mode(char *path_string)
+static int mode(char *path_string)
 
 /****************************************/
 /*					*/
@@ -763,7 +767,7 @@ int mode(char *path_string)
 	}
 }
 
-int escrivez(char *string)
+static int escrivez(char *string)
 {
 	char write_string[PATH_STRING_LENGTH + 1];
 	int len, ret_len;
@@ -782,7 +786,7 @@ int escrivez(char *string)
 	return 0;
 }
 
-int term(void)
+static int term(void)
 {
 	int status;
 
@@ -807,7 +811,7 @@ int term(void)
 	return 0;
 }
 
-int massmurder(void)
+static int massmurder(void)
 {
 	int i;
 	for (i = 0; i < MAXCHILD; i++) {
@@ -824,7 +828,7 @@ int massmurder(void)
  *
  * Do set up - here its a dummy function
  */
-void setup(void)
+static void setup(void)
 {
 	tst_tmpdir();
 	temp = stderr;
@@ -835,7 +839,7 @@ void setup(void)
  *
  * Exit on failure
  */
-void fail_exit(void)
+static void fail_exit(void)
 {
 	tst_brkm(TFAIL, tst_rmdir, "Test failed\n");
 }
@@ -846,7 +850,7 @@ void fail_exit(void)
  *
  * Description: Exit a test.
  */
-void anyfail(void)
+static void anyfail(void)
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL, "Test failed")
 	    : tst_resm(TPASS, "Test passed");
@@ -859,7 +863,7 @@ void anyfail(void)
  *
  * Calling block passed the test
  */
-void ok_exit(void)
+static void ok_exit(void)
 {
 	local_flag = PASSED;
 	return;
@@ -870,7 +874,7 @@ void ok_exit(void)
  *
  * exit on failure
  */
-void forkfail(void)
+static void forkfail(void)
 {
 	tst_brkm(TBROK, tst_rmdir, "Reason: %s\n", strerror(errno));
 }
@@ -882,7 +886,7 @@ void forkfail(void)
  *              test case failed, for example fork() failed. We will log this
  *              failure as TBROK instead of TFAIL.
  */
-void terror(char *message)
+static void terror(char *message)
 {
 	tst_resm(TBROK, "Reason: %s:%s\n", message, strerror(errno));
 	return;
@@ -894,7 +898,7 @@ void terror(char *message)
  * Assume that we are always running under stress, so this function will
  * return > 0 value always.
  */
-int instress(void)
+static int instress(void)
 {
 	tst_resm(TINFO, "System resource may be too low, fork() malloc()"
 		 " etc are likely to fail.\n");
