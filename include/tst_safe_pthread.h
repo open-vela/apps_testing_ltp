@@ -5,6 +5,8 @@
 #ifndef TST_SAFE_PTHREAD_H__
 #define TST_SAFE_PTHREAD_H__
 
+#include <pthread.h>
+
 /*
  * Macro to use for making functions called only once in
  * multi-threaded tests such as init or cleanup function.
