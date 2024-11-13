@@ -39,6 +39,7 @@ char *child_args;		/* Arguments to child when -C is used */
 
 static char *start_cwd;		/* Stores the starting directory for self_exec */
 
+#ifndef HAVE_ASPRINTF
 int asprintf(char **app, const char *fmt, ...)
 {
 	va_list ptr;
@@ -67,6 +68,7 @@ int asprintf(char **app, const char *fmt, ...)
 
 	return rv;
 }
+#endif
 
 void maybe_run_child(void (*child) (), const char *fmt, ...)
 {
