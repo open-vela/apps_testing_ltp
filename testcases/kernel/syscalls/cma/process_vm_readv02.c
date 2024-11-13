@@ -31,8 +31,8 @@
 #include "safe_macros.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "process_vm_readv02";
-int TST_TOTAL = 1;
+static char *TCID = "process_vm_readv02";
+static int TST_TOTAL = 1;
 
 static char *tst_string = "THIS IS A TEST";
 static int len;

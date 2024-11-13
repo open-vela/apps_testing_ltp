@@ -67,8 +67,8 @@ static option_t options[] = {
 
 static char TCID_readv[] = "process_vm_readv";
 static char TCID_writev[] = "process_vm_writev";
-char *TCID = "cma01";
-int TST_TOTAL = 1;
+static char *TCID = "cma01";
+static int TST_TOTAL = 1;
 static void (*cma_test_params) (struct process_vm_params * params) = NULL;
 
 static void setup(char *argv[]);

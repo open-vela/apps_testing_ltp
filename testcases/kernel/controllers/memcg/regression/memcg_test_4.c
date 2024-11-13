@@ -31,7 +31,7 @@
 
 #define MEM_SIZE	(1024 * 1024 * 100)
 
-void sigusr_handler(int __attribute__ ((unused)) signo)
+static void sigusr_handler(int __attribute__ ((unused)) signo)
 {
 	char *p;
 

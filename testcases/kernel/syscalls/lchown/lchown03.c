@@ -58,7 +58,7 @@ static struct test_case_t {
 };
 
 TCID_DEFINE(lchown03);
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void setup(void);
 static void lchown_verify(const struct test_case_t *);

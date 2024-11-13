@@ -29,7 +29,7 @@
 #include "test.h"
 #include "lapi/timerfd.h"
 
-char *TCID = "timerfd_create01";
+static char *TCID = "timerfd_create01";
 
 static struct test_case_t {
 	int clockid;
@@ -40,7 +40,7 @@ static struct test_case_t {
 	{0, -1, EINVAL},
 };
 
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 static void setup(void);
 static void timerfd_create_verify(const struct test_case_t *);
 static void cleanup(void);

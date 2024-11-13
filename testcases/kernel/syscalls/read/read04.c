@@ -53,16 +53,16 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void cleanup(void);
-void setup(void);
+static void cleanup(void);
+static void setup(void);
 
-char *TCID = "read04";
-int TST_TOTAL = 1;
+static char *TCID = "read04";
+static int TST_TOTAL = 1;
 
 #define TST_SIZE	27	/* could also do strlen(palfa) */
-char fname[255];
-char palfa[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int fild;
+static char fname[255];
+static char palfa[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+static int fild;
 
 int main(int ac, char **av)
 {
@@ -114,7 +114,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all ONE TIME setup for this test
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -141,7 +141,7 @@ void setup(void)
  * cleanup() - performs all ONE TIME cleanup for this test at completion or
  *	       premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 	unlink(fname);

@@ -32,8 +32,8 @@
 #include "safe_macros.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "process_vm_writev02";
-int TST_TOTAL = 1;
+static char *TCID = "process_vm_writev02";
+static int TST_TOTAL = 1;
 
 #define PADDING_SIZE 10
 #define DEFAULT_CHAR 53

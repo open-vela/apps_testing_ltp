@@ -72,8 +72,8 @@ static struct tcase {
 	{catchsig, 1},
 };
 
-char *TCID = "signal01";
-int TST_TOTAL = ARRAY_SIZE(tcases);
+static char *TCID = "signal01";
+static int TST_TOTAL = ARRAY_SIZE(tcases);
 
 static int tcase;
 

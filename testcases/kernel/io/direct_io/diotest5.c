@@ -60,8 +60,8 @@
 
 #include "test.h"
 
-char *TCID = "diotest05";	/* Test program identifier.    */
-int TST_TOTAL = 3;		/* Total number of test conditions */
+static char *TCID = "diotest05";	/* Test program identifier.    */
+static int TST_TOTAL = 3;		/* Total number of test conditions */
 
 #ifdef O_DIRECT
 
@@ -82,7 +82,7 @@ static int fd1 = -1;
  * runtest: Write the data in vector array to the file. Read the data
  *	from the file into another vectory array and verify. Repeat the test.
 */
-int runtest(int fd_r, int fd_w, int iter, off64_t offset, int action)
+static int runtest(int fd_r, int fd_w, int iter, off64_t offset, int action)
 {
 	int i;
 	struct iovec *iov1, *iov2, *iovp;

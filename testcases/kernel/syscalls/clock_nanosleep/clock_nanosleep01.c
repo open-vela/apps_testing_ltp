@@ -99,7 +99,7 @@ static struct test_variants {
 #endif
 };
 
-void setup(void)
+static void setup(void)
 {
 	rq->type = variants[tst_variant].type;
 	tst_res(TINFO, "Testing variant: %s", variants[tst_variant].desc);

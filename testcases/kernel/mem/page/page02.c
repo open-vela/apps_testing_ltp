@@ -54,16 +54,18 @@ CALLS:	malloc(3)
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
+static int local_flag = PASSED;
+static int block_number;
 
-char *TCID = "page02";		/* Test program identifier.    */
-int TST_TOTAL = 1;		/* Total number of test cases. */
+static char *TCID = "page02";		/* Test program identifier.    */
+static int TST_TOTAL = 1;		/* Total number of test cases. */
 /**************/
 
-int bd_arg(char *);
-int chld_flag;
-int parent_pid;
+static int bd_arg(char *);
+static int chld_flag;
+static int parent_pid;
+
+static int chld();
 
 int main(argc, argv)
 int argc;
@@ -75,7 +77,6 @@ char *argv[];
 	int *memory_pointer;
 	int *up_pointer, *down_pointer;
 	int child, count;
-	int chld();
 
 	parent_pid = getpid();
 	tst_tmpdir();
@@ -221,13 +222,13 @@ char *argv[];
 
 }
 
-int bd_arg(str)
+static int bd_arg(str)
 char *str;
 {
 	tst_brkm(TCONF, NULL, "\tCannot parse %s as a number.\n", str);
 }
 
-int chld()
+static int chld()
 {
 	if (signal(SIGUSR1, (void (*)())chld) == SIG_ERR) {
 		tst_brkm(TBROK, NULL, "signal failed");

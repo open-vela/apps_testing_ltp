@@ -41,11 +41,11 @@
 #define AT_FDCWD -100
 #endif
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "futimesat01";
-int TST_TOTAL = TEST_CASES;
+static char *TCID = "futimesat01";
+static int TST_TOTAL = TEST_CASES;
 
 static const char pathname[] = "futimesattestdir",
 		  testfile[] = "futimesattestfile.txt",
@@ -56,7 +56,7 @@ static int fds[TEST_CASES];
 static const char *filenames[TEST_CASES];
 static const int expected_errno[] = { 0, 0, ENOTDIR, EBADF, 0 };
 
-int myfutimesat(int dirfd, const char *filename, struct timeval *times)
+static int myfutimesat(int dirfd, const char *filename, struct timeval *times)
 {
 	return ltp_syscall(__NR_futimesat, dirfd, filename, times);
 }
@@ -95,7 +95,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
@@ -125,7 +125,7 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (fds[0] > 0)
 		close(fds[0]);

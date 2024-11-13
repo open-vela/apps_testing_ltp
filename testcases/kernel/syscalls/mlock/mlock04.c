@@ -34,8 +34,8 @@
 #include "safe_macros.h"
 #include "config.h"
 
-char *TCID = "mlock04";
-int TST_TOTAL = 1;
+static char *TCID = "mlock04";
+static int TST_TOTAL = 1;
 
 #include <sys/mman.h>
 #include <stdio.h>
@@ -46,8 +46,8 @@ int TST_TOTAL = 1;
 #include <unistd.h>
 #include <sys/types.h>
 
-int fd, file_len = 40960;
-char *testfile = "test_mlock";
+static int fd, file_len = 40960;
+static char *testfile = "test_mlock";
 
 static void setup(void);
 static void cleanup(void);

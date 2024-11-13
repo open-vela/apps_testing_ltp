@@ -51,25 +51,26 @@
 #define FAILED 0
 #define PASSED 1
 
-char *TCID = "kill12";
+static char *TCID = "kill12";
 
-int local_flag = PASSED;
-int block_number;
-FILE *temp;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static int block_number;
+static FILE *temp;
+static int TST_TOTAL = 1;
 static int sig;
 
-int anyfail();
-int blenter();
-int instress();
-void setup();
-void terror();
-void fail_exit();
-void ok_exit();
-int forkfail();
-void do_child();
+static int anyfail();
+static int blenter();
+static int instress();
+static void setup();
+static void terror();
+static void fail_exit();
+static void ok_exit();
+static int forkfail();
+static void do_child();
+static void chsig();
 
-int chflag;
+static int chflag;
 
 int main(int argc, char **argv)
 {
@@ -77,7 +78,6 @@ int main(int argc, char **argv)
 	int nsig, exno, nexno, status;
 	int ret_val = 0;
 	int core;
-	void chsig();
 
 	tst_parse_opts(argc, argv, NULL, NULL);
 
@@ -181,12 +181,12 @@ int main(int argc, char **argv)
 	tst_exit();
 }
 
-void chsig(void)
+static void chsig(void)
 {
 	chflag++;
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	(local_flag == FAILED) ? tst_resm(TFAIL,
 					  "Test failed") : tst_resm(TPASS,
@@ -194,7 +194,7 @@ int anyfail(void)
 	tst_exit();
 }
 
-void do_child(void)
+static void do_child(void)
 {
 	int exno = 1;
 
@@ -206,31 +206,31 @@ void do_child(void)
 	exit(exno);
 }
 
-void setup(void)
+static void setup(void)
 {
 	temp = stderr;
 }
 
-int blenter(void)
+static int blenter(void)
 {
 	//tst_resm(TINFO, "Enter block %d", block_number);
 	local_flag = PASSED;
 	return 0;
 }
 
-void terror(char *message)
+static void terror(char *message)
 {
 	tst_resm(TBROK, "Reason: %s:%s", message, strerror(errno));
 }
 
-void fail_exit(void)
+static void fail_exit(void)
 {
 	local_flag = FAILED;
 	anyfail();
 
 }
 
-int forkfail(void)
+static int forkfail(void)
 {
 	tst_brkm(TBROK, NULL, "FORK FAILED - terminating test.");
 }

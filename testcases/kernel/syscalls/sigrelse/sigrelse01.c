@@ -120,8 +120,8 @@ extern int sigrelse(int __sig);
 #define SIGCANCEL 32
 #define SIGTIMER 33
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 static void parent(void);
 static void child(void);
 static void timeout(int sig);
@@ -157,9 +157,9 @@ int choose_sig(int sig);
 #define WRITE_BROK 16
 #define HANDLE_ERR 32
 
-int TST_TOTAL = 1;		/* number of test items */
+static int TST_TOTAL = 1;		/* number of test items */
 
-char *TCID = "sigrelse01";	/* test case identifier */
+static char *TCID = "sigrelse01";	/* test case identifier */
 static char mesg[MAXMESG];	/* message buffer for tst_res */
 static int pid;			/* process id of child */
 static int pipe_fd[2];		/* file descriptors for pipe parent read */
@@ -756,7 +756,7 @@ int choose_sig(int sig)
 
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -788,7 +788,7 @@ void setup(void)
 			 "fcntl(Fds[0], F_SETFL, O_NONBLOCK) failed");
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 

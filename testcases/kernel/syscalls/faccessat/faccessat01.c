@@ -49,11 +49,11 @@
 #ifndef AT_FDCWD
 #define AT_FDCWD -100
 #endif
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "faccessat01";
-int TST_TOTAL = TEST_CASES;
+static char *TCID = "faccessat01";
+static int TST_TOTAL = TEST_CASES;
 static char pathname[256];
 static char testfile[256];
 static char testfile2[256];
@@ -62,7 +62,7 @@ static int fds[TEST_CASES];
 static char *filenames[TEST_CASES];
 static int expected_errno[TEST_CASES] = { 0, 0, ENOTDIR, EBADF, 0, 0 };
 
-int myfaccessat(int dirfd, const char *filename, int mode)
+static int myfaccessat(int dirfd, const char *filename, int mode)
 {
 	return ltp_syscall(__NR_faccessat, dirfd, filename, mode);
 }
@@ -107,7 +107,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
@@ -144,7 +144,7 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (fds[0] > 0)
 		close(fds[0]);

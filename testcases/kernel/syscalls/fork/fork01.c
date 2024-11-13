@@ -102,8 +102,8 @@ static void cleanup();
 #define LINE_SZ	20
 #define FILENAME "childpid"
 
-char *TCID = "fork01";
-int TST_TOTAL = 2;
+static char *TCID = "fork01";
+static int TST_TOTAL = 2;
 
 /*
  * child_pid - the child side of the test

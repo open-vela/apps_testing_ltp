@@ -30,8 +30,8 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "mount01";
-int TST_TOTAL = 1;
+static char *TCID = "mount01";
+static int TST_TOTAL = 1;
 
 #define DIR_MODE (S_IRWXU | S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP)
 #define MNTPOINT "mntpoint"

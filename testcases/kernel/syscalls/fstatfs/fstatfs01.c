@@ -51,7 +51,7 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "fstatfs01";
+static char *TCID = "fstatfs01";
 
 static int file_fd;
 static int pipe_fd;
@@ -64,7 +64,7 @@ static struct tcase {
 	{&pipe_fd, "fstatfs() on a pipe"},
 };
 
-int TST_TOTAL = ARRAY_SIZE(tcases);
+static int TST_TOTAL = ARRAY_SIZE(tcases);
 
 int main(int ac, char **av)
 {

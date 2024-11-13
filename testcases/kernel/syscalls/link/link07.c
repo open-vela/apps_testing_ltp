@@ -48,8 +48,8 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "link07";
-int TST_TOTAL = 1;
+static char *TCID = "link07";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

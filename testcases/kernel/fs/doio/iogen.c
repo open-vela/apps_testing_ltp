@@ -122,8 +122,8 @@ int str_to_value(struct strmap *map, char *str);
 struct strmap *str_lookup(struct strmap *map, char *str);
 char *value_to_string(struct strmap *map, int val);
 int parse_cmdline(int argc, char **argv, char *opts);
-int help(FILE * stream);
-int usage(FILE * stream);
+static int help(FILE * stream);
+static int usage(FILE * stream);
 
 /*
  * Declare cmdline option flags/variables initialized in parse_cmdline()
@@ -1932,7 +1932,7 @@ int parse_cmdline(int argc, char **argv, char *opts)
 	return 0;
 }
 
-int help(FILE * stream)
+static int help(FILE * stream)
 {
 	usage(stream);
 	fprintf(stream, "\n");
@@ -2090,7 +2090,7 @@ int help(FILE * stream)
  * Obvious - usage clause
  */
 
-int usage(FILE * stream)
+static int usage(FILE * stream)
 {
 	fprintf(stream,
 		"usage%s:  iogen [-hoq] [-a aio_type,...] [-f flag[,flag...]] [-i iterations] [-p outpipe] [-m offset-mode] [-s syscall[,syscall...]] [-t mintrans] [-T maxtrans] [ -O file-create-flags ] [[len:]file ...]\n",

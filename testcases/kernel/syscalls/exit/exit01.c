@@ -32,8 +32,8 @@
 static void cleanup(void);
 static void setup(void);
 
-char *TCID = "exit01";
-int TST_TOTAL = 1;
+static char *TCID = "exit01";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {

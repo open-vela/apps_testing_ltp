@@ -118,15 +118,15 @@
 #include <signal.h>
 #include "test.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "fcntl05";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl05";
+static int TST_TOTAL = 1;
 
-char fname[255];
-int fd;
-struct flock flocks;
+static char fname[255];
+static int fd;
+static struct flock flocks;
 
 int main(int ac, char **av)
 {
@@ -156,7 +156,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -176,7 +176,7 @@ void setup(void)
 	flocks.l_pid = getpid();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	if (close(fd) == -1)
 		tst_resm(TWARN | TERRNO, "close failed");

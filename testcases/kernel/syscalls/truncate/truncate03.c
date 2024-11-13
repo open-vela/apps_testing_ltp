@@ -88,8 +88,8 @@ static void setup(void);
 static void cleanup(void);
 static void truncate_verify(struct test_case_t *);
 
-char *TCID = "truncate03";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "truncate03";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 int main(int ac, char **av)
 {

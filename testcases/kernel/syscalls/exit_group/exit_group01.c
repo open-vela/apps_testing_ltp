@@ -28,9 +28,9 @@
 #include "safe_macros.h"
 #include "lapi/syscalls.h"
 
-char *TCID = "exit_group01";
-int testno;
-int TST_TOTAL = 1;
+static char *TCID = "exit_group01";
+static int testno;
+static int TST_TOTAL = 1;
 
 static void verify_exit_group(void)
 {

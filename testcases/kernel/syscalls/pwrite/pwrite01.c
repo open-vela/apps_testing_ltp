@@ -88,16 +88,16 @@
 #define K4              (K1 * 4)
 #define NBUFS           4
 
-char *TCID = "pwrite01";
-int TST_TOTAL = 1;
-int fildes;			/* file descriptor for tempfile */
-char *write_buf[NBUFS];		/* buffer to hold data to be written */
+static char *TCID = "pwrite01";
+static int TST_TOTAL = 1;
+static int fildes;			/* file descriptor for tempfile */
+static char *write_buf[NBUFS];		/* buffer to hold data to be written */
 
-void setup();			/* Main setup function of test */
-void cleanup();			/* cleanup function for the test */
-void l_seek(int, off_t, int, off_t);	/* function to call lseek() */
-void init_buffers();		/* function to initialize/allocate buffers */
-void check_file_contents();	/* function to verify the contents of file */
+static void setup();			/* Main setup function of test */
+static void cleanup();			/* cleanup function for the test */
+static void l_seek(int, off_t, int, off_t);	/* function to call lseek() */
+static void init_buffers();		/* function to initialize/allocate buffers */
+static void check_file_contents();	/* function to verify the contents of file */
 
 int main(int ac, char **av)
 {
@@ -199,7 +199,7 @@ int main(int ac, char **av)
  *  Initialize/allocate read/write buffers.
  *  Create a temporary directory and a file under it and
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -226,7 +226,7 @@ void setup(void)
  *    write_buf[0] has 0's, write_buf[1] has 1's, write_buf[2] has 2's
  *    write_buf[3] has 3's.
  */
-void init_buffers(void)
+static void init_buffers(void)
 {
 	int count;		/* counter variable for loop */
 
@@ -247,7 +247,7 @@ void init_buffers(void)
  *  "checkoff" is the offset at which we believe we should be at.
  *  Used to validate pread/pwrite don't move the offset.
  */
-void l_seek(int fdesc, off_t offset, int whence, off_t checkoff)
+static void l_seek(int fdesc, off_t offset, int whence, off_t checkoff)
 {
 	off_t offloc;		/* offset ret. from lseek() */
 
@@ -265,7 +265,7 @@ void l_seek(int fdesc, off_t offset, int whence, off_t checkoff)
  *  The contents of the file are verified by using a plain read() and
  *  Compare the data read with the original write_buf[] contents.
  */
-void check_file_contents(void)
+static void check_file_contents(void)
 {
 	int count, err_flg = 0;	/* index variable and error flag */
 	int nread;		/* return value of read() */
@@ -319,7 +319,7 @@ void check_file_contents(void)
  * Close the temporary file.
  * Remove the temporary directory created.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	int count;
 

@@ -49,8 +49,8 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "link02";
-int TST_TOTAL = 1;
+static char *TCID = "link02";
+static int TST_TOTAL = 1;
 
 #define OLDPATH "oldpath"
 #define NEWPATH "newpath"

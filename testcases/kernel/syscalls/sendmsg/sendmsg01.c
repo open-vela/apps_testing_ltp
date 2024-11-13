@@ -50,8 +50,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "sendmsg01";
-int testno;
+static char *TCID = "sendmsg01";
+static int testno;
 
 static char buf[1024], bigbuf[128 * 1024];
 static int s;
@@ -101,7 +101,7 @@ struct test_case_t {		/* test case structure */
 	char *desc;
 };
 
-struct test_case_t tdat[] = {
+static struct test_case_t tdat[] = {
 	{.domain = PF_INET,
 	 .type = SOCK_STREAM,
 	 .proto = 0,
@@ -356,7 +356,7 @@ struct test_case_t tdat[] = {
 	 .desc = "invalid cmsg pointer"}
 };
 
-int TST_TOTAL = sizeof(tdat) / sizeof(tdat[0]);
+static int TST_TOTAL = sizeof(tdat) / sizeof(tdat[0]);
 
 #ifdef UCLINUX
 static char *argv0;

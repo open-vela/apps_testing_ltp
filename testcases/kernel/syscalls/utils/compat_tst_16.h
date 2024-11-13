@@ -69,86 +69,86 @@ int setresgid(gid_t rgid, gid_t egid, gid_t sgid);
 	} \
 })
 
-int SETGROUPS(size_t gidsetsize, GID_T *list)
+static int SETGROUPS(size_t gidsetsize, GID_T *list)
 {
 	TST_CREATE_SYSCALL(setgroups, gidsetsize, list);
 }
 
-int GETGROUPS(size_t gidsetsize, GID_T *list)
+static int GETGROUPS(size_t gidsetsize, GID_T *list)
 {
 	TST_CREATE_SYSCALL(getgroups, gidsetsize, list);
 }
 
-int SETUID(UID_T uid)
+static int SETUID(UID_T uid)
 {
 	TST_CREATE_SYSCALL(setuid, uid);
 }
 
-UID_T GETUID(void)
+static UID_T GETUID(void)
 {
 	TST_CREATE_SYSCALL(getuid);
 }
 
-int SETGID(GID_T gid)
+static int SETGID(GID_T gid)
 {
 	TST_CREATE_SYSCALL(setgid, gid);
 }
 
-GID_T GETGID(void)
+static GID_T GETGID(void)
 {
 	TST_CREATE_SYSCALL(getgid);
 }
 
-UID_T GETEUID(void)
+static UID_T GETEUID(void)
 {
 	TST_CREATE_SYSCALL(geteuid);
 }
 
-GID_T GETEGID(void)
+static GID_T GETEGID(void)
 {
 	TST_CREATE_SYSCALL(getegid);
 }
 
-int SETFSUID(UID_T uid)
+static int SETFSUID(UID_T uid)
 {
 	TST_CREATE_SYSCALL(setfsuid, uid);
 }
 
-int SETFSGID(GID_T gid)
+static int SETFSGID(GID_T gid)
 {
 	TST_CREATE_SYSCALL(setfsgid, gid);
 }
 
-int SETREUID(UID_T ruid, UID_T euid)
+static int SETREUID(UID_T ruid, UID_T euid)
 {
 	TST_CREATE_SYSCALL(setreuid, ruid, euid);
 }
-int SETREGID(GID_T rgid, GID_T egid)
+static int SETREGID(GID_T rgid, GID_T egid)
 {
 	TST_CREATE_SYSCALL(setregid, rgid, egid);
 }
 
-int SETRESUID(UID_T ruid, UID_T euid, UID_T suid)
+static int SETRESUID(UID_T ruid, UID_T euid, UID_T suid)
 {
 	TST_CREATE_SYSCALL(setresuid, ruid, euid, suid);
 }
 
-int SETRESGID(GID_T rgid, GID_T egid, GID_T sgid)
+static int SETRESGID(GID_T rgid, GID_T egid, GID_T sgid)
 {
 	TST_CREATE_SYSCALL(setresgid, rgid, egid, sgid);
 }
 
-int FCHOWN(unsigned int fd, UID_T owner, GID_T group)
+static int FCHOWN(unsigned int fd, UID_T owner, GID_T group)
 {
 	TST_CREATE_SYSCALL(fchown, fd, owner, group);
 }
 
-int LCHOWN(const char *path, UID_T owner, GID_T group)
+static int LCHOWN(const char *path, UID_T owner, GID_T group)
 {
 	TST_CREATE_SYSCALL(lchown, path, owner, group);
 }
 
-int CHOWN(const char *path, UID_T owner, GID_T group)
+static int CHOWN(const char *path, UID_T owner, GID_T group)
 {
 	TST_CREATE_SYSCALL(chown, path, owner, group);
 }

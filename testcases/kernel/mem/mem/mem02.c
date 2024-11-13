@@ -52,8 +52,8 @@
 
 void on_mem_fault(int sig);
 
-char *TCID = "mem02";
-int TST_TOTAL = 1;
+static char *TCID = "mem02";
+static int TST_TOTAL = 1;
 
 static void usage(char *progname)
 {

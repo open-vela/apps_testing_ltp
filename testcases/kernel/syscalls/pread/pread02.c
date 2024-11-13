@@ -78,22 +78,22 @@
 #define K1              1024
 #define NBUFS           4
 
-char *TCID = "pread02";
-int TST_TOTAL = 2;
+static char *TCID = "pread02";
+static int TST_TOTAL = 2;
 
-char *write_buf[NBUFS];		/* buffer to hold data to be written */
-char *read_buf[NBUFS];		/* buffer to hold data read from file */
-int pfd[2];			/* pair of file descriptors */
-int fd1;
+static char *write_buf[NBUFS];		/* buffer to hold data to be written */
+static char *read_buf[NBUFS];		/* buffer to hold data read from file */
+static int pfd[2];			/* pair of file descriptors */
+static int fd1;
 
-void setup();			/* Main setup function of test */
-void cleanup();			/* cleanup function for the test */
-int setup1();			/* setup function for test #1 */
-int setup2();			/* setup function for test #2 */
-int no_setup();
-void init_buffers();		/* function to initialize/allocate buffers */
+static void setup();			/* Main setup function of test */
+static void cleanup();			/* cleanup function for the test */
+static int setup1();			/* setup function for test #1 */
+static int setup2();			/* setup function for test #2 */
+static int no_setup();
+static void init_buffers();		/* function to initialize/allocate buffers */
 
-struct test_case_t {		/* test case struct. to hold ref. test cond's */
+static struct test_case_t {		/* test case struct. to hold ref. test cond's */
 	int fd;
 	size_t nb;
 	off_t offst;
@@ -176,7 +176,7 @@ int main(int ac, char **av)
  *           Initialize/allocate write buffer.
  *           Call individual setup function.
  */
-void setup(void)
+static void setup(void)
 {
 	int i;
 
@@ -196,7 +196,7 @@ void setup(void)
 /*
  * no_setup() - This function simply returns.
  */
-int no_setup(void)
+static int no_setup(void)
 {
 	return 0;
 }
@@ -209,7 +209,7 @@ int no_setup(void)
  *  Write some known data to the write end of the pipe.
  *  return 0.
  */
-int setup1(void)
+static int setup1(void)
 {
 	/* Create a pair of unnamed pipe */
 	SAFE_PIPE(cleanup, pfd);
@@ -230,7 +230,7 @@ int setup1(void)
  *  Create a temporary directory and a file under it.
  *  return 0.
  */
-int setup2(void)
+static int setup2(void)
 {
 
 	tst_tmpdir();
@@ -252,7 +252,7 @@ int setup2(void)
  *    write_buf[0] has 0's, write_buf[1] has 1's, write_buf[2] has 2's
  *    write_buf[3] has 3's.
  */
-void init_buffers(void)
+static void init_buffers(void)
 {
 	int count;		/* counter variable for loop */
 
@@ -277,7 +277,7 @@ void init_buffers(void)
  *  Close the temporary file.
  *  Remove the temporary directory created.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	int count;
 

@@ -48,8 +48,8 @@
 #define MAX_BUFF_SIZE 65536
 #define MAX_FUNC_NAME 256
 
-char *TCID = "proc01";
-int TST_TOTAL = 1;
+static char *TCID = "proc01";
+static int TST_TOTAL = 1;
 
 static int opt_verbose;
 static int opt_procpath;

@@ -20,7 +20,7 @@
 #include <netinet/in.h>
 #include "tst_test.h"
 
-struct test_case_t {
+static struct test_case_t {
 	int domain;
 	int type;
 	int proto;

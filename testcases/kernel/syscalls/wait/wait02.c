@@ -44,8 +44,8 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "wait02";
-int TST_TOTAL = 1;
+static char *TCID = "wait02";
+static int TST_TOTAL = 1;
 
 static void wait_verify(void);
 

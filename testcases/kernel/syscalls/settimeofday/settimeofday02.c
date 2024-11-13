@@ -12,7 +12,7 @@
 #include "tst_test.h"
 #include "lapi/syscalls.h"
 
-struct timeval tv_saved;
+static struct timeval tv_saved;
 static int flag;
 
 static struct tcase {

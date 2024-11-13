@@ -46,12 +46,12 @@
 #define FAILED 0
 #define PASSED 1
 
-char *TCID = "string01";
+static char *TCID = "string01";
 
-int local_flag = PASSED;
-int block_number;
-FILE *temp;
-int TST_TOTAL = 1;
+static int local_flag = PASSED;
+static int block_number;
+static FILE *temp;
+static int TST_TOTAL = 1;
 /*****	**	** *****/
 
 #define LONGSTR	(96*1024-1)
@@ -232,23 +232,23 @@ struct t_strncpy {
 	NULL, NULL, 0, NULL, 0}
 };
 
-void setup();
-int blenter();
-int blexit();
-int anyfail();
+static void setup();
+static int blenter();
+static int blexit();
+static int anyfail();
 
-void setup(void)
+static void setup(void)
 {
 	temp = stderr;
 }
 
-int blenter(void)
+static int blenter(void)
 {
 	local_flag = PASSED;
 	return 0;
 }
 
-int blexit(void)
+static int blexit(void)
 {
 	(local_flag == PASSED) ? tst_resm(TPASS,
 					  "Test passed") : tst_resm(TFAIL,
@@ -256,7 +256,7 @@ int blexit(void)
 	return 0;
 }
 
-int anyfail(void)
+static int anyfail(void)
 {
 	tst_exit();
 }

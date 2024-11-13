@@ -51,8 +51,8 @@ static void setup(void);
 static void help(void);
 static void cleanup(void);
 
-char *TCID = "link03";
-int TST_TOTAL = 2;
+static char *TCID = "link03";
+static int TST_TOTAL = 2;
 
 #define BASENAME	"lkfile"
 
@@ -60,7 +60,7 @@ static char fname[255];
 static int nlinks = 0;
 static char *links_arg;
 
-option_t options[] = {
+static option_t options[] = {
 	{"N:", NULL, &links_arg},
 	{NULL, NULL, NULL}
 };

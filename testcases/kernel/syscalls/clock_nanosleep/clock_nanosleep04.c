@@ -32,7 +32,7 @@ static struct test_variants {
 #endif
 };
 
-void setup(void)
+static void setup(void)
 {
 	tst_res(TINFO, "Testing variant: %s", variants[tst_variant].desc);
 }

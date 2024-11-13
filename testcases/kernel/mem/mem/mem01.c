@@ -52,8 +52,8 @@
  *  - make it multithreaded with random access to test r/w mm_sem
  */
 
-char *TCID = "mem01";
-int TST_TOTAL = 1;
+static char *TCID = "mem01";
+static int TST_TOTAL = 1;
 
 static int m_opt = 0;		/* memsize */
 static char *m_copt;
@@ -87,7 +87,7 @@ static void help(void)
  * return MemFree+SwapFree, from /proc/meminfo
  * returned value is in bytes.
  */
-size_t get_memsize(void)
+static size_t get_memsize(void)
 {
 	struct sysinfo info;
 	unsigned long long res;
@@ -136,7 +136,7 @@ size_t get_memsize(void)
  * add the -m option whose parameter is the
  * memory size (MB) to allocate.
  */
-option_t options[] = {
+static option_t options[] = {
 	{"m:", &m_opt, &m_copt}
 	,
 	{"r", &r_opt, NULL}

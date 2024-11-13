@@ -48,15 +48,15 @@
 #define INVAL_FLAG	-1
 #define INVAL_MIN	(-2147483647L-1L)
 
-int fd;
+static int fd;
 char string[40] = "";
 
-char *TCID = "fcntl18";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl18";
+static int TST_TOTAL = 1;
 struct passwd *pass;
 
-void setup(void);
-void cleanup(void);
+static void setup(void);
+static void cleanup(void);
 int fail;
 
 int main(int ac, char **av)
@@ -166,7 +166,7 @@ int main(int ac, char **av)
  * setup()
  *	performs all ONE TIME setup for this test
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -188,7 +188,7 @@ void setup(void)
  *	performs all the ONE TIME cleanup for this test at completion or
  *	or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	/*
 	 * print timing status if that option was specified.

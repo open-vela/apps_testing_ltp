@@ -53,8 +53,8 @@ int Verbosity = 0;
 int DefaultSeed = 0;
 char Filename[MAX_FILENAME_LEN] = FILE_OUT;
 off_t NumBlocks = 1;
-char *TCID = "writetest";
-int TST_TOTAL = 2;
+static char *TCID = "writetest";
+static int TST_TOTAL = 2;
 
 void buf_init(void)
 {
@@ -159,7 +159,7 @@ int verify_file(off_t num_blocks, const char *filename)
 	return (ret);
 }
 
-void usage(void)
+static void usage(void)
 {
 	printf("%s [-v] [-b blocks] [-s seed] [-o filename]\n", TCID);
 	printf("\n"
@@ -209,13 +209,13 @@ void parse_args(int argc, char **argv)
 	}
 }
 
-void setup()
+static void setup()
 {
 	tst_tmpdir();
 
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 	tst_exit();

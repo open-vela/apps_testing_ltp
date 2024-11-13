@@ -46,8 +46,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "fork12";
-int TST_TOTAL = 1;
+static char *TCID = "fork12";
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

@@ -7,7 +7,7 @@
 #include "tst_test.h"
 #include "lapi/fsmount.h"
 
-int fd = -1, invalid_fd = -1;
+static int fd = -1, invalid_fd = -1;
 
 #define MNTPOINT	"mntpoint"
 

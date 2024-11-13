@@ -78,8 +78,8 @@ static struct test_case_t {
 	{ elooppathname, FIFO_MODE, ELOOP },
 };
 
-char *TCID = "mknod07";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "mknod07";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void setup(void);
 static void mknod_verify(const struct test_case_t *test_case);

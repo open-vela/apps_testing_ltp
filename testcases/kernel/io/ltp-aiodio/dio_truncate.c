@@ -42,7 +42,7 @@
 
 #define NUM_CHILDREN 8
 
-char *check_zero(unsigned char *buf, int size)
+static char *check_zero(unsigned char *buf, int size)
 {
 	unsigned char *p;
 
@@ -65,7 +65,7 @@ char *check_zero(unsigned char *buf, int size)
 	return 0;		/* all zeros */
 }
 
-int dio_read(char *filename)
+static int dio_read(char *filename)
 {
 	int fd;
 	int r;
@@ -102,7 +102,7 @@ int dio_read(char *filename)
 	return 0;
 }
 
-void dio_append(char *filename, int fill)
+static void dio_append(char *filename, int fill)
 {
 	int fd;
 	void *bufptr;

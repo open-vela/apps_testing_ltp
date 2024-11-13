@@ -73,11 +73,11 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();			/* Main setup function of test */
-void cleanup();			/* cleanup function for the test */
+static void setup();			/* Main setup function of test */
+static void cleanup();			/* cleanup function for the test */
 
-char *TCID = "getpid02";
-int TST_TOTAL = 1;
+static char *TCID = "getpid02";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {
@@ -123,7 +123,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);
@@ -131,6 +131,6 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }

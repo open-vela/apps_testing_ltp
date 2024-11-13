@@ -38,8 +38,8 @@
 #define TESTFILE	"testfile"
 #define TESTFILE_LINK	"testfile_link"
 
-char *TCID = "fchownat02";
-int TST_TOTAL = 1;
+static char *TCID = "fchownat02";
+static int TST_TOTAL = 1;
 
 static int dir_fd;
 static uid_t set_uid = 1000;

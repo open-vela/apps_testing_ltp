@@ -36,8 +36,8 @@
 #include <sys/stat.h>
 #include "test.h"
 
-char *TCID = "dup07";
-int TST_TOTAL = 3;
+static char *TCID = "dup07";
+static int TST_TOTAL = 3;
 
 static const char *testfile = "dup07";
 

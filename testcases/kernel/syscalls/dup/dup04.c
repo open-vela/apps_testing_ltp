@@ -121,13 +121,13 @@
 #include "test.h"
 #include "safe_macros.h"
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "dup04";
-int TST_TOTAL = 2;
+static char *TCID = "dup04";
+static int TST_TOTAL = 2;
 
-int fd[2];
+static int fd[2];
 
 int main(int ac, char **av)
 {
@@ -174,7 +174,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	fd[0] = -1;
 
@@ -187,7 +187,7 @@ void setup(void)
 	SAFE_PIPE(cleanup, fd);
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	int i;
 

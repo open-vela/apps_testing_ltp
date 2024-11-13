@@ -33,8 +33,8 @@
 #include <unistd.h>
 #include "test.h"
 
-char *TCID = "open06";
-int TST_TOTAL = 1;
+static char *TCID = "open06";
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

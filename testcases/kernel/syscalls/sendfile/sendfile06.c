@@ -57,7 +57,7 @@ static void do_child(void);
 static void setup(void);
 static int create_server(void);
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 #ifdef UCLINUX
 static char *argv0;

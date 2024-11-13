@@ -39,7 +39,7 @@
 #define INVAL_USER		 (USHRT_MAX-2)
 
 TCID_DEFINE(setreuid06);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static struct passwd *ltpuser;
 

@@ -40,10 +40,10 @@
 
 #define F_BADCMD 99999
 
-char *TCID = "fcntl13";
-int TST_TOTAL = 1;
+static char *TCID = "fcntl13";
+static int TST_TOTAL = 1;
 
-void setup(void);
+static void setup(void);
 
 int main(int ac, char **av)
 {
@@ -119,7 +119,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_sig(NOFORK, DEF_HANDLER, NULL);
 

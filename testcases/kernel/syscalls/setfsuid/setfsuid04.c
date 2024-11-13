@@ -42,7 +42,7 @@
 #include "compat_16.h"
 
 TCID_DEFINE(setfsuid04);
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static char nobody_uid[] = "nobody";
 static char testfile[] = "setfsuid04_testfile";

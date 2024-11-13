@@ -21,8 +21,8 @@
 
 #include "set_thread_area.h"
 
-char *TCID = "set_thread_area_01";
-int TST_TOTAL = 6;
+static char *TCID = "set_thread_area_01";
+static int TST_TOTAL = 6;
 
 #if defined(HAVE_ASM_LDT_H) && defined(HAVE_STRUCT_USER_DESC)
 

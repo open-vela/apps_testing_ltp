@@ -65,8 +65,8 @@ static void (*test_func[])(void) = {
 #endif
 };
 
-char *TCID = "open13";
-int TST_TOTAL = ARRAY_SIZE(test_func);
+static char *TCID = "open13";
+static int TST_TOTAL = ARRAY_SIZE(test_func);
 
 int main(int ac, char **av)
 {

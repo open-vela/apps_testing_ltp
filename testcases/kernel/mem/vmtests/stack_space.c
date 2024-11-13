@@ -44,11 +44,11 @@
 #define FAILED 0
 #define PASSED 1
 
-int local_flag = PASSED;
-int block_number;
+static int local_flag = PASSED;
+static int block_number;
 
-char *TCID = "stack_space";	/* Test program identifier.    */
-int TST_TOTAL = 1;		/* Total number of test cases. */
+static char *TCID = "stack_space";	/* Test program identifier.    */
+static int TST_TOTAL = 1;		/* Total number of test cases. */
 /**************/
 
 #define MAXCHILD	100	/* max # kids */
@@ -57,33 +57,34 @@ int TST_TOTAL = 1;		/* Total number of test cases. */
 #define K_4		4096
 #define MAXSIZE         10*K_1
 
-int nchild;			/* # kids */
-int csize;			/* chunk size */
-int iterations;			/* # total iterations */
-int parent_pid;
+static int nchild;			/* # kids */
+static int csize;			/* chunk size */
+static int iterations;			/* # total iterations */
+static int parent_pid;
 
-int usage(char *);
-int bd_arg(char *);
-int runtest();
-int dotest(int, int);
-int bfill(char *, char, int);
-int dumpbuf(char *);
-void dumpbits(char *, int);
+static int usage(char *);
+static int bd_arg(char *);
+static int runtest();
+static int dotest(int, int);
+static int bfill(char *, char, int);
+static int dumpbuf(char *);
+static void dumpbits(char *, int);
 
-char *prog;			/* invoked name */
+static char *prog;			/* invoked name */
 
-int usage(char *prog)
+static int usage(char *prog)
 {
 	tst_resm(TCONF, "Usage: %s <nchild> <chunk_size> <iterations>", prog);
 	tst_brkm(TCONF, NULL, "DEFAULTS: 20 1024 50");
 }
+
+static void term();
 
 int main(argc, argv)
 int argc;
 char *argv[];
 {
 	register int i;
-	void term();
 
 	prog = argv[0];
 	parent_pid = getpid();
@@ -125,7 +126,7 @@ char *argv[];
 
 }
 
-int bd_arg(str)
+static int bd_arg(str)
 char *str;
 {
 	tst_brkm(TCONF, NULL,
@@ -133,7 +134,7 @@ char *str;
 		 str);
 }
 
-int runtest()
+static int runtest()
 {
 	register int i;
 	int child;
@@ -198,11 +199,11 @@ int runtest()
  * When fill sectors, iterate.
  */
 
-int nchunks;
+static int nchunks;
 
 #define	CHUNK(i)	((i) * csize)
 
-int dotest(int testers, int me)
+static int dotest(int testers, int me)
 {
 	char *bits;
 	char *val_buf;
@@ -324,7 +325,7 @@ int dotest(int testers, int me)
 	return 0;
 }
 
-int bfill(buf, val, size)
+static int bfill(buf, val, size)
 register char *buf;
 char val;
 register int size;
@@ -341,7 +342,7 @@ register int size;
  *	Dump the buffer.
  */
 
-int dumpbuf(buf)
+static int dumpbuf(buf)
 register char *buf;
 {
 	register int i;
@@ -394,7 +395,7 @@ register char *buf;
  *	Dump the bit-map.
  */
 
-void dumpbits(bits, size)
+static void dumpbits(bits, size)
 char *bits;
 register int size;
 {
@@ -412,7 +413,7 @@ register int size;
 
 }
 
-void term()
+static void term()
 {
 
 	if (getpid() == parent_pid) {

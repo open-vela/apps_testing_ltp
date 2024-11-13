@@ -31,8 +31,8 @@
 #include <errno.h>
 #include <sys/time.h>
 
-char *TCID = "getitimer02";
-int TST_TOTAL = 1;
+static char *TCID = "getitimer02";
+static int TST_TOTAL = 1;
 
 #if !defined(UCLINUX)
 

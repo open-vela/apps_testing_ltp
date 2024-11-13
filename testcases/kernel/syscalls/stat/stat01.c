@@ -22,9 +22,9 @@
 #define NEW_MODE         0222
 #define MASK             0777
 
-uid_t user_id;
-gid_t group_id;
-struct passwd *ltpuser;
+static uid_t user_id;
+static gid_t group_id;
+static struct passwd *ltpuser;
 
 static struct tcase{
 	char *pathname;
@@ -75,7 +75,7 @@ static void verify_stat(unsigned int n)
 		tst_res(TPASS, "stat(%s)", tc->pathname);
 }
 
-void setup(void)
+static void setup(void)
 {
 	unsigned int i;
 

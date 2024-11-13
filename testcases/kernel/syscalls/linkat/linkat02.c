@@ -77,8 +77,8 @@ static struct test_struct {
 	{TEST_EMLINK, TEST_EMLINK2, 0, EMLINK, NULL, NULL},
 };
 
-char *TCID = "linkat02";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "linkat02";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static struct passwd *ltpuser;
 static void linkat_verify(const struct test_struct *);

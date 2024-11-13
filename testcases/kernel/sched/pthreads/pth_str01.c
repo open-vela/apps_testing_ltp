@@ -55,8 +55,8 @@ int num_nodes(int, int);
 int synchronize_children(c_info *);
 int doit(c_info *);
 
-char *TCID = "pth_str01";
-int TST_TOTAL = 1;
+static char *TCID = "pth_str01";
+static int TST_TOTAL = 1;
 
 void testexit(int value)
 {

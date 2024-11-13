@@ -34,7 +34,7 @@
 #define TEST_FILE "test_file"
 #define TEST_FILE2 "test_file2"
 
-char *TCID = "renameat202";
+static char *TCID = "renameat202";
 
 static int olddirfd;
 static int newdirfd;
@@ -45,7 +45,7 @@ static const char content[] = "content";
 static long fs_type;
 
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 static void setup(void);
 static void cleanup(void);

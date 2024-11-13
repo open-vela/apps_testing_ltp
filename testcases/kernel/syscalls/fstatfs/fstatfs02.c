@@ -31,7 +31,7 @@
 static void setup(void);
 static void cleanup(void);
 
-char *TCID = "fstatfs02";
+static char *TCID = "fstatfs02";
 
 static struct statfs buf;
 
@@ -51,7 +51,7 @@ static struct test_case_t {
 #endif
 };
 
-int TST_TOTAL = ARRAY_SIZE(TC);
+static int TST_TOTAL = ARRAY_SIZE(TC);
 
 int main(int ac, char **av)
 {

@@ -66,8 +66,8 @@ static struct test_case {
 	{&fd_atcwd, testfile, 0, 0}
 };
 
-char *TCID = "mknodat01";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "mknodat01";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static dev_t dev;
 

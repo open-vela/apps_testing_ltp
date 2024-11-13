@@ -37,8 +37,8 @@
 #include "epoll_pwait.h"
 #include "safe_macros.h"
 
-char *TCID = "epoll_pwait01";
-int TST_TOTAL = 2;
+static char *TCID = "epoll_pwait01";
+static int TST_TOTAL = 2;
 
 static int epfd, fds[2];
 static sigset_t signalset;

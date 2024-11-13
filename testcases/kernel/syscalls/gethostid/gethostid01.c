@@ -130,11 +130,11 @@
 #define FIRST_64_CHKBIT  0x01
 #define SECOND_64_CHKBIT 0x02
 
-void setup();
-void cleanup();
+static void setup();
+static void cleanup();
 
-char *TCID = "gethostid01";
-int TST_TOTAL = 1;
+static char *TCID = "gethostid01";
+static int TST_TOTAL = 1;
 
 int main(int ac, char **av)
 {
@@ -237,7 +237,7 @@ int main(int ac, char **av)
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	char path[2048];
 
@@ -251,7 +251,7 @@ void setup(void)
 	tst_tmpdir();
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 	tst_rmdir();
 

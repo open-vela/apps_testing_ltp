@@ -76,8 +76,8 @@
  *
  * parse_args: parse command line arguments
  */
-void parse_args(int, char **);
-void multiply_matrices();
+static void parse_args(int, char **);
+static void multiply_matrices();
 
 /*
  * Global variables:
@@ -90,10 +90,10 @@ void multiply_matrices();
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-long execution_time = DEFAULT_EXECUTION_TIME;
-char *priority = DEFAULT_PRIORITY_TYPE;
+static int verbose = 0;
+static int debug = 0;
+static long execution_time = DEFAULT_EXECUTION_TIME;
+static char *priority = DEFAULT_PRIORITY_TYPE;
 
 /*---------------------------------------------------------------------+
 |                                 main                                 |
@@ -172,7 +172,7 @@ int main(int argc, char **argv)
 |            them together.                                            |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void multiply_matrices()
+static void multiply_matrices()
 {
 	int i, j, k;		/* various indeces to access the arrays */
 	float matrix_1[MATRIX_SIZE][MATRIX_SIZE];
@@ -216,7 +216,7 @@ void multiply_matrices()
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int pflg = 0, tflg = 0;

@@ -72,96 +72,96 @@ if (!GID_SIZE_CHECK(gid)) { \
 }
 
 
-int SETGROUPS(void (cleanup)(void), size_t gidsetsize, GID_T *list)
+static int SETGROUPS(void (cleanup)(void), size_t gidsetsize, GID_T *list)
 {
 	LTP_CREATE_SYSCALL(setgroups, cleanup, gidsetsize, list);
 }
 
-int GETGROUPS(void (cleanup)(void), size_t gidsetsize, GID_T *list)
+static int GETGROUPS(void (cleanup)(void), size_t gidsetsize, GID_T *list)
 {
 	LTP_CREATE_SYSCALL(getgroups, cleanup, gidsetsize, list);
 }
 
-int SETUID(void (cleanup)(void), UID_T uid)
+static int SETUID(void (cleanup)(void), UID_T uid)
 {
 	LTP_CREATE_SYSCALL(setuid, cleanup, uid);
 }
 
-UID_T GETUID(void (cleanup)(void))
+static UID_T GETUID(void (cleanup)(void))
 {
 	LTP_CREATE_SYSCALL(getuid, cleanup);
 }
 
-int SETGID(void (cleanup)(void), GID_T gid)
+static int SETGID(void (cleanup)(void), GID_T gid)
 {
 	LTP_CREATE_SYSCALL(setgid, cleanup, gid);
 }
 
-GID_T GETGID(void (cleanup)(void))
+static GID_T GETGID(void (cleanup)(void))
 {
 	LTP_CREATE_SYSCALL(getgid, cleanup);
 }
 
-UID_T GETEUID(void (cleanup)(void))
+static UID_T GETEUID(void (cleanup)(void))
 {
 	LTP_CREATE_SYSCALL(geteuid, cleanup);
 }
 
-GID_T GETEGID(void (cleanup)(void))
+static GID_T GETEGID(void (cleanup)(void))
 {
 	LTP_CREATE_SYSCALL(getegid, cleanup);
 }
 
-int SETFSUID(void (cleanup)(void), UID_T uid)
+static int SETFSUID(void (cleanup)(void), UID_T uid)
 {
 	LTP_CREATE_SYSCALL(setfsuid, cleanup, uid);
 }
 
-int SETFSGID(void (cleanup)(void), GID_T gid)
+static int SETFSGID(void (cleanup)(void), GID_T gid)
 {
 	LTP_CREATE_SYSCALL(setfsgid, cleanup, gid);
 }
 
-int SETREUID(void (cleanup)(void), UID_T ruid, UID_T euid)
+static int SETREUID(void (cleanup)(void), UID_T ruid, UID_T euid)
 {
 	LTP_CREATE_SYSCALL(setreuid, cleanup, ruid, euid);
 }
-int SETREGID(void (cleanup)(void), GID_T rgid, GID_T egid)
+static int SETREGID(void (cleanup)(void), GID_T rgid, GID_T egid)
 {
 	LTP_CREATE_SYSCALL(setregid, cleanup, rgid, egid);
 }
 
-int SETRESUID(void (cleanup)(void), UID_T ruid, UID_T euid, UID_T suid)
+static int SETRESUID(void (cleanup)(void), UID_T ruid, UID_T euid, UID_T suid)
 {
 	LTP_CREATE_SYSCALL(setresuid, cleanup, ruid, euid, suid);
 }
 
-int GETRESUID(void (cleanup)(void), UID_T *ruid, UID_T *euid, UID_T *suid)
+static int GETRESUID(void (cleanup)(void), UID_T *ruid, UID_T *euid, UID_T *suid)
 {
 	LTP_CREATE_SYSCALL(getresuid, cleanup, ruid, euid, suid);
 }
 
-int SETRESGID(void (cleanup)(void), GID_T rgid, GID_T egid, GID_T sgid)
+static int SETRESGID(void (cleanup)(void), GID_T rgid, GID_T egid, GID_T sgid)
 {
 	LTP_CREATE_SYSCALL(setresgid, cleanup, rgid, egid, sgid);
 }
 
-int GETRESGID(void (cleanup)(void), GID_T *rgid, GID_T *egid, GID_T *sgid)
+static int GETRESGID(void (cleanup)(void), GID_T *rgid, GID_T *egid, GID_T *sgid)
 {
 	LTP_CREATE_SYSCALL(getresgid, cleanup, rgid, egid, sgid);
 }
 
-int FCHOWN(void (cleanup)(void), unsigned int fd, UID_T owner, GID_T group)
+static int FCHOWN(void (cleanup)(void), unsigned int fd, UID_T owner, GID_T group)
 {
 	LTP_CREATE_SYSCALL(fchown, cleanup, fd, owner, group);
 }
 
-int LCHOWN(void (cleanup)(void), const char *path, UID_T owner, GID_T group)
+static int LCHOWN(void (cleanup)(void), const char *path, UID_T owner, GID_T group)
 {
 	LTP_CREATE_SYSCALL(lchown, cleanup, path, owner, group);
 }
 
-int CHOWN(void (cleanup)(void), const char *path, UID_T owner, GID_T group)
+static int CHOWN(void (cleanup)(void), const char *path, UID_T owner, GID_T group)
 {
 	LTP_CREATE_SYSCALL(chown, cleanup, path, owner, group);
 }

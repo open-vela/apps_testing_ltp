@@ -22,7 +22,7 @@
 
 #define STR "abc"
 
-char *TCID = "openat02_child";
+static char *TCID = "openat02_child";
 
 int main(int argc, char **argv)
 {

@@ -39,7 +39,7 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "rename11";
+static char *TCID = "rename11";
 
 #define MNTPOINT	"mntpoint"
 #define TEST_EROFS	"mntpoint/test_erofs"
@@ -65,7 +65,7 @@ static void test_emlink(void);
 
 static void (*testfunc[])(void) = { test_eloop, test_erofs, test_emlink };
 
-int TST_TOTAL = ARRAY_SIZE(testfunc);
+static int TST_TOTAL = ARRAY_SIZE(testfunc);
 
 int main(int ac, char **av)
 {

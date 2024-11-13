@@ -40,7 +40,7 @@ struct test_case {
 	int change_kernver[3];	/* kernel version having diff expected errno */
 };
 
-struct test_case tc[] = {
+static struct test_case tc[] = {
 	{
 	 /*
 	  * case 00) invalid cmd

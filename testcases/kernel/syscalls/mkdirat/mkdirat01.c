@@ -60,8 +60,8 @@ static struct test_case {
 	{&fd_invalid, relpath, -1, EBADF},
 };
 
-char *TCID = "mkdirat01";
-int TST_TOTAL = ARRAY_SIZE(test_cases);
+static char *TCID = "mkdirat01";
+static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
 static void verify_mkdirat(struct test_case *test)
 {
