@@ -22,6 +22,8 @@
  * 02110-1301, USA.
  */
 
+#include <sys/wait.h>
+
 #include <unistd.h>
 #include "test.h"
 #include "safe_macros.h"
