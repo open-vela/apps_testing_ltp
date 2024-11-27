@@ -17,34 +17,34 @@ long stats = 0;
 
 void print_usage()
 {
-	printf("
-This program creates files in a tree of random depth and branching. Files vary
-in size randomly according to a distribution function which seems to model real
-file systems.  This distribution function has a median size of median_file_size
-(Median file size is hypothesized to be proportional to the average per file
-space wastage. Notice how that implies that with a more efficient file system
-file size usage patterns will in the long term move to a lower median file
-size), and a maximum size of max_file_size.  Directories vary in size according
-to the same distribution function but with separate parameters to control median
-and maximum size for the number of files within them, and the number of
-subdirectories within them.  This program prunes some empty subdirectories in a
-way that causes parents of leaf directories to branch less than
-median_dir_branching.
+	printf(
+"This program creates files in a tree of random depth and branching. Files vary"
+"in size randomly according to a distribution function which seems to model real"
+"file systems.  This distribution function has a median size of median_file_size"
+"(Median file size is hypothesized to be proportional to the average per file"
+"space wastage. Notice how that implies that with a more efficient file system"
+"file size usage patterns will in the long term move to a lower median file"
+"size), and a maximum size of max_file_size.  Directories vary in size according"
+"to the same distribution function but with separate parameters to control median"
+"and maximum size for the number of files within them, and the number of"
+"subdirectories within them.  This program prunes some empty subdirectories in a"
+"way that causes parents of leaf directories to branch less than"
+"median_dir_branching."
 
- To avoid having one large file distort the results such that you have
-to benchmark many times set max_file_size to not more than
-bytes_to_consume/10.  If maximum/median is a small integer, then
-randomness is very poor.  This is a bug, Nikita, please find some
-clever way to fix it.  If it is 0, then the program crashes....
+" To avoid having one large file distort the results such that you have"
+"to benchmark many times set max_file_size to not more than"
+"bytes_to_consume/10.  If maximum/median is a small integer, then"
+"randomness is very poor.  This is a bug, Nikita, please find some"
+"clever way to fix it.  If it is 0, then the program crashes...."
 
-For isolating performance consequences of design variations on
-particular file or directory size ranges, try setting their median size and
-max_size to both equal the max size of the file size range you want
-to test.
+"For isolating performance consequences of design variations on"
+"particular file or directory size ranges, try setting their median size and"
+"max_size to both equal the max size of the file size range you want"
+"to test."
 
-To avoid having one large file distort the results set max_file_size to
-not more than bytes_to_consume/10.  Using a distribution function for
-the sizes of writes would be a natural next step in developing this program.\n\n");
+"To avoid having one large file distort the results set max_file_size to"
+"not more than bytes_to_consume/10.  Using a distribution function for"
+"the sizes of writes would be a natural next step in developing this program.\n\n");
 
 	printf
 	    ("Usage: reiser_fract_tree bytes_to_consume median_file_size max_file_size median_dir_nr_files max_directory_nr_files median_dir_branching max_dir_branching write_buffer_size /testfs_mount_point print_stats_flag\n\n");
