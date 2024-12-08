@@ -52,8 +52,8 @@
 
 #include "ipcshm.h"
 
-char *TCID = "shmget03";
-int TST_TOTAL = 1;
+static char *TCID = "shmget03";
+static int TST_TOTAL = 1;
 
 /*
  * The MAXIDS value is somewhat arbitrary and may need to be increased
@@ -61,10 +61,10 @@ int TST_TOTAL = 1;
  */
 #define MAXIDS	8192
 
-int shm_id_1 = -1;
-int num_shms = 0;
+static int shm_id_1 = -1;
+static int num_shms = 0;
 
-int shm_id_arr[MAXIDS];
+static int shm_id_arr[MAXIDS];
 
 int main(int ac, char **av)
 {
@@ -113,7 +113,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -157,7 +157,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	int i;
 

@@ -42,7 +42,7 @@
 #define INT_SIZE	4
 #define MODE_MASK	0x01FF
 
-key_t getipckey(const char *file, const int lineno);
+static key_t getipckey(const char *file, const int lineno);
 #define GETIPCKEY() \
 	getipckey(__FILE__, __LINE__)
 

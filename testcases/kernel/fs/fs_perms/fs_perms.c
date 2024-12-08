@@ -47,8 +47,8 @@
 #define TEST_FILE_NAME1 "./test.file1"
 #define TEST_FILE_NAME2 "./test.file2"
 
-char *TCID = "fs_perms";
-int TST_TOTAL = 1;
+static char *TCID = "fs_perms";
+static int TST_TOTAL = 1;
 
 static void cleanup(void)
 {

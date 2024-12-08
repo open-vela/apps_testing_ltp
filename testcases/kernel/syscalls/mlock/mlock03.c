@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 	tst_exit();
 }
 
-void setup(void)
+static void setup(void)
 {
 	tst_require_root();
 
@@ -114,6 +114,6 @@ void setup(void)
 	TEST_PAUSE;
 }
 
-void cleanup(void)
+static void cleanup(void)
 {
 }

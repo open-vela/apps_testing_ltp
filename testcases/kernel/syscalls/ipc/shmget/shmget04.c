@@ -52,13 +52,13 @@
 #include <pwd.h>
 #include "ipcshm.h"
 
-char *TCID = "shmget04";
-int TST_TOTAL = 1;
+static char *TCID = "shmget04";
+static int TST_TOTAL = 1;
 
-char nobody_uid[] = "nobody";
-struct passwd *ltpuser;
+static char nobody_uid[] = "nobody";
+static struct passwd *ltpuser;
 
-int shm_id_1 = -1;
+static int shm_id_1 = -1;
 
 int main(int ac, char **av)
 {
@@ -106,7 +106,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 	tst_require_root();
 
@@ -143,7 +143,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	/* if it exists, remove the shared memory resource */
 	rm_shm(shm_id_1);

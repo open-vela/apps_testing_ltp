@@ -22,7 +22,7 @@ static int fds[2];
 static unsigned char buf[PIPE_BUF];
 static size_t read_per_child;
 
-void do_child(void)
+static void do_child(void)
 {
 	size_t nread;
 	unsigned char rbuf[read_per_child];

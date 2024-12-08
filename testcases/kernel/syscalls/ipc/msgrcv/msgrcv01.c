@@ -65,16 +65,16 @@
 #include "ipcmsg.h"
 
 void cleanup(void);
-void setup(void);
-void do_child(void);
+static void setup(void);
+static void do_child(void);
 
-char *TCID = "msgrcv01";
-int TST_TOTAL = 1;
+static char *TCID = "msgrcv01";
+static int TST_TOTAL = 1;
 
 int msg_q_1;
 MSGBUF snd_buf, rcv_buf, cmp_buf;
 
-pid_t c_pid;
+static pid_t c_pid;
 
 int main(int ac, char **av)
 {
@@ -139,7 +139,7 @@ int main(int ac, char **av)
 /*
  * do_child()
  */
-void do_child(void)
+static void do_child(void)
 {
 	int retval = 0;
 
@@ -171,7 +171,7 @@ void do_child(void)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(FORK, DEF_HANDLER, cleanup);

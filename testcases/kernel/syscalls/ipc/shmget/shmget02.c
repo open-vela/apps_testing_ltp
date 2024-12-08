@@ -56,14 +56,14 @@
 
 #include "ipcshm.h"
 
-char *TCID = "shmget02";
-int TST_TOTAL = 4;
+static char *TCID = "shmget02";
+static int TST_TOTAL = 4;
 
-int shm_id_1 = -1;
-int shm_nonexisting_key = -1;
-key_t shmkey2;
+static int shm_id_1 = -1;
+static int shm_nonexisting_key = -1;
+static key_t shmkey2;
 
-struct test_case_t {
+static struct test_case_t {
 	int *skey;
 	int size;
 	int flags;
@@ -134,7 +134,7 @@ int main(int ac, char **av)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -174,7 +174,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 	/* if it exists, remove the shared memory resource */
 	rm_shm(shm_id_1);

@@ -61,13 +61,13 @@
 #include <sys/wait.h>
 #include "safe_macros.h"
 
-char *TCID = "shmget05";
-int TST_TOTAL = 1;
+static char *TCID = "shmget05";
+static int TST_TOTAL = 1;
 
-int shm_id_1 = -1;
+static int shm_id_1 = -1;
 
-uid_t ltp_uid;
-char *ltp_user = "nobody";
+static uid_t ltp_uid;
+static char *ltp_user = "nobody";
 
 int main(int ac, char **av)
 {
@@ -146,7 +146,7 @@ void do_child(void)
 /*
  * setup() - performs all the ONE TIME setup for this test.
  */
-void setup(void)
+static void setup(void)
 {
 	tst_require_root();
 
@@ -179,7 +179,7 @@ void setup(void)
  * cleanup() - performs all the ONE TIME cleanup for this test at completion
  * 	       or premature exit.
  */
-void cleanup(void)
+static void cleanup(void)
 {
 
 }

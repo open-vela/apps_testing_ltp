@@ -147,7 +147,7 @@ void start_long_term_testcases(int, char *);
 void kill_short_term_testcases();
 void start_short_term_testcases(int, double, int);
 void finishup(long);
-void parse_args(int, char **);
+static void parse_args(int, char **);
 
 /*---------------------------------------------------------------------+
 |                               main ()                                |
@@ -759,7 +759,7 @@ long start_time;		/* starting time to calculate elapsed time */
 |            [-s] size: shared memory segment size                     |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int sflg = 0, pflg = 0, tflg = 0;

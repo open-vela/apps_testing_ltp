@@ -55,8 +55,8 @@
 #include "safe_macros.h"
 #include "lapi/semun.h"
 
-char *TCID = "pipeio";
-int TST_TOTAL = 1;
+static char *TCID = "pipeio";
+static int TST_TOTAL = 1;
 
 #define SAFE_FREE(p) { if (p) { free(p); (p)=NULL; } }
 

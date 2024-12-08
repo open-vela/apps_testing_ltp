@@ -38,7 +38,7 @@ static struct tcase {
 	{1, CHUNK*3/2, CHUNK/2, 'b'}
 };
 
-void verify_preadv(unsigned int n)
+static void verify_preadv(unsigned int n)
 {
 	int i;
 	char *vec;

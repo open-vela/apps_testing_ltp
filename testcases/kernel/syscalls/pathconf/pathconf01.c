@@ -142,7 +142,7 @@ int i;
 int lflag;
 static char *path;
 
-option_t options[] = {
+static option_t options[] = {
 	{"l:", &lflag, &path},	/* -l <path to test> */
 	{NULL, NULL, NULL}
 };

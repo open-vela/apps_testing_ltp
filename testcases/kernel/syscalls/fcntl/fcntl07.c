@@ -57,11 +57,11 @@ static void setup(void);
 static void cleanup(void);
 static void help(void);
 
-char *TCID = "fcntl07";
+static char *TCID = "fcntl07";
 
 static char *t_opt;
 
-option_t options[] = {
+static option_t options[] = {
 	{"T:", NULL, &t_opt},
 	{NULL, NULL, NULL}
 };
@@ -80,7 +80,7 @@ static struct tcase {
 	{&fifo_fd, "fifo"},
 };
 
-int TST_TOTAL = ARRAY_SIZE(tcases);
+static int TST_TOTAL = ARRAY_SIZE(tcases);
 
 static int test_open(char *arg);
 

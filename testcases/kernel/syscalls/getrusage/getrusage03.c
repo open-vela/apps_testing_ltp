@@ -42,8 +42,8 @@
 #include "test.h"
 #include "safe_macros.h"
 
-char *TCID = "getrusage03";
-int TST_TOTAL = 1;
+static char *TCID = "getrusage03";
+static int TST_TOTAL = 1;
 
 #define DELTA_MAX	10240
 
