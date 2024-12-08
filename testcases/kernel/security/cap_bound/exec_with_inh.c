@@ -35,8 +35,8 @@
 #include <sys/prctl.h>
 #include "test.h"
 
-char *TCID = "exec_with_inh";
-int TST_TOTAL = 1;
+static char *TCID = "exec_with_inh";
+static int TST_TOTAL = 1;
 
 int main(int argc, char *argv[])
 {

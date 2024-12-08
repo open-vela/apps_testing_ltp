@@ -92,7 +92,7 @@ pid_t tst_vfork(void);
  * *_fn functions must not take any arguments.
  */
 #define TST_DECLARE_ONCE_FN(name_fn, exec_fn)				\
-	void name_fn(void)						\
+	static void name_fn(void)					\
 	{								\
 		static pthread_once_t ltp_once = PTHREAD_ONCE_INIT;	\
 		pthread_once(&ltp_once, exec_fn);			\

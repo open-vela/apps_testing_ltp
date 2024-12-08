@@ -51,8 +51,8 @@ static void setup(void);
 static void cleanup(void);
 static int test_rwflag(int, int);
 
-char *TCID = "mount03";
-int TST_TOTAL = 7;
+static char *TCID = "mount03";
+static int TST_TOTAL = 7;
 
 #define TEMP_FILE	"temp_file"
 #define FILE_MODE	(S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH)
