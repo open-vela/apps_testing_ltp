@@ -130,8 +130,8 @@ static int verbose_print = FALSE;	/* print more test information           */
 static int pages_num = NUMPAGES;	/* number of pages to use for tests     */
 static volatile int alarm_fired;
 
-char *TCID = "mmstress";
-int TST_TOTAL = 6;
+static char *TCID = "mmstress";
+static int TST_TOTAL = 6;
 
 static void sig_handler(int signal)
 {

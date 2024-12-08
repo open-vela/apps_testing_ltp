@@ -93,9 +93,9 @@
  *
  * parse_args: parse command line arguments
  */
-void parse_args(int, char **);
+static void parse_args(int, char **);
 int fork_realtime(char **);
-int read_file(int, char *);
+static int read_file(int, char *);
 int lock_file(int, short, char *);
 int unlock_file(int, char *);
 int lock_error(int, char *);
@@ -109,14 +109,14 @@ int lock_error(int, char *);
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-int fork_flag = 0;
-int priority = DEFAULT_PRIORITY;
-char *logfile = DEFAULT_LOGFILE;
-char *priority_type = DEFAULT_PRIORITY_TYPE;
-struct flock flock_struct;
-struct flock *flock_ptr = &flock_struct;
+static int verbose = 0;
+static int debug = 0;
+static int fork_flag = 0;
+static int priority = DEFAULT_PRIORITY;
+static char *logfile = DEFAULT_LOGFILE;
+static char *priority_type = DEFAULT_PRIORITY_TYPE;
+static struct flock flock_struct;
+static struct flock *flock_ptr = &flock_struct;
 
 int open_file(char *, int);
 
@@ -311,7 +311,7 @@ int fork_realtime(char **args)
 | Function:  ...                                                       |
 |                                                                      |
 +---------------------------------------------------------------------*/
-int read_file(int fd, char *filename)
+static int read_file(int fd, char *filename)
 {
 	int bytes_read;
 	int loop_count;
@@ -492,7 +492,7 @@ int lock_error(int fd, char *file)
 |            [-d]           enable debugging messages                  |
 |                                                                      |
 +---------------------------------------------------------------------*/
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int opt;
 	int lflg = 0, pflg = 0, tflg = 0;

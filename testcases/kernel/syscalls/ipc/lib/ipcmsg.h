@@ -32,7 +32,7 @@
 #include "test.h"
 
 void cleanup(void);
-void setup(void);
+static void setup(void);
 
 #define MSG_RD  0400            /* read permission for the queue */
 #define MSG_WR  0200            /* write permission for the queue */

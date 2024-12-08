@@ -225,7 +225,7 @@ static struct test_case_t tdat[] = {
 	 .desc = "invalid flags set"}
 };
 
-int TST_TOTAL = sizeof(tdat) / sizeof(tdat[0]);
+static int TST_TOTAL = sizeof(tdat) / sizeof(tdat[0]);
 
 #ifdef UCLINUX
 static char *argv0;

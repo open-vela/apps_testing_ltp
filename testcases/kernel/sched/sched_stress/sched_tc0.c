@@ -86,10 +86,10 @@ static void parse_args(int, char **);
  *
  * priority: process type (fixed priority, variable priority)
  */
-int verbose = 0;
-int debug = 0;
-long execution_time = DEFAULT_EXECUTION_TIME;
-char *priority = DEFAULT_PRIORITY_TYPE;
+static int verbose = 0;
+static int debug = 0;
+static long execution_time = DEFAULT_EXECUTION_TIME;
+static char *priority = DEFAULT_PRIORITY_TYPE;
 
 /*---------------------------------------------------------------------+
 |                                 main                                 |

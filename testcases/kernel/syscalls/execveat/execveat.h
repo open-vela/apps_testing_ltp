@@ -4,7 +4,7 @@
  *          Xiao Yang <yangx.jy@cn.fujitsu.com>
  */
 
-void check_execveat(void)
+static void check_execveat(void)
 {
 	int ret;
 
