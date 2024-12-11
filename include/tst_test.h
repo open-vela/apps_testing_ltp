@@ -311,8 +311,11 @@ char *tst_get_tmpdir(void);
 
 static struct tst_test test;
 
+static char **av;
+
 int main(int argc, char *argv[])
 {
+	av = argv;
 	tst_run_tcases(argc, argv, &test);
 }
 
