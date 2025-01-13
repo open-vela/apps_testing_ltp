@@ -227,7 +227,7 @@ void make_file(int size)
 
 /* print the statistics on how many files were created of what size */
 
-void print_stats()
+static void print_stats()
 {
 	if (!stats)
 		return;

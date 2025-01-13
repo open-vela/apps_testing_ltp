@@ -17,9 +17,9 @@
 
 #define MAX_CPU_NUM 128
 
-char buffer[BUFF_SIZE];
+static char buffer[BUFF_SIZE];
 
-int is_ht_cpu(void)
+static int is_ht_cpu(void)
 {
 	/*Number of logic processor in a physical processor */
 	int smp_num_siblings = -1;
@@ -59,9 +59,9 @@ int check_ht_capability(void)
 #define CPU_NAME "processor"
 #define STAT_NAME "stat"
 
-char buf[256];
+static char buf[256];
 
-int get_cpu_count(void)
+static int get_cpu_count(void)
 {
 	FILE *pfile;
 	int count;
