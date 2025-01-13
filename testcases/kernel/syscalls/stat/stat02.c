@@ -22,7 +22,7 @@
 #define NUM_WRITES	(10)
 #define BUFSIZE		(4096)
 
-char *buffer;
+static char *buffer;
 
 static struct test_case {
 	const char *filename;

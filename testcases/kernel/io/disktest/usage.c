@@ -28,7 +28,7 @@
 
 #include <stdio.h>
 
-void usage(void)
+static void usage(void)
 {
 	printf("\n");
 	printf("\tdisktest [OPTIONS...] filespec\n");

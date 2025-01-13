@@ -1804,7 +1804,7 @@ static void install_handler(int sig_num, void (*sig_handler) (int sig))
 	}
 }
 
-void print_stats()
+static void print_stats()
 {
 	if (0 != dd_count)
 		fprintf(stderr, "  remaining block count=%d\n", dd_count);

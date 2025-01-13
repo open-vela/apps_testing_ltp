@@ -39,7 +39,7 @@ int is_ht_cpu(void)
 
 /* return 0 means Pass,
  return 1 means ht is not enabled,*/
-int check_ht_capability(void)
+static int check_ht_capability(void)
 {
 	int result;
 	if (is_ht_cpu())
@@ -55,9 +55,9 @@ int check_ht_capability(void)
 #define CPU_NAME "processor"
 #define STAT_NAME "stat"
 
-char buf[256];
+static char buf[256];
 
-int get_cpu_count(void)
+static int get_cpu_count(void)
 {
 	FILE *pfile;
 	int count;
@@ -78,7 +78,7 @@ int get_cpu_count(void)
 	return count;
 }
 
-int get_current_cpu(pid_t pid)
+static int get_current_cpu(pid_t pid)
 {
 	int cpu = -1;
 	int da;

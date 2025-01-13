@@ -25,7 +25,7 @@
 /* Read line from a descriptor, byte at a time, return number of
    characters up to the null */
 
-int readline(int fd, char *ptr, int maxlen)
+static int readline(int fd, char *ptr, int maxlen)
 {
 	int n, rc;
 	char c;
