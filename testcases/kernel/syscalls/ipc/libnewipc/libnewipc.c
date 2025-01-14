@@ -24,7 +24,7 @@
 
 #define BUFSIZE 1024
 
-static key_t getipckey(const char *file, const int lineno)
+key_t getipckey(const char *file, const int lineno)
 {
 	char buf[BUFSIZE];
 	key_t key;
