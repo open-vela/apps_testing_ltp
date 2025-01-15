@@ -19,6 +19,9 @@
 #ifndef _SYS_FSUID_H
 #define _SYS_FSUID_H
 
-/* This is just a placeholder to simplify cross-compiling the LTP Linux Kernel cases */
+#include <sys/types.h>
+
+int setfsgid(uid_t fsgid);
+int setfsuid(uid_t fsuid);
 
 #endif /* _SYS_FSUID_H */

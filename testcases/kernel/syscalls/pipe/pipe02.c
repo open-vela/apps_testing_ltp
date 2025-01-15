@@ -17,6 +17,16 @@
 
 #define SIZE	5
 
+#ifdef UCLINUX
+/* Due to the mutual exclusion check within the two header files,
+ * "tst_test.h" and "test.h", we are unable to include both "test.h"
+ * and "tst_test.h" in current file simultaneously. Therefore, we
+ * declare these two functions in advance here to avoid build warning.
+ */
+void maybe_run_child(void (*child)(), const char *fmt, ...);
+int self_exec(const char *argv0, const char *fmt, ...);
+#endif
+
 static int fd[2];
 static char rdbuf[SIZE];
 static char wrbuf[SIZE];

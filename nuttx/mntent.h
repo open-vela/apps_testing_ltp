@@ -32,4 +32,9 @@ struct mntent
   int mnt_passno;
 };
 
+FILE *setmntent(const char *filename, const char *type);
+struct mntent *getmntent(FILE *stream);
+int endmntent(FILE *streamp);
+char *hasmntopt(const struct mntent *mnt, const char *opt);
+
 #endif /* _MNTENT_H */

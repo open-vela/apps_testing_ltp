@@ -19,6 +19,19 @@
 #ifndef _SYS_XATTR_H
 #define _SYS_XATTR_H
 
-/* This is just a placeholder to simplify cross-compiling the LTP Linux Kernel cases */
+#include <sys/types.h>
+
+ssize_t getxattr(const char *path, const char *name,
+                 void *value, size_t size);
+int setxattr(const char *path, const char *name,
+             const void *value, size_t size, int flags);
+int lsetxattr(const char *path, const char *name,
+              const void *value, size_t size, int flags);
+int fsetxattr(int fd, const char *name,
+              const void *value, size_t size, int flags);
+
+int removexattr(const char *path, const char *name);
+int lremovexattr(const char *path, const char *name);
+int fremovexattr(int fd, const char *name);
 
 #endif /* _SYS_XATTR_H */

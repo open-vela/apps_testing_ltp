@@ -14,20 +14,13 @@
  * limitations under the License.
  */
 
-/* sys/ptrace.h */
+/* sys/mman.h */
 
-#ifndef _SYS_PTRACE_H
-#define _SYS_PTRACE_H
+#ifndef _SYS_MMAN_H
+#define _SYS_MMAN_H
 
-#include <stdint.h>
-#include <sys/types.h>
+#include_next <sys/mman.h>
 
-enum __ptrace_request
-{
-  PTRACE_TRACEME = 0,
-};
+int mincore(void *addr, size_t len, unsigned char *vec);
 
-long ptrace(enum __ptrace_request request, pid_t pid,
-            void *addr, void *data);
-
-#endif /* _SYS_PTRACE_H */
+#endif /* _SYS_MMAN_H */

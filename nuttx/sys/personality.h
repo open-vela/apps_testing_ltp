@@ -19,6 +19,8 @@
 #ifndef _SYS_PERSONALITY_H
 #define _SYS_PERSONALITY_H
 
-/* This is just a placeholder to simplify cross-compiling the LTP Linux Kernel cases */
+#include <sys/types.h>
+
+int personality(unsigned long persona_val);
 
 #endif /* _SYS_PERSONALITY_H */

@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-/* sys/ptrace.h */
+/* sys/sem.h */
 
-#ifndef _SYS_PTRACE_H
-#define _SYS_PTRACE_H
+#ifndef _SYS_SEM_H
+#define _SYS_SEM_H
 
-#include <stdint.h>
-#include <sys/types.h>
+#include_next <sys/sem.h>
 
-enum __ptrace_request
-{
-  PTRACE_TRACEME = 0,
-};
+/* the following function declaration to handle -Wimplicit-function-declaration build
+ * warnings
+ */
 
-long ptrace(enum __ptrace_request request, pid_t pid,
-            void *addr, void *data);
+int semctl(int semid, int semnum, int cmd, ...);
 
-#endif /* _SYS_PTRACE_H */
+#endif /* _SYS_SEM_H */

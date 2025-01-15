@@ -105,15 +105,6 @@ int brk(void *addr)
   return -1;
 }
 
-#ifndef CONFIG_BUILD_KERNEL
-
-void *sbrk(intptr_t increment)
-{
-  return NULL;
-}
-
-#endif
-
 int getresuid(uid_t *ruid, uid_t *euid, uid_t *suid)
 {
   return -1;
