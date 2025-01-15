@@ -29,6 +29,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+#undef UNUSED
 #define UNUSED __attribute__ ((unused))
 
 static int test_switch = 0;
