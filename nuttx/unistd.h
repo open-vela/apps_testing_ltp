@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-/* sys/ptrace.h */
+/* unistd.h */
 
-#ifndef _SYS_PTRACE_H
-#define _SYS_PTRACE_H
+#ifndef _UNISTD_H
+#define _UNISTD_H
 
-#include <stdint.h>
-#include <sys/types.h>
+#include_next <unistd.h>
 
-enum __ptrace_request
-{
-  PTRACE_TRACEME = 0,
-};
+/* the following function declaration to handle -Wimplicit-function-declaration build
+ * warnings
+ */
 
-long ptrace(enum __ptrace_request request, pid_t pid,
-            void *addr, void *data);
+int setpgid(pid_t pid, pid_t pgid);
+pid_t setsid(void);
+int getresuid(uid_t *ruid, uid_t *euid, uid_t *suid);
+int getresgid(gid_t *rgid, gid_t *egid, gid_t *sgid);
 
-#endif /* _SYS_PTRACE_H */
+#endif /* _UNISTD_H */

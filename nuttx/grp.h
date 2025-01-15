@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 
-/* sys/ptrace.h */
+/* grp.h */
 
-#ifndef _SYS_PTRACE_H
-#define _SYS_PTRACE_H
+#ifndef _GRP_H
+#define _GRP_H
 
-#include <stdint.h>
-#include <sys/types.h>
+#include_next <grp.h>
 
-enum __ptrace_request
-{
-  PTRACE_TRACEME = 0,
-};
+/* the following function declaration to handle -Wimplicit-function-declaration build
+ * warnings
+ */
 
-long ptrace(enum __ptrace_request request, pid_t pid,
-            void *addr, void *data);
+int getgroups(int size, gid_t list[]);
+int setgroups(size_t size, const gid_t *list);
 
-#endif /* _SYS_PTRACE_H */
+#endif /* _UNISTD_H */

@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 
-/* sys/ptrace.h */
+/* sched.h */
 
-#ifndef _SYS_PTRACE_H
-#define _SYS_PTRACE_H
+#ifndef _SCHED_H
+#define _SCHED_H
 
-#include <stdint.h>
-#include <sys/types.h>
+#include_next <sched.h>
 
-enum __ptrace_request
-{
-  PTRACE_TRACEME = 0,
-};
+/* add unshare and chroot function declaration to handle -Wimplicit-function-declaration build
+ * warnings
+ */
 
-long ptrace(enum __ptrace_request request, pid_t pid,
-            void *addr, void *data);
+int unshare(int flags);
+int chroot(const char *path);
 
-#endif /* _SYS_PTRACE_H */
+#endif /* _SCHED_H */
