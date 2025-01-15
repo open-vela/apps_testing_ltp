@@ -1,6 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#undef UNUSED
 #define UNUSED __attribute__ ((unused))
 
 #define OPT_MISSING(prog, opt) do {				\

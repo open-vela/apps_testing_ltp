@@ -60,6 +60,7 @@ static int first;
 static FILE **fildeses;		/* file streams */
 static int mypid, nfiles;
 
+#undef OPEN_MAX
 #define OPEN_MAX (sysconf(_SC_OPEN_MAX))
 
 int main(int ac, char **av)

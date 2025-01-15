@@ -30,6 +30,7 @@
 #define __USE_GNU
 #include <sched.h>
 
+#undef UNUSED
 #define UNUSED __attribute__ ((unused))
 
 unsigned long count;
