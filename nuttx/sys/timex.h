@@ -21,4 +21,10 @@
 
 /* This is just a placeholder to simplify cross-compiling the LTP Linux Kernel cases */
 
+#include <sys/time.h>
+
+/* here we use struct timeval to implement the same func of struct timex. */
+
+typedef struct timex timeval;
+
 #endif /* _SYS_TIMEX_H */
