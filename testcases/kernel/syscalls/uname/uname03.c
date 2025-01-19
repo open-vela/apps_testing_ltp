@@ -63,6 +63,7 @@ static void setup(void);
 static char *TCID = "uname03";
 static int TST_TOTAL = 1;
 
+#undef LINUX
 #define LINUX	"Linux"
 
 int main(int ac, char **av)
