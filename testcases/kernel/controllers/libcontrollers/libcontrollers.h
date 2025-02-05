@@ -62,7 +62,7 @@ static inline void error_function(char *msg1, char *msg2);
 
 int read_shares_file(char *filepath);
 
-int read_file(char *filepath, int action, unsigned int *value);
+static int read_file(char *filepath, int action, unsigned int *value);
 
 int scan_shares_files(unsigned int *shares_pointer);
 

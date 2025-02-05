@@ -73,7 +73,7 @@ void buf_fill(uint8_t * buf)
 	}
 }
 
-int write_file(off_t num_blocks, const char *filename)
+static int write_file(off_t num_blocks, const char *filename)
 {
 	int fd;
 	int ret = 0;
@@ -169,7 +169,7 @@ static void usage(void)
 	       "   filename    - name of output file\n");
 }
 
-void parse_args(int argc, char **argv)
+static void parse_args(int argc, char **argv)
 {
 	int c;
 	TCID = argv[0];

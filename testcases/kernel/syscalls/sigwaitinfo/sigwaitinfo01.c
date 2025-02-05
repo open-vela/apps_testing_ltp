@@ -415,7 +415,7 @@ void test_bad_address3(swi_func sigwaitinfo, int signo)
 	REPORT_SUCCESS(-1, EFAULT);
 }
 
-struct test_desc {
+static struct test_desc {
 	test_func tf;
 	swi_func swi;
 	int signo;

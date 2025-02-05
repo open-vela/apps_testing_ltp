@@ -17,17 +17,17 @@
 #endif
 
 #ifndef HAVE_PKEY_MPROTECT
-inline int ltp_pkey_mprotect(void *addr, size_t len, int prot, int pkey)
+static inline int ltp_pkey_mprotect(void *addr, size_t len, int prot, int pkey)
 {
 	return tst_syscall(__NR_pkey_mprotect, addr, len, prot, pkey);
 }
 
-inline int ltp_pkey_alloc(unsigned int flags, unsigned int access_rights)
+static inline int ltp_pkey_alloc(unsigned int flags, unsigned int access_rights)
 {
 	return tst_syscall(__NR_pkey_alloc, flags, access_rights);
 }
 
-inline int ltp_pkey_free(int pkey)
+static inline int ltp_pkey_free(int pkey)
 {
 	return tst_syscall(__NR_pkey_free, pkey);
 }

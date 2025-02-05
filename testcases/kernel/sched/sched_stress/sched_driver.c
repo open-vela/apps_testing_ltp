@@ -131,7 +131,7 @@ float e4user,			/* previous elapsed seconds for tc 4-user      */
 double stress_percent = DEFAULT_STRESS_PERCENTAGE;
 double execution_time = DEFAULT_TIME;
 int process_slots = DEFAULT_PROCESS_SLOTS;
-int debug = 0;
+static int debug = 0;
 
 /*
  * Function prototypes

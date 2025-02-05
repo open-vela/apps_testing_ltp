@@ -57,7 +57,7 @@ static void dirty_freeblocks(int size)
 /*
  * Scale value by kilo, mega, or giga.
  */
-long long scale_by_kmg(long long value, char scale)
+static long long scale_by_kmg(long long value, char scale)
 {
 	switch (scale) {
 	case 'g':
