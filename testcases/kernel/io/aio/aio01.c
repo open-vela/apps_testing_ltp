@@ -61,8 +61,8 @@
 #include "test.h"
 #include "config.h"
 
-char *TCID = "aio01";
-int TST_TOTAL = 6;
+static char *TCID = "aio01";
+static int TST_TOTAL = 6;
 
 #ifdef HAVE_LIBAIO
 #include <libaio.h>
@@ -73,14 +73,14 @@ static void cleanup(void);
 
 #define mapsize (1 << 14)
 
-int fd;
+static int fd;
 char *maddr;
 
-size_t bufsize;			/* Size of I/O, 8k default */
+static size_t bufsize;			/* Size of I/O, 8k default */
 io_context_t io_ctx;		/* I/O Context */
 struct iocb **iocbs;		/* I/O Control Blocks */
 char *srcbuf, *dstbuf;
-char fname[128];
+static char fname[128];
 char tbuf[80];
 int pos, nr;
 struct stat s;

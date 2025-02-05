@@ -38,7 +38,7 @@
 
 /* set write buffer size to whatever floats your boat.  I usually use 1M */
 #define BSIZE 1048576L
-char buf[BSIZE];
+static char buf[BSIZE];
 
 int main(int argc, char *argv[])
 {

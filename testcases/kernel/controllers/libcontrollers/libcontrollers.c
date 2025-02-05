@@ -128,7 +128,7 @@ int scan_shares_files(unsigned int *shares_pointer)
  * Each file under a group contains some diff parameter/s
  */
 
-int read_file(char *filepath, int action, unsigned int *value)
+static int read_file(char *filepath, int action, unsigned int *value)
 {
 	int num_line = 0;
 	FILE *fp;

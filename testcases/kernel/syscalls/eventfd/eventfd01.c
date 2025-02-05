@@ -62,7 +62,7 @@
 #include "lapi/syscalls.h"
 
 TCID_DEFINE(eventfd01);
-int TST_TOTAL = 15;
+static int TST_TOTAL = 15;
 
 #ifdef HAVE_LIBAIO
 #include <libaio.h>

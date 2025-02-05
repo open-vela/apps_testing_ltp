@@ -27,9 +27,9 @@
 #include "config.h"
 #include "test.h"
 
-char *TCID = "io_cancel01";
+static char *TCID = "io_cancel01";
 
-int TST_TOTAL = 1;
+static int TST_TOTAL = 1;
 
 #ifdef HAVE_LIBAIO
 #include <libaio.h>

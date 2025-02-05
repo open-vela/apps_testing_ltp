@@ -75,7 +75,7 @@ static void sched_setattr_verify(const struct test_case *test);
 
 static int TST_TOTAL = ARRAY_SIZE(test_cases);
 
-void *do_test(void *data LTP_ATTRIBUTE_UNUSED)
+static void *do_test(void *data LTP_ATTRIBUTE_UNUSED)
 {
 	int i;
 
