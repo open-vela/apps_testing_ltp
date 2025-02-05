@@ -34,12 +34,16 @@
 #include <mntent.h>
 #include <sys/select.h>
 #include <sys/mount.h>
+#include <sys/ioctl.h>
 
 #include "config.h"
 #include "tst_res_flags.h"
 
 #ifdef HAVE_LIBAIO
 #include <libaio.h>
+
+/* howmany(a,b) : how many elements of size b needed to hold all of a */
+#define howmany(x,y) (((x)+((y)-1))/(y))
 
 #define AIO_BLKSIZE	(64*1024)
 #define AIO_MAXIO	32
