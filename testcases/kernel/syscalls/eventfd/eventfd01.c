@@ -58,6 +58,7 @@
 #include <unistd.h>
 
 #include "test.h"
+#undef CLEANUP
 #define CLEANUP cleanup
 #include "lapi/syscalls.h"
 
