@@ -60,7 +60,8 @@
 #include <linux/can/raw.h>
 #else
 #include <nuttx/can.h>
-#include <netpacket/can.h>
+#include <nuttx/net/net.h>
+#include <nuttx/net/can.h>
 #endif
 
 #define ID 0x123
