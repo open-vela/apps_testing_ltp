@@ -137,7 +137,7 @@ int main(void)
 		printf(TNAME " Error at lio_listio() %d: %s\n", errno,
 		       strerror(errno));
 
-		for (i = 1; i < NUM_AIOCBS - 1; i++)
+		for (i = 0; i < NUM_AIOCBS; i++)
 			free(aiocbs[i]);
 
 		free(bufs);
@@ -154,7 +154,7 @@ int main(void)
 		printf(TNAME
 		       " Error did not receive the right number of notifications\n");
 
-		for (i = 1; i < NUM_AIOCBS - 1; i++)
+		for (i = 0; i < NUM_AIOCBS; i++)
 			free(aiocbs[i]);
 
 		free(bufs);
@@ -164,8 +164,10 @@ int main(void)
 
 	/* Check return code and free things */
 	for (i = 0; i < NUM_AIOCBS; i++) {
-		if ((i == 1) || (i == 7))
+		if ((i == 1) || (i == 7)) {
+			free(aiocbs[i]);
 			continue;
+		}
 
 		err = aio_error(aiocbs[i]);
 		ret = aio_return(aiocbs[i]);
