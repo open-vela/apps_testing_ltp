@@ -40,16 +40,18 @@ int main(void)
 	shm_name[name_max + 2] = 0;
 
 	fd = shm_open(shm_name, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
-
 	if (fd == -1 && errno == ENAMETOOLONG) {
+		free(shm_name);
 		printf("Test PASSED\n");
 		return PTS_PASS;
 	} else if (fd != -1) {
 		printf("FAILED: shm_open() succeeded\n");
 		shm_unlink(shm_name);
+		free(shm_name);
 		return PTS_FAIL;
 	}
 
+	free(shm_name);
 	if (sysconf(_SC_VERSION) >= 200800L) {
 		printf("UNTESTED: shm_open() did not fail with ENAMETOLONG\n");
 		return PTS_UNTESTED;
