@@ -107,15 +107,17 @@ int main(void)
 
 		for (i = 0; i < NUM_AIOCBS; i++)
 			free(aiocbs[i]);
-
+		free(bufs);
 		close(fd);
 		exit(PTS_FAIL);
 	}
 
 	/* Check return code and free things */
 	for (i = 0; i < NUM_AIOCBS; i++) {
-		if (i == 2)
+		if (i == 2) {
+			free(aiocbs[i]);
 			continue;
+		}
 
 		err = aio_error(aiocbs[i]);
 		ret = aio_return(aiocbs[i]);

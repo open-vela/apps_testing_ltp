@@ -36,10 +36,12 @@ int main(void)
 		} else {
 			perror("An error occurs when calling mlock()");
 		}
+		free(ptr);
 		return PTS_UNRESOLVED;
 	}
 
 	result = munlock(ptr, BUFSIZE);
+	free(ptr);
 	if (result == 0 && errno == 0) {
 		printf("Test PASSED\n");
 		return PTS_PASS;

@@ -40,7 +40,7 @@ int main(void)
 	notpage_ptr = ((long)ptr % page_size) ? ptr : ptr + 1;
 
 	result = munlock(notpage_ptr, page_size - 1);
-
+	free(ptr);
 	if (result == 0) {
 		printf
 		    ("munlock() does not require that addr be a multiple of {PAGESIZE}.\nTest PASSED\n");

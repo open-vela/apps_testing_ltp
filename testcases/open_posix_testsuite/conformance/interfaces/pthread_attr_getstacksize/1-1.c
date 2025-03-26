@@ -57,6 +57,7 @@ int main(void)
 		       "allocating the stack memory");
 		exit(PTS_UNRESOLVED);
 	}
+	free(saddr);
 	/* printf("stack_size = %lu\n", stack_size); */
 
 	rc = pthread_attr_setstacksize(&attr, stack_size);
