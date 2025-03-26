@@ -49,6 +49,7 @@ int main(void)
 		perror(ERROR_PREFIX "sem_open");
 		return PTS_UNRESOLVED;
 	}
+	sem_close(mysemp);
 
 	if (sem_getvalue(mysemp, &val) == -1) {
 		perror(ERROR_PREFIX "sem_getvalue");
