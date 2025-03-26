@@ -55,7 +55,7 @@ int main(void)
 		       "allocating the stack memory");
 		exit(PTS_UNRESOLVED);
 	}
-
+	free(saddr);
 	rc = pthread_attr_setstacksize(&attr, stack_size);
 	if (rc != EINVAL) {
 		perror(ERROR_PREFIX "Got the wrong return value");
