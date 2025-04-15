@@ -336,6 +336,7 @@ void tst_rmdir(void)
 		tst_resm(TWARN, "%s: rmobj(%s) failed: %s",
 			 __func__, TESTDIR, errmsg);
 	}
+	free(TESTDIR);
 }
 
 void tst_purge_dir(const char *path)
