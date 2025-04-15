@@ -104,6 +104,7 @@ int main(int ac, char *av[])
 			tst_brkm(TFAIL, tst_rmdir, "fread failed: %s",
 				 strerror(errno));
 		}
+		free(inbuf);
 		if ((size_t) ret != strlen(junk)) {
 			tst_resm(TFAIL,
 				 "strlen(junk) = %zi != return value from fread = %zi",
