@@ -43,9 +43,9 @@
 #define __align_mask(x,mask)	(((x)+(mask))&~(mask))
 #define kb(x)			((x) >> 10)
 
-const char usage[] = "Usage: iobw [-direct] threads chunk_size data_size\n";
-const char child_fmt[] = "(%s) task %3d: time %4lu.%03lu bw %7lu KiB/s (%s)\n";
-const char parent_fmt[] =
+static const char usage[] = "Usage: iobw [-direct] threads chunk_size data_size\n";
+static const char child_fmt[] = "(%s) task %3d: time %4lu.%03lu bw %7lu KiB/s (%s)\n";
+static const char parent_fmt[] =
     "(%s) parent %d: time %4lu.%03lu bw %7lu KiB/s (%s)\n";
 
 static int directio = 0;
