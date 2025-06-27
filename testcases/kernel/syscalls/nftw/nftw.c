@@ -42,7 +42,7 @@ static char progname[] = "nftw.c";
 static int local_flag = PASSED;
 static int block_number;
 
-static FILE *temp;
+FILE *temp;
 static char *TCID = "nftw01";
 static int TST_TOTAL = 10;
 
@@ -50,20 +50,20 @@ static struct passwd *ltpuser;		/* password struct for ltpuser */
 /**************/
 
 /* Used for error return for some library routines */
-static int s2;
+int s2;
 
 /* error messages formatted here. */
-static char ebuf[ERR_BUF_SIZ];
+char ebuf[ERR_BUF_SIZ];
 
 /*
  * Local data declarations.
  */
-static char *dirlist[NDIRLISTENTS];
+char *dirlist[NDIRLISTENTS];
 
-static int visit;
-static int next_fd[4];
+int visit;
+int next_fd[4];
 
-static pathdata pathdat[] = {
+pathdata pathdat[] = {
 	{
 	 "./tmp/data",
 	 S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH,
@@ -212,7 +212,7 @@ static pathdata pathdat[] = {
 										"./loop"}
 };
 
-static char *goodlist[] = {
+char *goodlist[] = {
 	"/dirh",
 	"/dirh/dir_left.1",
 	"/dirh/dir_right.1",
@@ -222,7 +222,7 @@ static char *goodlist[] = {
 	"/dirh/dir_right.1/dir_right.2/right.3"
 };
 
-static struct list badlist[] = {
+struct list badlist[] = {
 	{"/dirg", FTW_D},
 	{"/dirg/dir_left.1", FTW_D},
 	/* not FTW_NS in following since stat can't fail if file exists */
@@ -234,7 +234,7 @@ static struct list badlist[] = {
 	{"/dirg/dir_left.1/dir_left.2/left.3", FTW_F},
 };
 
-static struct list mnem[] = {
+struct list mnem[] = {
 	{"FTW_F", FTW_F},
 	{"FTW_D", FTW_D},
 	{"FTW_DNR", FTW_DNR},
@@ -247,7 +247,7 @@ static struct list mnem[] = {
 #endif
 };
 
-static int npathdats, ngoods, nbads, nmnem;
+int npathdats, ngoods, nbads, nmnem;
 
 /*--------------------------------------------------------------*/
 int main(void)
