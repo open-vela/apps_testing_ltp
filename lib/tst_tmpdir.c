@@ -337,6 +337,7 @@ void tst_rmdir(void)
 			 __func__, TESTDIR, errmsg);
 	}
 	free(TESTDIR);
+	TESTDIR = NULL;
 }
 
 void tst_purge_dir(const char *path)
